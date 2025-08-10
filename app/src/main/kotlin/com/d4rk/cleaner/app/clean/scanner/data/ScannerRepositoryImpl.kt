@@ -29,6 +29,7 @@ import java.io.File
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 import com.d4rk.cleaner.core.utils.helpers.shouldSkip
+import com.d4rk.cleaner.core.utils.helpers.isProtectedAndroidDir
 
 class ScannerRepositoryImpl(
     private val application: Application, private val dataStore: DataStore
@@ -121,26 +122,21 @@ class ScannerRepositoryImpl(
 
         val trashDir =
             File(application.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "Trash")
-        val lockedDirs = listOf(
-            File(root, "Android/data"),
-            File(root, "Android/obb")
-        ).map { it.absolutePath }
 
         val showHidden = dataStore.showHiddenFiles.first()
 
         while (stack.isNotEmpty()) {
             val currentFile: File = stack.removeFirst()
-            if (!showHidden && currentFile.isHidden) continue
+            if (currentFile.shouldSkip(showHidden)) continue
             if (currentFile.isDirectory) {
                 if (!currentFile.absolutePath.startsWith(trashDir.absolutePath)) {
                     currentFile.listFiles()?.forEach { child ->
-                        if (!showHidden && child.isHidden) return@forEach
-                        if (child.isDirectory) {
-                            if (lockedDirs.any { locked -> child.absolutePath.startsWith(locked) }) {
+                        if (child.shouldSkip(showHidden)) {
+                            if (child.isDirectory && child.isProtectedAndroidDir()) {
                                 onLockedDir?.invoke(child)
-                            } else {
-                                stack.addLast(child)
                             }
+                        } else if (child.isDirectory) {
+                            stack.addLast(child)
                         } else {
                             emit(child)
                         }
