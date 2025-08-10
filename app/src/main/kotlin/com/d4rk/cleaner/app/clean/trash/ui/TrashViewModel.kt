@@ -110,7 +110,15 @@ class TrashViewModel(
                     }
                 }
 
+                _uiState.updateData(newState = _uiState.value.screenState) {
+                    it.copy(cleaningState = CleaningState.Result)
+                }
+
                 onEvent(TrashEvent.LoadTrashItems)
+
+                _uiState.updateData(newState = _uiState.value.screenState) {
+                    it.copy(cleaningState = CleaningState.Idle)
+                }
 
                 val message = if (failedCount > 0) {
                     UiTextHelper.StringResource(
@@ -119,10 +127,6 @@ class TrashViewModel(
                     )
                 } else {
                     UiTextHelper.StringResource(R.string.all_clean)
-                }
-
-                _uiState.updateData(newState = _uiState.value.screenState) {
-                    it.copy(cleaningState = CleaningState.Idle)
                 }
 
                 sendAction(
