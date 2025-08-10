@@ -46,7 +46,8 @@ fun AnalyzeScreen(
 ) {
     val coroutineScope: CoroutineScope = rememberCoroutineScope()
     val hasSelectedFiles: Boolean = data.analyzeState.selectedFilesCount > 0
-    val groupedFiles: Map<String, List<FileEntry>> = data.analyzeState.groupedFiles
+    val groupedFiles: Map<String, List<FileEntry>> =
+        data.analyzeState.groupedFiles.filterValues { it.isNotEmpty() }
     val showActions: Boolean =
         data.analyzeState.state == CleaningState.ReadyToClean && hasSelectedFiles
 
