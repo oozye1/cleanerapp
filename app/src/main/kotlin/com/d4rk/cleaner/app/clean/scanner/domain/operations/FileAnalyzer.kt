@@ -86,13 +86,13 @@ class FileAnalyzer(
         }
 
         val emptyFoldersTitle = baseFinalTitles[8]
-        if (preferences[ExtensionsConstants.EMPTY_FOLDERS] == true) {
-            filesMap[emptyFoldersTitle] = emptyFolders.map { FileEntry(it.absolutePath, 0, it.lastModified()) }.toMutableList()
+        if (preferences[ExtensionsConstants.EMPTY_FOLDERS] == true && emptyFolders.isNotEmpty()) {
+            filesMap[emptyFoldersTitle] = emptyFolders
+                .map { FileEntry(it.absolutePath, 0, it.lastModified()) }
+                .toMutableList()
         }
 
-        val filteredMap = filesMap.filter { (key, value) ->
-            value.isNotEmpty() || (key == emptyFoldersTitle && preferences[ExtensionsConstants.EMPTY_FOLDERS] == true)
-        }
+        val filteredMap = filesMap.filterValues { it.isNotEmpty() }
 
         return Triple(filteredMap, duplicateOriginals, duplicateGroups)
     }
