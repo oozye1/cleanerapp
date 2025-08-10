@@ -162,7 +162,10 @@ fun DetailsScreen(
         ScreenStateHandler(
             screenState = state,
             onLoading = {
-                if (state.data?.cleaningState == CleaningState.Cleaning) {
+                if (
+                    state.data?.cleaningState == CleaningState.Cleaning ||
+                    state.data?.cleaningState == CleaningState.Result
+                ) {
                     CleaningAnimationScreen()
                 } else {
                     LoadingScreen()

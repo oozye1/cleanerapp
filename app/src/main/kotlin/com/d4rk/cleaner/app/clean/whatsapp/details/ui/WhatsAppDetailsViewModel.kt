@@ -11,6 +11,7 @@ import com.d4rk.cleaner.app.clean.whatsapp.details.domain.actions.WhatsAppDetail
 import com.d4rk.cleaner.app.clean.whatsapp.details.domain.model.UiWhatsAppDetailsModel
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.usecases.GetWhatsAppMediaFilesUseCase
 import com.d4rk.cleaner.core.data.datastore.DataStore
+import com.d4rk.cleaner.core.utils.helpers.CleaningEventBus
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 import java.io.File
@@ -28,11 +29,20 @@ class DetailsViewModel(
     initialState = UiStateScreen(data = UiWhatsAppDetailsModel())
 ) {
 
+    private var currentType: String = ""
+
     init {
         launch {
             dataStore.whatsappGridView.collectLatest { isGrid ->
                 _uiState.updateData(newState = _uiState.value.screenState) { current ->
                     current.copy(isGridView = isGrid)
+                }
+            }
+        }
+        launch(dispatchers.io) {
+            CleaningEventBus.events.collectLatest { success ->
+                if (success && currentType.isNotEmpty()) {
+                    onEvent(WhatsAppDetailsEvent.LoadFiles(currentType))
                 }
             }
         }
@@ -52,6 +62,7 @@ class DetailsViewModel(
     }
 
     private fun loadFiles(type: String, page: Int) {
+        currentType = type
         launch(dispatchers.io) {
             getFilesUseCase(type, page * PAGE_SIZE, PAGE_SIZE).collectLatest { result ->
                 when (result) {
