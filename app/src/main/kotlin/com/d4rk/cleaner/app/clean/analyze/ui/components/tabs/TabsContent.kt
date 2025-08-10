@@ -32,6 +32,7 @@ import com.d4rk.cleaner.app.clean.scanner.domain.actions.ScannerEvent
 import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.FileEntry
 import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.UiScannerModel
 import com.d4rk.cleaner.app.clean.scanner.ui.ScannerViewModel
+import com.d4rk.cleaner.core.utils.helpers.isProtectedAndroidDir
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 import java.io.File
@@ -44,11 +45,15 @@ fun TabsContent(
     coroutineScope: CoroutineScope,
     data: UiScannerModel
 ) {
-    val tabs: List<String> = groupedFiles.keys.toList()
+    val duplicateOriginals = data.analyzeState.duplicateOriginals
+    val tabs: List<String> = groupedFiles.filter { (_, files) ->
+        val filesWithoutOriginals = files.filterNot { it in duplicateOriginals }
+        filesWithoutOriginals.any { !File(it.path).isProtectedAndroidDir() }
+    }.keys.toList()
     val pagerState: PagerState = rememberPagerState(pageCount = { tabs.size })
     val duplicatesTabTitle =
         data.analyzeState.fileTypesData.fileTypesTitles.getOrElse(10) { "Duplicates" }
-    val hasDuplicatesTab = groupedFiles.containsKey(duplicatesTabTitle)
+    val hasDuplicatesTab = tabs.contains(duplicatesTabTitle)
 
     Row(
         modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
@@ -69,55 +74,60 @@ fun TabsContent(
         ) {
             tabs.forEachIndexed { index, title ->
                 val allFilesInCategory: List<FileEntry> = groupedFiles[title] ?: emptyList()
-                val duplicateOriginals = data.analyzeState.duplicateOriginals
                 val filesWithoutOriginals =
                     allFilesInCategory.filterNot { it in duplicateOriginals }
-                val allCategorySelected = filesWithoutOriginals.all { file ->
+                val visibleFiles =
+                    filesWithoutOriginals.filterNot { File(it.path).isProtectedAndroidDir() }
+                val allCategorySelected = visibleFiles.all { file ->
                     file.path in data.analyzeState.selectedFiles
                 }
-                val noneSelected = filesWithoutOriginals.none { file ->
+                val noneSelected = visibleFiles.none { file ->
                     file.path in data.analyzeState.selectedFiles
                 }
                 val toggleState = when {
-                    filesWithoutOriginals.isEmpty() -> ToggleableState.Off
+                    visibleFiles.isEmpty() -> ToggleableState.Off
                     allCategorySelected -> ToggleableState.On
                     noneSelected -> ToggleableState.Off
                     else -> ToggleableState.Indeterminate
                 }
 
-                Tab(
-                    modifier = Modifier
-                        .bounceClick()
-                        .clip(RoundedCornerShape(50)),
-                    selected = pagerState.currentPage == index,
-                    onClick = {
-                        view.playSoundEffect(SoundEffectConstants.CLICK)
-                        coroutineScope.launch {
-                            pagerState.animateScrollToPage(page = index)
-                        }
-                    },
-                    text = {
-                        val hasFiles = filesWithoutOriginals.isNotEmpty()
-                        Row(
-                            verticalAlignment = Alignment.CenterVertically,
-                            horizontalArrangement = Arrangement.Start
-                        ) {
-                            TriStateCheckbox(
-                                state = toggleState,
-                                onClick = {
-                                    if (hasFiles) {
-                                        view.playSoundEffect(SoundEffectConstants.CLICK)
-                                        viewModel.toggleSelectFilesForCategory(category = title)
-                                        coroutineScope.launch {
-                                            pagerState.animateScrollToPage(page = index)
+                if (visibleFiles.isNotEmpty()) {
+                    Tab(
+                        modifier = Modifier
+                            .bounceClick()
+                            .clip(RoundedCornerShape(50)),
+                        selected = pagerState.currentPage == index,
+                        onClick = {
+                            view.playSoundEffect(SoundEffectConstants.CLICK)
+                            coroutineScope.launch {
+                                pagerState.animateScrollToPage(page = index)
+                            }
+                        },
+                        enabled = visibleFiles.isNotEmpty(),
+                        text = {
+                            val hasFiles = visibleFiles.isNotEmpty()
+                            Row(
+                                verticalAlignment = Alignment.CenterVertically,
+                                horizontalArrangement = Arrangement.Start
+                            ) {
+                                TriStateCheckbox(
+                                    state = toggleState,
+                                    onClick = {
+                                        if (hasFiles) {
+                                            view.playSoundEffect(SoundEffectConstants.CLICK)
+                                            viewModel.toggleSelectFilesForCategory(category = title)
+                                            coroutineScope.launch {
+                                                pagerState.animateScrollToPage(page = index)
+                                            }
                                         }
-                                    }
-                                },
-                                enabled = hasFiles
-                            )
-                            Text(text = title)
+                                    },
+                                    enabled = hasFiles
+                                )
+                                Text(text = title)
+                            }
                         }
-                    })
+                    )
+                }
             }
         }
 
