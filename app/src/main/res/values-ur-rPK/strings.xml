@@ -405,6 +405,9 @@
     <string name="cleanup_failed_details">کچھ فائلیں حذف نہیں ہو سکیں</string>
     <string name="cleanup_cancelled">صفائی منسوخ کی گئی</string>
     <string name="cleanup_partial">%1$d فائلیں حذف ہوئیں، %2$d ناکام ہوئیں</string>
-    <string name="current_streak_label">موجودہ سلسلہ: مسلسل %1$d دن</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">موجودہ سلسلہ: مسلسل %1$d دن</item>
+        <item quantity="other">موجودہ سلسلہ: مسلسل %1$d دن</item>
+    </plurals>
     <string name="longest_streak_label">طویل ترین سلسلہ: %1$d دن کا ریکارڈ!</string>
 </resources>

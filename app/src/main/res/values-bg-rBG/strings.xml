@@ -404,6 +404,9 @@
     <string name="cleanup_failed_details">Някои файлове не можаха да бъдат изтрити</string>
     <string name="cleanup_cancelled">Почистването е отменено</string>
     <string name="cleanup_partial">%1$d файла изтрити, %2$d неуспешни</string>
-    <string name="current_streak_label">Текуща серия: %1$d дни подред</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">Текуща серия: %1$d ден подред</item>
+        <item quantity="other">Текуща серия: %1$d дни подред</item>
+    </plurals>
     <string name="longest_streak_label">Най-дълга серия: рекорд от %1$d дни!</string>
 </resources>

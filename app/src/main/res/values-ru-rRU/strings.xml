@@ -421,6 +421,11 @@
     <string name="cleanup_failed_details">Некоторые файлы не удалось удалить</string>
     <string name="cleanup_cancelled">Очистка отменена</string>
     <string name="cleanup_partial">%1$d файлов удалено, %2$d не удалось</string>
-    <string name="current_streak_label">Текущая серия: %1$d дней подряд</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">Текущая серия: %1$d день подряд</item>
+        <item quantity="few">Текущая серия: %1$d дня подряд</item>
+        <item quantity="many">Текущая серия: %1$d дней подряд</item>
+        <item quantity="other">Текущая серия: %1$d дней подряд</item>
+    </plurals>
     <string name="longest_streak_label">Самая длинная серия: рекорд %1$d дней!</string>
 </resources>

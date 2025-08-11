@@ -397,6 +397,8 @@
     <string name="cleanup_failed_details">Không thể xóa một số tệp</string>
     <string name="cleanup_cancelled">Đã hủy dọn dẹp</string>
     <string name="cleanup_partial">%1$d tệp đã xóa, %2$d thất bại</string>
-    <string name="current_streak_label">Chuỗi hiện tại: %1$d ngày liên tiếp</string>
+    <plurals name="current_streak_label">
+        <item quantity="other">Chuỗi hiện tại: %1$d ngày liên tiếp</item>
+    </plurals>
     <string name="longest_streak_label">Chuỗi dài nhất: kỷ lục %1$d ngày!</string>
 </resources>

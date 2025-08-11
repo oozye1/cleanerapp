@@ -405,6 +405,9 @@
     <string name="cleanup_failed_details">May ilang file na hindi matanggal</string>
     <string name="cleanup_cancelled">Kinansela ang paglilinis</string>
     <string name="cleanup_partial">Na-delete ang %1$d na file, nabigo ang %2$d</string>
-    <string name="current_streak_label">Kasalukuyang streak: %1$d araw nang sunod-sunod</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">Kasalukuyang streak: %1$d araw nang sunod-sunod</item>
+        <item quantity="other">Kasalukuyang streak: %1$d araw nang sunod-sunod</item>
+    </plurals>
     <string name="longest_streak_label">Pinakamahabang streak: rekord na %1$d araw!</string>
 </resources>

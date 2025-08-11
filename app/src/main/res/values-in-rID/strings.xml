@@ -397,6 +397,8 @@
     <string name="cleanup_failed_details">Beberapa file tidak dapat dihapus</string>
     <string name="cleanup_cancelled">Pembersihan dibatalkan</string>
     <string name="cleanup_partial">%1$d file dihapus, %2$d gagal</string>
-    <string name="current_streak_label">Streak saat ini: %1$d hari berturut-turut</string>
+    <plurals name="current_streak_label">
+        <item quantity="other">Streak saat ini: %1$d hari berturut-turut</item>
+    </plurals>
     <string name="longest_streak_label">Streak terpanjang: rekor %1$d hari!</string>
 </resources>

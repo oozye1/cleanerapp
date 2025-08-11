@@ -437,6 +437,13 @@
     <string name="cleanup_failed_details">تعذر حذف بعض الملفات</string>
     <string name="cleanup_cancelled">تم إلغاء التنظيف</string>
     <string name="cleanup_partial">تم حذف %1$d ملفًا، فشل حذف %2$d</string>
-    <string name="current_streak_label">السلسلة الحالية: %1$d يومًا على التوالي</string>
+    <plurals name="current_streak_label">
+        <item quantity="zero">السلسلة الحالية: %1$d يومًا على التوالي</item>
+        <item quantity="one">السلسلة الحالية: %1$d يومًا على التوالي</item>
+        <item quantity="two">السلسلة الحالية: %1$d يومًا على التوالي</item>
+        <item quantity="few">السلسلة الحالية: %1$d يومًا على التوالي</item>
+        <item quantity="many">السلسلة الحالية: %1$d يومًا على التوالي</item>
+        <item quantity="other">السلسلة الحالية: %1$d يومًا على التوالي</item>
+    </plurals>
     <string name="longest_streak_label">أطول سلسلة: رقم قياسي %1$d يومًا!</string>
 </resources>

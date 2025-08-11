@@ -397,6 +397,8 @@
     <string name="cleanup_failed_details">일부 파일을 삭제할 수 없습니다</string>
     <string name="cleanup_cancelled">정리가 취소되었습니다</string>
     <string name="cleanup_partial">%1$d개의 파일 삭제, %2$d개 실패</string>
-    <string name="current_streak_label">현재 스트릭: %1$d일 연속</string>
+    <plurals name="current_streak_label">
+        <item quantity="other">현재 스트릭: %1$d일 연속</item>
+    </plurals>
     <string name="longest_streak_label">가장 긴 스트릭: %1$d일 기록!</string>
 </resources>

@@ -421,6 +421,11 @@
     <string name="cleanup_failed_details">Niektórych plików nie można było usunąć</string>
     <string name="cleanup_cancelled">Czyszczenie anulowane</string>
     <string name="cleanup_partial">%1$d plików usunięto, %2$d nie powiodło się</string>
-    <string name="current_streak_label">Obecna passa: %1$d dni z rzędu</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">Obecna passa: %1$d dzień z rzędu</item>
+        <item quantity="few">Obecna passa: %1$d dni z rzędu</item>
+        <item quantity="many">Obecna passa: %1$d dni z rzędu</item>
+        <item quantity="other">Obecna passa: %1$d dni z rzędu</item>
+    </plurals>
     <string name="longest_streak_label">Najdłuższa passa: rekord %1$d dni!</string>
 </resources>

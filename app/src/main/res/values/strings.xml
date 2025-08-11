@@ -98,7 +98,10 @@
         <item quantity="other">%1$d days in a row — keep it up!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Perfect week! 💎 You\'ve earned it.</string>
-    <string name="current_streak_label">Current streak: %1$d days in a row</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">Current streak: %1$d day in a row</item>
+        <item quantity="other">Current streak: %1$d days in a row</item>
+    </plurals>
     <string name="longest_streak_label">Longest streak: %1$d-day record!</string>
     <string name="streak_notification_title">Keep your Clean Streak going!</string>
     <string name="streak_notification_daily">Time to clean up your device and keep your streak going.</string>
