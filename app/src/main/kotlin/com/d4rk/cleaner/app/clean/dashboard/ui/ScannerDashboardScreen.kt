@@ -3,6 +3,7 @@ package com.d4rk.cleaner.app.clean.dashboard.ui
 import android.content.Context
 import android.content.Intent
 import android.widget.Toast
+import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -13,9 +14,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Whatsapp
 import com.d4rk.android.libs.apptoolkit.core.domain.model.ads.AdsConfig
 import com.d4rk.android.libs.apptoolkit.core.domain.model.ui.UiStateScreen
 import com.d4rk.android.libs.apptoolkit.core.ui.components.ads.AdBanner
@@ -44,6 +50,7 @@ import com.d4rk.cleaner.app.clean.scanner.ui.components.QuickScanSummaryCard
 import com.d4rk.cleaner.app.clean.scanner.ui.components.SystemStorageManagerCard
 import com.d4rk.cleaner.app.clean.scanner.ui.components.WeeklyCleanStreakCard
 import com.d4rk.cleaner.app.clean.scanner.ui.components.WhatsAppCleanerCard
+import com.d4rk.cleaner.app.clean.dashboard.ui.components.DashboardActionCard
 import com.d4rk.cleaner.app.clean.whatsapp.summary.ui.WhatsAppCleanerActivity
 import com.d4rk.cleaner.app.images.picker.ui.ImagePickerActivity
 import com.d4rk.cleaner.core.data.datastore.DataStore
@@ -73,6 +80,8 @@ private sealed interface HomeItem {
     data class Card(val type: ContentCard) : HomeItem
     data class Ad(val slot: AdSlot) : HomeItem
 }
+
+private const val TAG = "ScannerDashboardScreen"
 
 @Composable
 fun ScannerDashboardScreen(
@@ -110,9 +119,12 @@ fun ScannerDashboardScreen(
                 appManagerState.data?.apkFiles?.isNotEmpty() == true
         }
     }
-    val showWhatsAppCard by remember(whatsappLoaded, whatsappInstalled, whatsappSummary) {
-        derivedStateOf {
-            whatsappLoaded && whatsappInstalled && whatsappSummary.hasData
+    val showWhatsAppCard by remember(whatsappLoaded, whatsappInstalled) {
+        derivedStateOf { whatsappLoaded && whatsappInstalled }
+    }
+    LaunchedEffect(whatsappInstalled, whatsappSummary.hasData) {
+        if (whatsappInstalled && !whatsappSummary.hasData) {
+            Log.i(TAG, "WhatsApp installed but no media found")
         }
     }
     val showClipboardCard by remember(clipboardText) {
@@ -289,15 +301,37 @@ fun ScannerDashboardScreen(
                         )
                     }
                     ContentCard.WHATSAPP -> {
-                        WhatsAppCleanerCard(
-                            mediaSummary = whatsappSummary,
-                            onCleanClick = {
-                                IntentsHelper.openActivity(
-                                    context = context,
-                                    activityClass = WhatsAppCleanerActivity::class.java
-                                )
-                            }
-                        )
+                        if (whatsappSummary.hasData) {
+                            WhatsAppCleanerCard(
+                                mediaSummary = whatsappSummary,
+                                onCleanClick = {
+                                    IntentsHelper.openActivity(
+                                        context = context,
+                                        activityClass = WhatsAppCleanerActivity::class.java
+                                    )
+                                }
+                            )
+                        } else {
+                            DashboardActionCard(
+                                icon = Icons.Filled.Whatsapp,
+                                title = stringResource(id = R.string.whatsapp_card_title),
+                                subtitle = stringResource(id = R.string.whatsapp_cleaner_empty_message),
+                                actionLabel = stringResource(id = R.string.open_whatsapp_cleaner),
+                                actionPainter = painterResource(id = R.drawable.ic_folder_search),
+                                onActionClick = {
+                                    IntentsHelper.openActivity(
+                                        context = context,
+                                        activityClass = WhatsAppCleanerActivity::class.java
+                                    )
+                                },
+                                onHeaderClick = {
+                                    IntentsHelper.openActivity(
+                                        context = context,
+                                        activityClass = WhatsAppCleanerActivity::class.java
+                                    )
+                                }
+                            )
+                        }
                     }
                     ContentCard.APK -> {
                         val isCleaningApks =
