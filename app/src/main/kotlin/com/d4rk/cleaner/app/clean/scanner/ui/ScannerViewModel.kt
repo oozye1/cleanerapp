@@ -719,7 +719,7 @@ class ScannerViewModel(
     private fun loadWhatsAppMedia() {
         _whatsAppMediaLoaded.value = false
         launch(context = dispatchers.io) {
-            val (images, videos, docs) = getWhatsAppMediaSummary()
+            val (images, videos, docs) = getWhatsAppMediaSummary(application)
             _whatsAppMediaSummary.value = WhatsAppMediaSummary(
                 images = images,
                 videos = videos,

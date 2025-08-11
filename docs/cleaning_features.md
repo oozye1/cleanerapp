@@ -9,6 +9,7 @@ All cleanup jobs enqueue a `FileCleanupWorker` via the centralized [FileCleanWor
 - ViewModel: [WhatsappCleanerSummaryViewModel](../app/src/main/kotlin/com/d4rk/cleaner/app/clean/whatsapp/summary/ui/WhatsappCleanerSummaryViewModel.kt)
 - Use cases: [GetWhatsAppMediaSummaryUseCase](../app/src/main/kotlin/com/d4rk/cleaner/app/clean/whatsapp/summary/domain/usecases/GetWhatsAppMediaSummaryUseCase.kt), [GetWhatsAppMediaFilesUseCase](../app/src/main/kotlin/com/d4rk/cleaner/app/clean/whatsapp/summary/domain/usecases/GetWhatsAppMediaFilesUseCase.kt)
 - Work ID key: `whatsappCleanWorkId`
+- If no WhatsApp media directories are found, the feature returns empty results.
 
 ## Large Files Cleaner
 - Finds and deletes oversized files across storage.
