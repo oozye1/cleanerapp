@@ -118,7 +118,10 @@
     <string name="clean_apks">انسٹالرز حذف کریں</string>
     <string name="empty_folder_card_title">خالی فولڈرز</string>
     <string name="empty_folder_card_subtitle">غیر استعمال شدہ فولڈرز فوراً حذف کریں۔</string>
-    <string name="empty_folders_found_format">%1$d خالی فولڈرز ملے</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">%1$d خالی فولڈر ملا</item>
+        <item quantity="other">%1$d خالی فولڈرز ملے</item>
+    </plurals>
     <string name="clean_empty_folders">خالی فولڈرز حذف کریں</string>
     <string name="whatsapp_card_title">واٹس ایپ فائلیں</string>
     <string name="whatsapp_card_subtitle">وہ میڈیا صاف کریں جس کی آپ کو ضرورت نہیں۔</string>

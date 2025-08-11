@@ -124,7 +124,12 @@
     <string name="clean_apks">Видалити інсталятори</string>
     <string name="empty_folder_card_title">Порожні папки</string>
     <string name="empty_folder_card_subtitle">Видаліть невикористані папки миттєво.</string>
-    <string name="empty_folders_found_format">Знайдено %1$d порожніх папок</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">Знайдено %1$d порожню папку</item>
+        <item quantity="few">Знайдено %1$d порожні папки</item>
+        <item quantity="many">Знайдено %1$d порожніх папок</item>
+        <item quantity="other">Знайдено %1$d порожніх папок</item>
+    </plurals>
     <string name="clean_empty_folders">Видаляти порожні теки</string>
     <string name="whatsapp_card_title">Файли WhatsApp</string>
     <string name="whatsapp_card_subtitle">Очистіть медіа, які більше не потрібні.</string>

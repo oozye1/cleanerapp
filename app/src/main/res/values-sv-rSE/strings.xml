@@ -118,7 +118,10 @@
     <string name="clean_apks">Ta bort installerare</string>
     <string name="empty_folder_card_title">Tomma mappar</string>
     <string name="empty_folder_card_subtitle">Ta bort oanvända mappar direkt.</string>
-    <string name="empty_folders_found_format">%1$d tomma mappar hittades</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">%1$d tom mapp hittades</item>
+        <item quantity="other">%1$d tomma mappar hittades</item>
+    </plurals>
     <string name="clean_empty_folders">Radera tomma mappar</string>
     <string name="whatsapp_card_title">WhatsApp-filer</string>
     <string name="whatsapp_card_subtitle">Rensa bort media du inte längre behöver.</string>

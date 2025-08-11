@@ -121,7 +121,11 @@
     <string name="clean_apks">Excluir instaladores</string>
     <string name="empty_folder_card_title">Pastas vazias</string>
     <string name="empty_folder_card_subtitle">Remova pastas não usadas instantaneamente.</string>
-    <string name="empty_folders_found_format">%1$d pastas vazias encontradas</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">%1$d pasta vazia encontrada</item>
+        <item quantity="other">%1$d pastas vazias encontradas</item>
+        <item quantity="many">%1$d pastas vazias encontradas</item>
+    </plurals>
     <string name="clean_empty_folders">Excluir pastas vazias</string>
     <string name="whatsapp_card_title">Arquivos do WhatsApp</string>
     <string name="whatsapp_card_subtitle">Limpe as mídias de que você não precisa mais.</string>

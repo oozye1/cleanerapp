@@ -115,7 +115,10 @@
     <string name="clean_apks">Xóa bộ cài</string>
     <string name="empty_folder_card_title">Thư mục trống</string>
     <string name="empty_folder_card_subtitle">Xóa ngay các thư mục không dùng.</string>
-    <string name="empty_folders_found_format">Tìm thấy %1$d thư mục trống</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">Tìm thấy %1$d thư mục trống</item>
+        <item quantity="other">Tìm thấy %1$d thư mục trống</item>
+    </plurals>
     <string name="clean_empty_folders">Xóa thư mục trống</string>
     <string name="whatsapp_card_title">Tệp WhatsApp</string>
     <string name="whatsapp_card_subtitle">Dọn dẹp phương tiện bạn không cần nữa.</string>

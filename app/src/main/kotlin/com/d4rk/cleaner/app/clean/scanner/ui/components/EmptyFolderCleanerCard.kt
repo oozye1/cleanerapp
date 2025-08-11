@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import com.d4rk.android.libs.apptoolkit.core.ui.components.spacers.SmallVerticalSpacer
 import com.d4rk.cleaner.R
@@ -32,7 +33,7 @@ fun EmptyFolderCleanerCard(
     ) {
         SmallVerticalSpacer()
         Text(
-            text = stringResource(id = R.string.empty_folders_found_format, folders.size),
+            text = pluralStringResource(id = R.plurals.empty_folders_found_format, count = folders.size, folders.size),
             style = MaterialTheme.typography.bodyMedium,
             modifier = Modifier.animateContentSize()
         )

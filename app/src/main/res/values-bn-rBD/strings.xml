@@ -118,7 +118,10 @@
     <string name="clean_apks">ইনস্টলার ডিলিট করুন</string>
     <string name="empty_folder_card_title">খালি ফোল্ডার</string>
     <string name="empty_folder_card_subtitle">অব্যবহৃত ফোল্ডার সাথে সাথে মুছে ফেলুন।</string>
-    <string name="empty_folders_found_format">%1$d টি খালি ফোল্ডার পাওয়া গেছে</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">%1$d টি খালি ফোল্ডার পাওয়া গেছে</item>
+        <item quantity="other">%1$d টি খালি ফোল্ডার পাওয়া গেছে</item>
+    </plurals>
     <string name="clean_empty_folders">খালি ফোল্ডার মুছুন</string>
     <string name="whatsapp_card_title">হোয়াটসঅ্যাপ ফাইল</string>
     <string name="whatsapp_card_subtitle">আপনার দরকার নেই এমন মিডিয়া সরান।</string>

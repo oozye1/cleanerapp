@@ -121,7 +121,10 @@
     <string name="clean_apks">Șterge instalatoarele</string>
     <string name="empty_folder_card_title">Foldere goale</string>
     <string name="empty_folder_card_subtitle">Șterge instant folderele nefolosite.</string>
-    <string name="empty_folders_found_format">S-au găsit %1$d foldere goale</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">S-a găsit %1$d folder gol</item>
+        <item quantity="other">S-au găsit %1$d foldere goale</item>
+    </plurals>
     <string name="clean_empty_folders">Șterge folderele goale</string>
     <string name="whatsapp_card_title">Fișiere WhatsApp</string>
     <string name="whatsapp_card_subtitle">Curăță fișierele media de care nu mai ai nevoie.</string>

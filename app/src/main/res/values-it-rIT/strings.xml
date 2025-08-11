@@ -121,7 +121,10 @@
     <string name="clean_apks">Elimina installatori</string>
     <string name="empty_folder_card_title">Cartelle vuote</string>
     <string name="empty_folder_card_subtitle">Rimuovi subito le cartelle inutilizzate.</string>
-    <string name="empty_folders_found_format">Trovate %1$d cartelle vuote</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">Trovata %1$d cartella vuota</item>
+        <item quantity="other">Trovate %1$d cartelle vuote</item>
+    </plurals>
     <string name="clean_empty_folders">Elimina cartelle vuote</string>
     <string name="whatsapp_card_title">File WhatsApp</string>
     <string name="whatsapp_card_subtitle">Elimina i media di cui non hai più bisogno.</string>

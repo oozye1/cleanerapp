@@ -123,7 +123,10 @@
     <string name="clean_apks">Delete Installers</string>
     <string name="empty_folder_card_title">Empty Folders</string>
     <string name="empty_folder_card_subtitle">Remove unused folders instantly.</string>
-    <string name="empty_folders_found_format">%1$d empty folders found</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">%1$d empty folder found</item>
+        <item quantity="other">%1$d empty folders found</item>
+    </plurals>
     <string name="clean_empty_folders">Delete Empty Folders</string>
     <string name="whatsapp_card_title">WhatsApp Files</string>
     <string name="whatsapp_card_subtitle">Clear out media you no longer need.</string>

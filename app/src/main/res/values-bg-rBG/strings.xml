@@ -118,7 +118,10 @@
     <string name="clean_apks">Изтрий инсталаторите</string>
     <string name="empty_folder_card_title">Празни папки</string>
     <string name="empty_folder_card_subtitle">Премахнете неизползваните папки веднага.</string>
-    <string name="empty_folders_found_format">%1$d празни папки намерени</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">Намерена %1$d празна папка</item>
+        <item quantity="other">Намерени %1$d празни папки</item>
+    </plurals>
     <string name="clean_empty_folders">Изтриване на празни папки</string>
     <string name="whatsapp_card_title">Файлове от WhatsApp</string>
     <string name="whatsapp_card_subtitle">Изчистете медията, която вече не ви трябва.</string>

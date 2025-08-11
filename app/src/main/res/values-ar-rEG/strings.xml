@@ -130,7 +130,10 @@
     <string name="clean_apks">حذف المثبتات</string>
     <string name="empty_folder_card_title">المجلدات الفارغة</string>
     <string name="empty_folder_card_subtitle">احذف المجلدات غير المستخدمة فوراً.</string>
-    <string name="empty_folders_found_format">%1$d مجلد فارغ تم العثور عليه</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">تم العثور على %1$d مجلد فارغ</item>
+        <item quantity="other">تم العثور على %1$d مجلدًا فارغًا</item>
+    </plurals>
     <string name="clean_empty_folders">حذف المجلدات الفاضية</string>
     <string name="whatsapp_card_title">ملفات واتساب</string>
     <string name="whatsapp_card_subtitle">امسح الوسائط التي لم تعد تحتاجها.</string>

@@ -118,7 +118,10 @@
     <string name="clean_apks">इंस्टॉलर हटाएँ</string>
     <string name="empty_folder_card_title">खाली फ़ोल्डर</string>
     <string name="empty_folder_card_subtitle">अनउपयोगी फ़ोल्डर तुरंत हटाएँ।</string>
-    <string name="empty_folders_found_format">%1$d खाली फ़ोल्डर मिले</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">%1$d खाली फ़ोल्डर मिला</item>
+        <item quantity="other">%1$d खाली फ़ोल्डर मिले</item>
+    </plurals>
     <string name="clean_empty_folders">खाली फ़ोल्डर हटाएं</string>
     <string name="whatsapp_card_title">व्हाट्सएप फ़ाइलें</string>
     <string name="whatsapp_card_subtitle">वे मीडिया हटाएँ जिनकी अब ज़रूरत नहीं.</string>
