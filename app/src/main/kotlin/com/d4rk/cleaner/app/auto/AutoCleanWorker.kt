@@ -12,9 +12,13 @@ import com.d4rk.cleaner.app.clean.scanner.domain.usecases.GetEmptyFoldersUseCase
 import com.d4rk.cleaner.app.clean.scanner.domain.usecases.GetFileTypesUseCase
 import com.d4rk.cleaner.app.images.utils.ImageHashUtils
 import com.d4rk.cleaner.app.settings.cleaning.utils.constants.ExtensionsConstants
+import com.d4rk.cleaner.core.utils.constants.datastore.AppDataStoreConstants
 import com.d4rk.cleaner.core.data.datastore.DataStore
 import com.d4rk.cleaner.core.utils.extensions.partialMd5
 import com.d4rk.cleaner.core.utils.helpers.CleaningEventBus
+import androidx.datastore.preferences.core.booleanPreferencesKey
+import androidx.datastore.preferences.core.intPreferencesKey
+import androidx.datastore.preferences.core.longPreferencesKey
 import kotlinx.coroutines.flow.first
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -34,10 +38,19 @@ class AutoCleanWorker(
     private val repository: ScannerRepositoryInterface by inject()
 
     override suspend fun doWork(): Result {
-        if (!dataStore.autoCleanEnabled.first()) return Result.success()
+        val preferences = dataStore.data.first()
 
-        val frequency = dataStore.autoCleanFrequencyDays.first()
-        val lastScan = dataStore.lastScanTimestamp.first() ?: 0L
+        val autoCleanEnabled =
+            preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_AUTO_CLEAN_ENABLED)]
+                ?: false
+        if (!autoCleanEnabled) return Result.success()
+
+        val frequency =
+            preferences[intPreferencesKey(AppDataStoreConstants.DATA_STORE_AUTO_CLEAN_FREQUENCY_DAYS)]
+                ?: 7
+        val lastScan =
+            preferences[longPreferencesKey(AppDataStoreConstants.DATA_STORE_LAST_SCAN_TIMESTAMP)]
+                ?: 0L
         val now = System.currentTimeMillis()
         if (frequency <= 0 || now - lastScan < frequency.days.inWholeMilliseconds) {
             return Result.success()
@@ -75,20 +88,22 @@ class AutoCleanWorker(
         val types = if (typesState is DataState.Success) typesState.data else FileTypesData()
 
         val prefs = mapOf(
-            ExtensionsConstants.IMAGE_EXTENSIONS to dataStore.deleteImageFiles.first(),
-            ExtensionsConstants.VIDEO_EXTENSIONS to dataStore.deleteVideoFiles.first(),
-            ExtensionsConstants.AUDIO_EXTENSIONS to dataStore.deleteAudioFiles.first(),
-            ExtensionsConstants.OFFICE_EXTENSIONS to dataStore.deleteOfficeFiles.first(),
-            ExtensionsConstants.ARCHIVE_EXTENSIONS to dataStore.deleteArchives.first(),
-            ExtensionsConstants.APK_EXTENSIONS to dataStore.deleteApkFiles.first(),
-            ExtensionsConstants.FONT_EXTENSIONS to dataStore.deleteFontFiles.first(),
-            ExtensionsConstants.WINDOWS_EXTENSIONS to dataStore.deleteWindowsFiles.first(),
-            ExtensionsConstants.EMPTY_FOLDERS to dataStore.deleteEmptyFolders.first(),
-            ExtensionsConstants.OTHER_EXTENSIONS to dataStore.deleteOtherFiles.first()
+            ExtensionsConstants.IMAGE_EXTENSIONS to (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DELETE_IMAGE_FILES)] != false),
+            ExtensionsConstants.VIDEO_EXTENSIONS to (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DELETE_VIDEO_FILES)] != false),
+            ExtensionsConstants.AUDIO_EXTENSIONS to (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DELETE_AUDIO_FILES)] != false),
+            ExtensionsConstants.OFFICE_EXTENSIONS to (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DELETE_OFFICE_FILES)] != false),
+            ExtensionsConstants.ARCHIVE_EXTENSIONS to (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DELETE_ARCHIVES)] == true),
+            ExtensionsConstants.APK_EXTENSIONS to (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DELETE_APK_FILES)] == true),
+            ExtensionsConstants.FONT_EXTENSIONS to (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DELETE_FONT_FILES)] != false),
+            ExtensionsConstants.WINDOWS_EXTENSIONS to (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DELETE_WINDOWS_FILES)] != false),
+            ExtensionsConstants.EMPTY_FOLDERS to (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DELETE_EMPTY_FOLDERS)] == true),
+            ExtensionsConstants.OTHER_EXTENSIONS to (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_OTHER_EXTENSIONS)] != false)
         )
-        val includeDuplicates = dataStore.deleteDuplicateFiles.first() &&
-                dataStore.duplicateScanEnabled.first()
-        val deepDuplicateSearch = dataStore.deepDuplicateSearch.first()
+        val includeDuplicates =
+            (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DELETE_DUPLICATE_FILES)] == true) &&
+                (preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_ENABLE_DUPLICATE_SCAN)] ?: true)
+        val deepDuplicateSearch =
+            preferences[booleanPreferencesKey(AppDataStoreConstants.DATA_STORE_DEEP_DUPLICATE_SEARCH)] == true
         val toDelete = computeFilesToClean(
             files,
             emptyFolders,
