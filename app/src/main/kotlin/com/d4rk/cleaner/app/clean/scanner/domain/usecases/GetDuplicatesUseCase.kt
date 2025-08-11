@@ -3,13 +3,13 @@ package com.d4rk.cleaner.app.clean.scanner.domain.usecases
 import com.d4rk.android.libs.apptoolkit.core.di.DispatcherProvider
 import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.FileEntry
 import com.d4rk.cleaner.core.utils.extensions.partialMd5
-import java.io.File
-import java.util.concurrent.ConcurrentHashMap
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import java.io.File
+import java.util.concurrent.ConcurrentHashMap
 
 class GetDuplicatesUseCase(
     private val dispatchers: DispatcherProvider

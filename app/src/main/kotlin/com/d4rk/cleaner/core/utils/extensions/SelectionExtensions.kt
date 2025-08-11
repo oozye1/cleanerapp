@@ -1,7 +1,7 @@
 package com.d4rk.cleaner.core.utils.extensions
 
-import java.io.File
 import com.d4rk.cleaner.core.utils.helpers.isProtectedAndroidDir
+import java.io.File
 
 /**
  * Converts a map of file path selections into a set of existing [File]s.

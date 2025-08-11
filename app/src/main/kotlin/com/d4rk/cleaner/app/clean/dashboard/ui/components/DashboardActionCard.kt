@@ -1,8 +1,8 @@
 package com.d4rk.cleaner.app.clean.dashboard.ui.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope
@@ -58,11 +58,11 @@ fun DashboardActionCard(
                         Modifier
                             .bounceClick()
                             .clickable(
-                            interactionSource = remember { MutableInteractionSource() },
-                            indication = null,
-                            enabled = headerEnabled,
-                            onClick = it
-                        )
+                                interactionSource = remember { MutableInteractionSource() },
+                                indication = null,
+                                enabled = headerEnabled,
+                                onClick = it
+                            )
                     } ?: Modifier,
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.spacedBy(SizeConstants.MediumSize)

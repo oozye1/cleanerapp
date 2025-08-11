@@ -8,11 +8,11 @@ import android.provider.MediaStore
 import com.d4rk.android.libs.apptoolkit.core.domain.model.network.DataState
 import com.d4rk.cleaner.app.apps.manager.domain.data.model.ApkInfo
 import com.d4rk.cleaner.app.apps.manager.domain.interfaces.ApkFileManager
+import com.d4rk.cleaner.core.data.datastore.DataStore
 import com.d4rk.cleaner.core.domain.model.network.Errors
 import com.d4rk.cleaner.core.utils.extensions.toError
 import com.d4rk.cleaner.core.utils.helpers.DirectoryScanner
 import com.d4rk.cleaner.core.utils.helpers.shouldSkip
-import com.d4rk.cleaner.core.data.datastore.DataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow

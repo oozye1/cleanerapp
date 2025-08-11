@@ -4,7 +4,6 @@ package com.d4rk.cleaner
 
 import android.app.Activity
 import android.os.Bundle
-import android.content.ComponentCallbacks2
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner

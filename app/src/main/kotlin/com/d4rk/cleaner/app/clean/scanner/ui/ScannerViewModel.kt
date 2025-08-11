@@ -59,7 +59,6 @@ import kotlinx.coroutines.yield
 import java.io.File
 import java.util.UUID
 
-// Making this configurable clarifies the wait after cleaning tasks.
 private const val EMPTY_FOLDERS_HIDE_DURATION_MS = 5 * 60 * 1000L
 
 @OptIn(ExperimentalCoroutinesApi::class)

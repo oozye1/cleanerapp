@@ -22,10 +22,10 @@ import androidx.compose.ui.unit.dp
 import com.d4rk.android.libs.apptoolkit.core.ui.components.spacers.LargeVerticalSpacer
 import com.d4rk.android.libs.apptoolkit.core.ui.components.spacers.SmallHorizontalSpacer
 import com.d4rk.android.libs.apptoolkit.core.utils.constants.ui.SizeConstants
+import com.d4rk.cleaner.R
 import com.d4rk.cleaner.app.images.compressor.domain.data.model.CompressionLevel
 import com.d4rk.cleaner.app.images.compressor.ui.ImageOptimizerViewModel
 import com.d4rk.cleaner.app.images.utils.getCompressionLevelFromSliderValue
-import com.d4rk.cleaner.R
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 

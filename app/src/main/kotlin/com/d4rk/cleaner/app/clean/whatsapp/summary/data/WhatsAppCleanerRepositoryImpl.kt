@@ -3,10 +3,10 @@ package com.d4rk.cleaner.app.clean.whatsapp.summary.data
 import android.app.Application
 import android.os.Environment
 import android.text.format.Formatter
+import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.DeleteResult
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.DirectorySummary
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.WhatsAppMediaSummary
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.repository.WhatsAppCleanerRepository
-import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.DeleteResult
 import com.d4rk.cleaner.app.clean.whatsapp.utils.constants.WhatsAppMediaConstants
 import com.d4rk.cleaner.core.utils.helpers.FileDeletionHelper
 import kotlinx.coroutines.Dispatchers

@@ -1,7 +1,6 @@
 package com.d4rk.cleaner.app.clean.analyze.ui.components
 
 import android.content.Context
-import android.view.SoundEffectConstants
 import android.view.View
 import androidx.compose.foundation.background
 import androidx.compose.foundation.basicMarquee

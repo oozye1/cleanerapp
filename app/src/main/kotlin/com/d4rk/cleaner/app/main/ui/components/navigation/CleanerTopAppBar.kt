@@ -143,7 +143,7 @@ fun CleanerTopAppBar(
                                     ) {
                                         Icon(
                                             imageVector = Icons.Outlined.Close,
-                                            contentDescription = "Clear search" // Consider using stringResource
+                                            contentDescription = "Clear search"
                                         )
                                     }
                                 }

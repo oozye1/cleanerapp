@@ -5,13 +5,13 @@ import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.d4rk.android.libs.apptoolkit.core.domain.model.network.DataState
 import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.FileTypesData
+import com.d4rk.cleaner.app.clean.scanner.domain.`interface`.ScannerRepositoryInterface
 import com.d4rk.cleaner.app.clean.scanner.domain.usecases.AnalyzeFilesUseCase
 import com.d4rk.cleaner.app.clean.scanner.domain.usecases.DeleteFilesUseCase
 import com.d4rk.cleaner.app.clean.scanner.domain.usecases.GetEmptyFoldersUseCase
 import com.d4rk.cleaner.app.clean.scanner.domain.usecases.GetFileTypesUseCase
 import com.d4rk.cleaner.app.images.utils.ImageHashUtils
 import com.d4rk.cleaner.app.settings.cleaning.utils.constants.ExtensionsConstants
-import com.d4rk.cleaner.app.clean.scanner.domain.`interface`.ScannerRepositoryInterface
 import com.d4rk.cleaner.core.data.datastore.DataStore
 import com.d4rk.cleaner.core.utils.extensions.partialMd5
 import com.d4rk.cleaner.core.utils.helpers.CleaningEventBus

@@ -14,8 +14,6 @@ class GetFileTypesUseCase(
         runCatching {
             val fileTypesData = homeRepository.getFileTypes()
             emit(DataState.Success(data = fileTypesData))
-        }.onFailure { e ->
-            //  emit(DataState.Error(error = e.message.toString()))
         }
     }
 }

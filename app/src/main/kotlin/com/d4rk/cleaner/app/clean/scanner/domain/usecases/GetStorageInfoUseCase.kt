@@ -10,10 +10,8 @@ import kotlinx.coroutines.flow.flow
 class GetStorageInfoUseCase(private val homeRepository: ScannerRepositoryInterface) {
     operator fun invoke(): Flow<DataState<UiScannerModel, Errors>> = flow {
         runCatching {
-            val storageInfo = homeRepository.getStorageInfo() // Call suspending repository function
+            val storageInfo = homeRepository.getStorageInfo()
             emit(DataState.Success(data = storageInfo))
-        }.onFailure { e ->
-            // emit(DataState.Error(error = e.message.toString()))
         }
     }
 }

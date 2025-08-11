@@ -39,6 +39,8 @@ import com.d4rk.android.libs.apptoolkit.core.ui.components.spacers.SmallVertical
 import com.d4rk.android.libs.apptoolkit.core.ui.effects.LifecycleEventsEffect
 import com.d4rk.android.libs.apptoolkit.core.utils.constants.ui.SizeConstants
 import com.d4rk.cleaner.R
+import com.d4rk.cleaner.app.clean.analyze.ui.components.CleaningAnimationScreen
+import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.CleaningState
 import com.d4rk.cleaner.app.clean.whatsapp.details.ui.WhatsAppDetailsActivity
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.actions.WhatsAppCleanerEvent
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.DirectoryItem
@@ -46,8 +48,6 @@ import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.UiWhatsAppCleane
 import com.d4rk.cleaner.app.clean.whatsapp.summary.ui.components.CleanerInfoCard
 import com.d4rk.cleaner.app.clean.whatsapp.summary.ui.components.DirectoryGrid
 import com.d4rk.cleaner.app.clean.whatsapp.summary.ui.components.WhatsAppEmptyState
-import com.d4rk.cleaner.app.clean.analyze.ui.components.CleaningAnimationScreen
-import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.CleaningState
 import com.d4rk.cleaner.app.clean.whatsapp.utils.constants.WhatsAppMediaConstants
 import org.koin.compose.koinInject
 import org.koin.compose.viewmodel.koinViewModel

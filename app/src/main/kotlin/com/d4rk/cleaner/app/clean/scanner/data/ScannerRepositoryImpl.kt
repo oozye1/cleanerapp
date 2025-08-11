@@ -20,6 +20,8 @@ import com.d4rk.cleaner.core.utils.extensions.clearClipboardCompat
 import com.d4rk.cleaner.core.utils.extensions.partialMd5
 import com.d4rk.cleaner.core.utils.helpers.DirectoryScanner
 import com.d4rk.cleaner.core.utils.helpers.FileDeletionHelper
+import com.d4rk.cleaner.core.utils.helpers.isProtectedAndroidDir
+import com.d4rk.cleaner.core.utils.helpers.shouldSkip
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
@@ -28,8 +30,6 @@ import kotlinx.coroutines.withContext
 import java.io.File
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
-import com.d4rk.cleaner.core.utils.helpers.shouldSkip
-import com.d4rk.cleaner.core.utils.helpers.isProtectedAndroidDir
 
 class ScannerRepositoryImpl(
     private val application: Application, private val dataStore: DataStore
@@ -149,7 +149,7 @@ class ScannerRepositoryImpl(
     }
 
     override suspend fun getTrashFiles(): List<File> {
-        return withContext(context = Dispatchers.IO) { // Assuming you have Dispatchers available or inject them
+        return withContext(context = Dispatchers.IO) {
             val trashDir =
                 File(application.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "Trash")
             if (trashDir.exists()) trashDir.listFiles()?.toList() ?: emptyList()

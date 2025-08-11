@@ -28,7 +28,6 @@ import com.d4rk.cleaner.app.apps.manager.domain.usecases.ShareApkUseCase
 import com.d4rk.cleaner.app.apps.manager.domain.usecases.ShareAppUseCase
 import com.d4rk.cleaner.app.apps.manager.domain.usecases.UninstallAppUseCase
 import com.d4rk.cleaner.core.utils.helpers.CleaningEventBus
-import java.util.Locale
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
@@ -36,6 +35,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.util.Locale
 
 class AppManagerViewModel(
     application: Application,

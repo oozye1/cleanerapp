@@ -1,6 +1,5 @@
 package com.d4rk.cleaner.app.clean.whatsapp.details.ui.components
 
-import android.view.View
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween

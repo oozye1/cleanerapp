@@ -14,8 +14,6 @@ class GetTrashFilesUseCase(
         runCatching {
             val trashFiles = repository.getTrashFiles()
             emit(DataState.Success(data = trashFiles))
-        }.onFailure {
-            // e -> emit(DataState.Error(e))
         }
     }
 
