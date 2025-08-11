@@ -1,7 +1,6 @@
 package com.d4rk.cleaner.app.clean.scanner.ui
 
 import android.app.Application
-import androidx.core.net.toUri
 import androidx.lifecycle.viewModelScope
 import androidx.work.WorkManager
 import com.d4rk.android.libs.apptoolkit.core.di.DispatcherProvider
@@ -731,12 +730,9 @@ class ScannerViewModel(
 
     private fun checkWhatsAppInstalled() {
         launch(context = dispatchers.io) {
-            val installed = runCatching {
-                val uri = "content://com.whatsapp.provider.media".toUri()
-                application.contentResolver.getType(uri)
-                true
-            }.getOrElse { false }
-            _isWhatsAppInstalled.value = installed
+            _isWhatsAppInstalled.value = runCatching {
+                application.packageManager.getPackageInfo("com.whatsapp", 0)
+            }.isSuccess
         }
     }
 
