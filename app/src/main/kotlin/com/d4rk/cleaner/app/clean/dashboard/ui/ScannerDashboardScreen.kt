@@ -206,16 +206,28 @@ fun ScannerDashboardScreen(
         AdSlot.F to 11
     )
 
-    val adQueue = allowedSlots.sortedBy { slotAnchors[it]!! }.toMutableList()
+    val adQueue = allowedSlots
+        .filter { slotAnchors[it] != null }
+        .sortedBy { slotAnchors.getValue(it) }
+        .toMutableList()
     val items = mutableListOf<HomeItem>()
     var lastWasAd = false
     for ((index, card) in content) {
         items.add(HomeItem.Card(card))
         lastWasAd = false
-        while (adQueue.isNotEmpty() && slotAnchors[adQueue.first()]!! <= index) {
-            if (!lastWasAd) {
-                items.add(HomeItem.Ad(adQueue.removeAt(0)))
-                lastWasAd = true
+        while (adQueue.isNotEmpty()) {
+            val slot = adQueue.first()
+            val anchor = slotAnchors[slot] ?: run {
+                adQueue.removeAt(0)
+                continue
+            }
+            if (anchor <= index) {
+                if (!lastWasAd) {
+                    items.add(HomeItem.Ad(adQueue.removeAt(0)))
+                    lastWasAd = true
+                } else {
+                    break
+                }
             } else {
                 break
             }
