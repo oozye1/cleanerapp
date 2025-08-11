@@ -15,10 +15,8 @@ class ImageOptimizerActivity : BaseCleanupActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         selectedImageUriString = intent.getStringExtra("selectedImageUri")
-        if (!selectedImageUriString.isNullOrEmpty()) {
-            lifecycleScope.launch {
-                viewModel.onImageSelected(selectedImageUriString!!.toUri())
-            }
+        selectedImageUriString?.let { uri ->
+            lifecycleScope.launch { viewModel.onImageSelected(uri.toUri()) }
         }
         super.onCreate(savedInstanceState)
     }
