@@ -214,7 +214,7 @@ class DataStore(val context: Context) : CommonDataStore(context = context) {
     private val deleteEmptyFoldersKey =
         booleanPreferencesKey(name = AppDataStoreConstants.DATA_STORE_DELETE_EMPTY_FOLDERS)
     val deleteEmptyFolders: Flow<Boolean> = dataStore.data.map { preferences ->
-        preferences[deleteEmptyFoldersKey] != false
+        preferences[deleteEmptyFoldersKey] == true
     }
 
     suspend fun saveDeleteEmptyFolders(isChecked: Boolean) {
@@ -262,7 +262,7 @@ class DataStore(val context: Context) : CommonDataStore(context = context) {
     private val deleteApkFilesKey =
         booleanPreferencesKey(name = AppDataStoreConstants.DATA_STORE_DELETE_APK_FILES)
     val deleteApkFiles: Flow<Boolean> = dataStore.data.map { preferences ->
-        preferences[deleteApkFilesKey] != false
+        preferences[deleteApkFilesKey] == true
     }
 
     suspend fun saveDeleteApkFiles(isChecked: Boolean) {
