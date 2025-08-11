@@ -612,9 +612,13 @@ class ScannerViewModel(
                 val successCount = selectedCount - failedCount
 
                 val message = if (failedCount > 0) {
-                    UiTextHelper.StringResource(
-                        R.string.cleanup_partial,
-                        listOf(successCount, failedCount)
+                    UiTextHelper.DynamicString(
+                        application.resources.getQuantityString(
+                            R.plurals.cleanup_partial,
+                            successCount,
+                            successCount,
+                            failedCount,
+                        )
                     )
                 } else {
                     UiTextHelper.StringResource(R.string.all_clean)

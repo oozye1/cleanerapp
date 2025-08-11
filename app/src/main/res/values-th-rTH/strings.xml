@@ -394,12 +394,18 @@
     <string name="failed_to_update_trash_size">ไม่สามารถอัปเดตขนาดถังขยะ: %1$s</string>
     <string name="no_cleaning_options_selected">โปรดเลือกการตั้งค่าการทำความสะอาดของคุณในการตั้งค่าเพื่อดำเนินการต่อ</string>
     <string name="cleaning_in_progress">กำลังทำความสะอาด</string>
-    <string name="cleanup_progress">ล้างแล้ว %1$d/%2$d ไฟล์</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">ล้างแล้ว %1$d/%2$d ไฟล์</item>
+        <item quantity="other">ล้างแล้ว %1$d/%2$d ไฟล์</item>
+    </plurals>
     <string name="cleanup_finished">ล้างเสร็จแล้ว</string>
     <string name="cleanup_failed">การล้างล้มเหลว</string>
     <string name="cleanup_failed_details">ไม่สามารถลบไฟล์บางไฟล์ได้</string>
     <string name="cleanup_cancelled">ยกเลิกการล้าง</string>
-    <string name="cleanup_partial">ลบไฟล์ %1$d ไฟล์แล้ว, ล้มเหลว %2$d ไฟล์</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">ลบไฟล์ %1$d ไฟล์แล้ว, ล้มเหลว %2$d ไฟล์</item>
+        <item quantity="other">ลบไฟล์ %1$d ไฟล์แล้ว, ล้มเหลว %2$d ไฟล์</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="other">สตรีคปัจจุบัน: %1$d วันติดต่อกัน</item>
     </plurals>

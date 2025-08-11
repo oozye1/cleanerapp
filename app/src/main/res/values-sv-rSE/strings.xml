@@ -402,12 +402,18 @@
     <string name="failed_to_update_trash_size">Det gick inte att uppdatera skräpstorlek: %1$s</string>
     <string name="no_cleaning_options_selected">Välj dina rengöringspreferenser i inställningar för att fortsätta.</string>
     <string name="cleaning_in_progress">Rensning pågår</string>
-    <string name="cleanup_progress">%1$d/%2$d filer rensade</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">%1$d/%2$d fil rensad</item>
+        <item quantity="other">%1$d/%2$d filer rensade</item>
+    </plurals>
     <string name="cleanup_finished">Rensning klar</string>
     <string name="cleanup_failed">Rensning misslyckades</string>
     <string name="cleanup_failed_details">Vissa filer kunde inte tas bort</string>
     <string name="cleanup_cancelled">Rensning avbruten</string>
-    <string name="cleanup_partial">%1$d filer raderades, %2$d misslyckades</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">%1$d fil raderades, %2$d misslyckades</item>
+        <item quantity="other">%1$d filer raderades, %2$d misslyckades</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="one">Aktuell svit: %1$d dag i rad</item>
         <item quantity="other">Aktuell svit: %1$d dagar i rad</item>

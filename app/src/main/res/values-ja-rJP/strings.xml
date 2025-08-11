@@ -394,12 +394,18 @@
     <string name="failed_to_update_trash_size">ゴミのサイズの更新に失敗しました：%1$s</string>
     <string name="no_cleaning_options_selected">続行するには、設定のクリーニング設定を選択してください。</string>
     <string name="cleaning_in_progress">クリーンアップを実行中</string>
-    <string name="cleanup_progress">%1$d/%2$d 件のファイルをクリーンアップ済み</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">%1$d/%2$d 件のファイルをクリーンアップ済み</item>
+        <item quantity="other">%1$d/%2$d 件のファイルをクリーンアップ済み</item>
+    </plurals>
     <string name="cleanup_finished">クリーンアップ完了</string>
     <string name="cleanup_failed">クリーンアップに失敗しました</string>
     <string name="cleanup_failed_details">一部のファイルを削除できませんでした</string>
     <string name="cleanup_cancelled">クリーンアップをキャンセルしました</string>
-    <string name="cleanup_partial">%1$d 件のファイルを削除、%2$d 件が失敗しました</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">%1$d 件のファイルを削除、%2$d 件が失敗しました</item>
+        <item quantity="other">%1$d 件のファイルを削除、%2$d 件が失敗しました</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="other">現在の連続記録：%1$d日連続</item>
     </plurals>

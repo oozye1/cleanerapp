@@ -104,8 +104,9 @@ class FileCleanupWorker(
         var processed = 0
         builder.setProgress(total, processed, false)
             .setContentText(
-                applicationContext.getString(
-                    R.string.cleanup_progress,
+                applicationContext.resources.getQuantityString(
+                    R.plurals.cleanup_progress,
+                    total,
                     processed,
                     total,
                 ),
@@ -163,8 +164,9 @@ class FileCleanupWorker(
             processed++
             builder.setProgress(total, processed, false)
                 .setContentText(
-                    applicationContext.getString(
-                        R.string.cleanup_progress,
+                    applicationContext.resources.getQuantityString(
+                        R.plurals.cleanup_progress,
+                        total,
                         processed,
                         total,
                     ),
@@ -227,8 +229,9 @@ class FileCleanupWorker(
                 if (hasPermission) {
                     builder.setContentTitle(applicationContext.getString(R.string.cleanup_finished))
                         .setContentText(
-                            applicationContext.getString(
-                                R.string.cleanup_partial,
+                            applicationContext.resources.getQuantityString(
+                                R.plurals.cleanup_partial,
+                                successCount,
                                 successCount,
                                 failedCount,
                             ),

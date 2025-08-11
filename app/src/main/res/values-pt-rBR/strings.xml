@@ -411,12 +411,18 @@
     <string name="failed_to_update_trash_size">Falha ao atualizar o tamanho do lixo: %1$s</string>
     <string name="no_cleaning_options_selected">Escolha suas preferências de limpeza nas configurações para prosseguir.</string>
     <string name="cleaning_in_progress">Limpeza em andamento</string>
-    <string name="cleanup_progress">%1$d/%2$d arquivos limpos</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">%1$d/%2$d arquivo limpo</item>
+        <item quantity="other">%1$d/%2$d arquivos limpos</item>
+    </plurals>
     <string name="cleanup_finished">Limpeza concluída</string>
     <string name="cleanup_failed">Falha na limpeza</string>
     <string name="cleanup_failed_details">Alguns arquivos não puderam ser excluídos</string>
     <string name="cleanup_cancelled">Limpeza cancelada</string>
-    <string name="cleanup_partial">%1$d arquivos excluídos, %2$d falharam</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">%1$d arquivo excluído, %2$d falharam</item>
+        <item quantity="other">%1$d arquivos excluídos, %2$d falharam</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="one">Sequência atual: %1$d dia seguido</item>
         <item quantity="other">Sequência atual: %1$d dias seguidos</item>

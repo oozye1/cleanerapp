@@ -402,12 +402,18 @@
     <string name="failed_to_update_trash_size">Çöp Boyutunu Güncelleme: %1$s</string>
     <string name="no_cleaning_options_selected">Lütfen devam etmek için ayarlarda temizlik tercihlerinizi seçin.</string>
     <string name="cleaning_in_progress">Temizlik devam ediyor</string>
-    <string name="cleanup_progress">%1$d/%2$d dosya temizlendi</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">%1$d/%2$d dosya temizlendi</item>
+        <item quantity="other">%1$d/%2$d dosya temizlendi</item>
+    </plurals>
     <string name="cleanup_finished">Temizlik tamamlandı</string>
     <string name="cleanup_failed">Temizlik başarısız</string>
     <string name="cleanup_failed_details">Bazı dosyalar silinemedi</string>
     <string name="cleanup_cancelled">Temizlik iptal edildi</string>
-    <string name="cleanup_partial">%1$d dosya silindi, %2$d başarısız oldu</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">%1$d dosya silindi, %2$d başarısız oldu</item>
+        <item quantity="other">%1$d dosya silindi, %2$d başarısız oldu</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="one">Mevcut seri: art arda %1$d gün</item>
         <item quantity="other">Mevcut seri: art arda %1$d gün</item>

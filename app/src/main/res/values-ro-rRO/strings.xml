@@ -410,12 +410,18 @@
     <string name="failed_to_update_trash_size">Nu a reușit să actualizeze dimensiunea gunoiului: %1$s</string>
     <string name="no_cleaning_options_selected">Vă rugăm să alegeți preferințele dvs. de curățare în setări pentru a continua.</string>
     <string name="cleaning_in_progress">Curățare în curs</string>
-    <string name="cleanup_progress">%1$d/%2$d fișiere curățate</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">%1$d/%2$d fișier curățat</item>
+        <item quantity="other">%1$d/%2$d fișiere curățate</item>
+    </plurals>
     <string name="cleanup_finished">Curățare finalizată</string>
     <string name="cleanup_failed">Curățare eșuată</string>
     <string name="cleanup_failed_details">Unele fișiere nu au putut fi șterse</string>
     <string name="cleanup_cancelled">Curățare anulată</string>
-    <string name="cleanup_partial">%1$d fișiere șterse, %2$d eșuate</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">%1$d fișier șters, %2$d eșuate</item>
+        <item quantity="other">%1$d fișiere șterse, %2$d eșuate</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="one">Seria curentă: %1$d zi la rând</item>
         <item quantity="few">Seria curentă: %1$d zile la rând</item>

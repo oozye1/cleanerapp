@@ -401,12 +401,18 @@
     <string name="failed_to_update_trash_size">Неуспешно актуализиране на размера на боклука: %1$s</string>
     <string name="no_cleaning_options_selected">Моля, изберете вашите предпочитания за почистване в настройките, за да продължите.</string>
     <string name="cleaning_in_progress">Почистването е в ход</string>
-    <string name="cleanup_progress">%1$d/%2$d файла почистени</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">%1$d/%2$d файл почистен</item>
+        <item quantity="other">%1$d/%2$d файла почистени</item>
+    </plurals>
     <string name="cleanup_finished">Почистването приключи</string>
     <string name="cleanup_failed">Почистването се провали</string>
     <string name="cleanup_failed_details">Някои файлове не можаха да бъдат изтрити</string>
     <string name="cleanup_cancelled">Почистването е отменено</string>
-    <string name="cleanup_partial">%1$d файла изтрити, %2$d неуспешни</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">%1$d файл изтрит, %2$d неуспешни</item>
+        <item quantity="other">%1$d файла изтрити, %2$d неуспешни</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="one">Текуща серия: %1$d ден подред</item>
         <item quantity="other">Текуща серия: %1$d дни подред</item>

@@ -15,7 +15,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.res.pluralStringResource
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
@@ -62,7 +62,7 @@ fun CleaningAnimationScreen(
         LargeVerticalSpacer()
 
         Text(
-            text = stringResource(id = R.string.cleanup_progress, cleaned, total),
+            text = pluralStringResource(R.plurals.cleanup_progress, total, cleaned, total),
             style = MaterialTheme.typography.bodyMedium
         )
     }
