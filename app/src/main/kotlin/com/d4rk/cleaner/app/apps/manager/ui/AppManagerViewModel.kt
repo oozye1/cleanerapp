@@ -165,7 +165,7 @@ class AppManagerViewModel(
                                 userAppsLoading = true,
                                 systemAppsLoading = true
                             )
-                        ),
+                        )
 
                         is DataState.Success -> {
                             val pm = applicationContext.packageManager
@@ -183,7 +183,7 @@ class AppManagerViewModel(
                                     systemAppsLoading = false
                                 )
                             )
-                        },
+                        }
 
                         is DataState.Error -> currentState.copy(
                             data = currentState.data?.copy(
@@ -203,14 +203,16 @@ class AppManagerViewModel(
                             data = currentState.data?.copy(
                                 apkFilesLoading = true
                             )
-                        ),
+                        )
 
                         is DataState.Success -> currentState.copy(
                             data = currentState.data?.copy(
                                 apkFiles = result.data.sortedBy {
                                     it.path.substringAfterLast('/').lowercase()
                                 },
-                                apkFilesLoading = false)),
+                                apkFilesLoading = false
+                            )
+                        )
 
                         is DataState.Error -> currentState.copy(
                             data = currentState.data?.copy(
@@ -229,7 +231,7 @@ class AppManagerViewModel(
                             data = currentState.data?.copy(
                                 appUsageStats = result.data
                             )
-                        ),
+                        )
 
                         else -> currentState
                     }
