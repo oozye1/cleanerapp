@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import androidx.lifecycle.viewModelScope
 import com.d4rk.android.libs.apptoolkit.core.di.DispatcherProvider
 import com.d4rk.android.libs.apptoolkit.core.domain.model.network.DataState
 import com.d4rk.android.libs.apptoolkit.core.domain.model.ui.UiSnackbar
@@ -28,10 +29,12 @@ import com.d4rk.cleaner.app.apps.manager.domain.usecases.ShareApkUseCase
 import com.d4rk.cleaner.app.apps.manager.domain.usecases.ShareAppUseCase
 import com.d4rk.cleaner.app.apps.manager.domain.usecases.UninstallAppUseCase
 import com.d4rk.cleaner.core.utils.helpers.CleaningEventBus
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -61,6 +64,7 @@ class AppManagerViewModel(
 
     private var pendingUninstallPackage: String? = null
     private var pendingInstallPackage: String? = null
+    private var loadJob: Job? = null
 
     fun onSearchQueryChange(query: String) {
         _searchQuery.value = query
@@ -150,90 +154,92 @@ class AppManagerViewModel(
     }
 
     private fun loadAppData() {
-        launch {
-            val installedAppsFlow =
-                getInstalledAppsUseCase().flowOn(dispatchers.default).onEach { result ->
-                    _uiState.update { currentState ->
-                        when (result) {
-                            is DataState.Loading -> currentState.copy(
-                                data = currentState.data?.copy(
-                                    userAppsLoading = true,
-                                    systemAppsLoading = true
-                                )
+        loadJob?.cancel()
+
+        val installedAppsFlow =
+            getInstalledAppsUseCase().flowOn(dispatchers.default).onEach { result ->
+                _uiState.update { currentState ->
+                    when (result) {
+                        is DataState.Loading -> currentState.copy(
+                            data = currentState.data?.copy(
+                                userAppsLoading = true,
+                                systemAppsLoading = true
                             )
+                        ),
 
-                            is DataState.Success -> {
-                                val pm = applicationContext.packageManager
-                                val comparator = compareBy<android.content.pm.ApplicationInfo>(
-                                    { runCatching { pm.getApplicationLabel(it).toString() }
-                                        .getOrNull()
-                                        ?.lowercase(Locale.getDefault())
-                                        ?: it.packageName.lowercase(Locale.getDefault()) },
-                                    { it.packageName.lowercase(Locale.getDefault()) }
-                                )
-                                currentState.copy(
-                                    data = currentState.data?.copy(
-                                        installedApps = result.data.sortedWith(comparator),
-                                        userAppsLoading = false,
-                                        systemAppsLoading = false
-                                    )
-                                )
-                            }
-
-                            is DataState.Error -> currentState.copy(
+                        is DataState.Success -> {
+                            val pm = applicationContext.packageManager
+                            val comparator = compareBy<android.content.pm.ApplicationInfo>(
+                                { runCatching { pm.getApplicationLabel(it).toString() }
+                                    .getOrNull()
+                                    ?.lowercase(Locale.getDefault())
+                                    ?: it.packageName.lowercase(Locale.getDefault()) },
+                                { it.packageName.lowercase(Locale.getDefault()) }
+                            )
+                            currentState.copy(
                                 data = currentState.data?.copy(
+                                    installedApps = result.data.sortedWith(comparator),
                                     userAppsLoading = false,
                                     systemAppsLoading = false
                                 )
                             )
-                        }
+                        },
+
+                        is DataState.Error -> currentState.copy(
+                            data = currentState.data?.copy(
+                                userAppsLoading = false,
+                                systemAppsLoading = false
+                            )
+                        )
                     }
                 }
+            }
 
-            val apkFilesFlow =
-                getApkFilesFromStorageUseCase().flowOn(dispatchers.default).onEach { result ->
-                    _uiState.update { currentState ->
-                        when (result) {
-                            is DataState.Loading -> currentState.copy(
-                                data = currentState.data?.copy(
-                                    apkFilesLoading = true
-                                )
+        val apkFilesFlow =
+            getApkFilesFromStorageUseCase().flowOn(dispatchers.default).onEach { result ->
+                _uiState.update { currentState ->
+                    when (result) {
+                        is DataState.Loading -> currentState.copy(
+                            data = currentState.data?.copy(
+                                apkFilesLoading = true
                             )
+                        ),
 
-                            is DataState.Success -> currentState.copy(
-                                data = currentState.data?.copy(
-                                    apkFiles = result.data.sortedBy {
-                                        it.path.substringAfterLast('/').lowercase()
-                                    },
-                                    apkFilesLoading = false))
+                        is DataState.Success -> currentState.copy(
+                            data = currentState.data?.copy(
+                                apkFiles = result.data.sortedBy {
+                                    it.path.substringAfterLast('/').lowercase()
+                                },
+                                apkFilesLoading = false)),
 
-                            is DataState.Error -> currentState.copy(
-                                data = currentState.data?.copy(
-                                    apkFilesLoading = false
-                                )
+                        is DataState.Error -> currentState.copy(
+                            data = currentState.data?.copy(
+                                apkFilesLoading = false
                             )
-                        }
+                        )
                     }
                 }
+            }
 
-            val usageStatsFlow =
-                getAppsLastUsedUseCase().flowOn(dispatchers.default).onEach { result ->
-                    _uiState.update { currentState ->
-                        when (result) {
-                            is DataState.Success -> currentState.copy(
-                                data = currentState.data?.copy(
-                                    appUsageStats = result.data
-                                )
+        val usageStatsFlow =
+            getAppsLastUsedUseCase().flowOn(dispatchers.default).onEach { result ->
+                _uiState.update { currentState ->
+                    when (result) {
+                        is DataState.Success -> currentState.copy(
+                            data = currentState.data?.copy(
+                                appUsageStats = result.data
                             )
+                        ),
 
-                            else -> currentState
-                        }
+                        else -> currentState
                     }
                 }
+            }
 
-            launch(dispatchers.io) { installedAppsFlow.collectLatest {} }
-            launch(dispatchers.io) { apkFilesFlow.collectLatest {} }
-            launch(dispatchers.io) { usageStatsFlow.collectLatest {} }
+        loadJob = viewModelScope.launch(dispatchers.io) {
+            installedAppsFlow.launchIn(this)
+            apkFilesFlow.launchIn(this)
+            usageStatsFlow.launchIn(this)
         }
     }
 
