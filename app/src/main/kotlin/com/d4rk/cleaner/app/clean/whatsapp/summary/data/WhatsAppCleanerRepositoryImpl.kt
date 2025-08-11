@@ -1,6 +1,7 @@
 package com.d4rk.cleaner.app.clean.whatsapp.summary.data
 
 import android.app.Application
+import android.os.Environment
 import android.text.format.Formatter
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.DeleteResult
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.DirectorySummary
@@ -15,19 +16,37 @@ import java.io.File
 class WhatsAppCleanerRepositoryImpl(private val application: Application) :
     WhatsAppCleanerRepository {
     /**
-     * Locate the base WhatsApp media directory. Returns `null` when neither the
-     * legacy nor the scoped-storage path exists, indicating that WhatsApp media
-     * is not available on the device.
+     * Locate the base WhatsApp media directory. Returns `null` when no known
+     * directories are found, indicating that WhatsApp media is not available on
+     * the device. Both the legacy and scoped-storage locations for official,
+     * business, and OEM dual-app variants are checked.
      */
     private fun getWhatsAppMediaDir(): File? {
-        val root = application.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile ?: return null
-        val scoped = File(root, "Android/media/com.whatsapp/WhatsApp/Media")
-        val legacy = File(root, "WhatsApp/Media")
-        return when {
-            scoped.exists() -> scoped
-            legacy.exists() -> legacy
-            else -> null
+        val roots = mutableListOf<File>()
+        application.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile?.let { roots += it }
+        roots += Environment.getExternalStorageDirectory()
+
+        roots.distinct().forEach { root ->
+            // Legacy top-level directories
+            listOf("WhatsApp", "WhatsApp Business").forEach { name ->
+                val legacy = File(root, "$name/Media")
+                if (legacy.exists()) return legacy
+            }
+
+            // Scoped storage packages that start with "com.whatsapp"
+            val mediaRoot = File(root, "Android/media")
+            mediaRoot.listFiles()?.forEach { pkgDir ->
+                if (pkgDir.name.startsWith("com.whatsapp")) {
+                    pkgDir.listFiles()?.forEach { waDir ->
+                        if (waDir.isDirectory && waDir.name.startsWith("WhatsApp")) {
+                            val media = File(waDir, "Media")
+                            if (media.exists()) return media
+                        }
+                    }
+                }
+            }
         }
+        return null
     }
 
     override suspend fun getMediaSummary(): WhatsAppMediaSummary = withContext(Dispatchers.IO) {
