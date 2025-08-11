@@ -1,6 +1,7 @@
 package com.d4rk.cleaner.app.clean.scanner.utils.helpers
 
 import android.content.Context
+import android.os.Environment
 import com.d4rk.cleaner.app.clean.whatsapp.utils.constants.WhatsAppMediaConstants
 import java.io.File
 
@@ -14,7 +15,7 @@ import java.io.File
  * media is not accessible on the device.
  */
 fun getWhatsAppMediaDirs(context: Context): File? {
-    val root = context.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile ?: return null
+    val root = Environment.getExternalStorageDirectory()
     val legacy = File(root, "WhatsApp/Media")
     if (legacy.exists()) return legacy
     val scoped = File(root, "Android/media/com.whatsapp/WhatsApp/Media")
