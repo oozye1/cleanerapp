@@ -68,8 +68,6 @@
     <!-- Home -->
     <string name="delete_forever">Delete forever</string>
     <string name="move_to_trash">Move to trash</string>
-    <string name="cleaned_space">Cleaned Space</string>
-    <string name="free_space">Free Space</string>
     <string name="delete_forever_title">Delete Forever</string>
     <string name="delete_forever_message">Are you sure you want to delete these files forever? This action cannot be undone.</string>
     <string name="move_to_trash_title">Move to Trash</string>
@@ -100,10 +98,6 @@
         <item quantity="other">%1$d days in a row — keep it up!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Perfect week! 💎 You\'ve earned it.</string>
-    <string name="streak_reward_day1">Nice start!</string>
-    <string name="streak_reward_day3">Did you know you can sort by size?</string>
-    <string name="streak_reward_day5">Estimate system junk!</string>
-    <string name="streak_reward_day7">Perfect Week 🏅</string>
     <string name="current_streak_label">Current streak: %1$d days in a row</string>
     <string name="longest_streak_label">Longest streak: %1$d-day record!</string>
     <string name="streak_notification_title">Keep your Clean Streak going!</string>
@@ -116,7 +110,6 @@
     <string name="hide_clean_streak_message">Would you like to hide your Clean Streak card?</string>
     <string name="dont_show_again">Don\'t show again</string>
     <string name="preference_show_streak_card">Show Clean Streak Card</string>
-    <string name="streak_quiet_banner">You\'re in quiet mode. Clean streak resumes next week.</string>
     <string name="streak_return_toast">Clean Streak will return next time you clean.</string>
     <string name="apk_card_title">Old Installers Found</string>
     <string name="apk_card_subtitle">Remove leftover installer files and reclaim space.</string>
@@ -129,7 +122,6 @@
     <string name="empty_folder_card_subtitle">Remove unused folders instantly.</string>
     <string name="empty_folders_found_format">%1$d empty folders found</string>
     <string name="clean_empty_folders">Delete Empty Folders</string>
-    <string name="empty_folders_cleaned">Empty folders removed</string>
     <string name="whatsapp_card_title">WhatsApp Files</string>
     <string name="whatsapp_card_subtitle">Clear out media you no longer need.</string>
     <string name="clean_whatsapp">Clean WhatsApp Media</string>
@@ -169,7 +161,6 @@
     <string name="cleaner_recommends">Cleaner Recommends</string>
     <string name="image_optimizer_card_title">Image Optimizer</string>
     <string name="image_optimizer_card_subtitle">Compress photos without losing quality.&#10;Save space with one tap.</string>
-    <string name="image_optimizer_last_format">Last optimization: %1$s</string>
     <string name="cache_cleaner_card_title">Cache Cleaner</string>
     <string name="cache_cleaner_card_subtitle">Free up space from app cache</string>
     <string name="large_files_card_title">Large Files</string>
@@ -235,13 +226,8 @@
     </plurals>
     <string name="no_files_found">No files found</string>
     <string name="contacts_cleaner_title">Contacts Cleaner</string>
-    <string name="no_duplicates_found">No duplicates found</string>
-    <string name="contacts_loading">Scanning contacts…</string>
     <string name="contacts_permission_rationale">We need access to your contacts to find and merge duplicates. Data never leaves your device.</string>
-    <string name="keep_newest_remove_older">Keep Newest &amp; Remove Older</string>
-    <string name="merge_all_duplicates">Merge All Duplicates</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Smart Clean</string>
     <string name="smart_clean_all">Smart Clean All</string>
     <string name="contacts_permission_denied">Permission denied. You can enable it in system settings.</string>

@@ -68,8 +68,6 @@
     <!-- Home -->
     <string name="delete_forever">Изтриване завинаги</string>
     <string name="move_to_trash">Преместване в кошчето</string>
-    <string name="cleaned_space">Почистено пространство</string>
-    <string name="free_space">Свободно пространство</string>
     <string name="delete_forever_title">Изтриване завинаги</string>
     <string name="delete_forever_message">Сигурни ли сте, че искате да изтриете тези файлове завинаги? Това действие не може да бъде отменено.</string>
     <string name="move_to_trash_title">Преместване в кошчето</string>
@@ -100,10 +98,6 @@
         <item quantity="other">%1$d дни подред — продължавайте така!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Перфектна седмица! 💎 Заслужихте го.</string>
-    <string name="streak_reward_day1">Добро начало!</string>
-    <string name="streak_reward_day3">Знаете ли, че можете да сортирате по размер?</string>
-    <string name="streak_reward_day5">Оценете системния боклук!</string>
-    <string name="streak_reward_day7">Перфектна седмица 🏅</string>
     <string name="streak_notification_title">Поддържайте серията си почистване!</string>
     <string name="streak_notification_daily">Време е да почистите устройството и да продължите серията.</string>
     <string name="streak_notification_missed">Вчера не почистихте — почистете сега, за да запазите 🔥!</string>
@@ -114,7 +108,6 @@
     <string name="hide_clean_streak_message">Искате ли да скриете картата на серията за почистване?</string>
     <string name="dont_show_again">Не показвай повече</string>
     <string name="preference_show_streak_card">Показвай картата на серията за почистване</string>
-    <string name="streak_quiet_banner">В безшумен режим сте. Серията продължава следващата седмица.</string>
     <string name="streak_return_toast">Серията за почистване ще се върне при следващото ви почистване.</string>
     <string name="apk_card_title">Намерени стари инсталатори</string>
     <string name="apk_card_subtitle">Премахнете останалите инсталационни файлове и освободете място.</string>
@@ -127,7 +120,6 @@
     <string name="empty_folder_card_subtitle">Премахнете неизползваните папки веднага.</string>
     <string name="empty_folders_found_format">%1$d празни папки намерени</string>
     <string name="clean_empty_folders">Изтриване на празни папки</string>
-    <string name="empty_folders_cleaned">Празните папки са премахнати</string>
     <string name="whatsapp_card_title">Файлове от WhatsApp</string>
     <string name="whatsapp_card_subtitle">Изчистете медията, която вече не ви трябва.</string>
     <string name="clean_whatsapp">Почистване на WhatsApp медия</string>
@@ -167,7 +159,6 @@
     <string name="cleaner_recommends">Cleaner препоръчва</string>
     <string name="image_optimizer_card_title">Оптимизатор на изображения</string>
     <string name="image_optimizer_card_subtitle">Компресирайте снимки без загуба на качество.&#10;Спестете място с едно докосване.</string>
-    <string name="image_optimizer_last_format">Последна оптимизация: %1$s</string>
     <string name="cache_cleaner_card_title">Почистващ кеша</string>
     <string name="cache_cleaner_card_subtitle">Освободете място от кеша на приложенията</string>
     <string name="large_files_card_title">Големи файлове</string>
@@ -233,13 +224,8 @@
     </plurals>
     <string name="no_files_found">Няма намерени файлове</string>
     <string name="contacts_cleaner_title">Почистване на контакти</string>
-    <string name="no_duplicates_found">Няма намерени дубликати</string>
-    <string name="contacts_loading">Сканиране на контактите…</string>
     <string name="contacts_permission_rationale">Имаме нужда от достъп до контактите ви, за да намерим и обединим дубликатите. Данните никога не напускат устройството ви.</string>
-    <string name="keep_newest_remove_older">Запази най-новия и премахни по-старите</string>
-    <string name="merge_all_duplicates">Обедини всички дубликати</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Умно почистване</string>
     <string name="smart_clean_all">Умно почистване на всичко</string>
     <string name="contacts_permission_denied">Достъпът е отказан. Можете да го активирате в настройките.</string>

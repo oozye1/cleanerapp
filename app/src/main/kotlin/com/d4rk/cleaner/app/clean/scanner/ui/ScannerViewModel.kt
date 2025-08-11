@@ -84,8 +84,6 @@ class ScannerViewModel(
     val cleanStreak: StateFlow<Int> get() = streakHandler.cleanStreak
     val streakRecord: StateFlow<Int> get() = streakHandler.streakRecord
     val showStreakCard: StateFlow<Boolean> get() = streakHandler.showStreakCard
-    val streakHideUntil: StateFlow<Long> get() = streakHandler.streakHideUntil
-
     private val _whatsAppMediaSummary = MutableStateFlow(WhatsAppMediaSummary())
     val whatsAppMediaSummary: StateFlow<WhatsAppMediaSummary> = _whatsAppMediaSummary
     private val _whatsAppMediaLoaded = MutableStateFlow(false)

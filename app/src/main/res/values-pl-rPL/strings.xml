@@ -70,8 +70,6 @@
     <!-- Home -->
     <string name="delete_forever">Usuń na zawsze</string>
     <string name="move_to_trash">Przenieś do kosza</string>
-    <string name="cleaned_space">Oczyszczone miejsce</string>
-    <string name="free_space">Wolne miejsce</string>
     <string name="delete_forever_title">Usuń na zawsze</string>
     <string name="delete_forever_message">Czy na pewno chcesz usunąć te pliki na zawsze? Tej czynności nie można cofnąć.</string>
     <string name="move_to_trash_title">Przenieś do kosza</string>
@@ -104,10 +102,6 @@
         <item quantity="other">%1$d dni z rzędu — tak trzymaj!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Idealny tydzień! 💎 Zasłużyłeś.</string>
-    <string name="streak_reward_day1">Dobry początek!</string>
-    <string name="streak_reward_day3">Wiesz, że możesz sortować według rozmiaru?</string>
-    <string name="streak_reward_day5">Oszacuj systemowe śmieci!</string>
-    <string name="streak_reward_day7">Idealny tydzień 🏅</string>
     <string name="streak_notification_title">Podtrzymuj swoją passę czyszczenia!</string>
     <string name="streak_notification_daily">Czas oczyścić urządzenie i kontynuować passę.</string>
     <string name="streak_notification_missed">Wczoraj nie było czyszczenia — wyczyść teraz, by 🔥 nie zgasło!</string>
@@ -118,7 +112,6 @@
     <string name="hide_clean_streak_message">Chcesz ukryć kartę passy czyszczenia?</string>
     <string name="dont_show_again">Nie pokazuj ponownie</string>
     <string name="preference_show_streak_card">Pokaż kartę passy czyszczenia</string>
-    <string name="streak_quiet_banner">Jesteś w trybie cichym. Passa czyszczenia wróci w przyszłym tygodniu.</string>
     <string name="streak_return_toast">Passa czyszczenia powróci przy następnym czyszczeniu.</string>
     <string name="apk_card_title">Znaleziono stare instalatory</string>
     <string name="apk_card_subtitle">Usuń pozostałe pliki instalatorów i odzyskaj miejsce.</string>
@@ -133,7 +126,6 @@
     <string name="empty_folder_card_subtitle">Usuń nieużywane foldery natychmiast.</string>
     <string name="empty_folders_found_format">Znaleziono %1$d pustych folderów</string>
     <string name="clean_empty_folders">Usuń puste foldery</string>
-    <string name="empty_folders_cleaned">Puste foldery zostały usunięte</string>
     <string name="whatsapp_card_title">Pliki WhatsApp</string>
     <string name="whatsapp_card_subtitle">Wyczyść media, których już nie potrzebujesz.</string>
     <string name="clean_whatsapp">Wyczyść multimedia WhatsApp</string>
@@ -173,7 +165,6 @@
     <string name="cleaner_recommends">Rekomendacje Cleaner</string>
     <string name="image_optimizer_card_title">Optymalizator obrazów</string>
     <string name="image_optimizer_card_subtitle">Kompresuj zdjęcia bez utraty jakości.&#10;Zaoszczędź miejsce jednym stuknięciem.</string>
-    <string name="image_optimizer_last_format">Ostatnia optymalizacja: %1$s</string>
     <string name="cache_cleaner_card_title">Czyszczenie pamięci podręcznej</string>
     <string name="cache_cleaner_card_subtitle">Zwolnij miejsce usuwając pamięć podręczną aplikacji</string>
     <string name="large_files_card_title">Duże pliki</string>
@@ -249,13 +240,8 @@
     </plurals>
     <string name="no_files_found">Nie znaleziono plików</string>
     <string name="contacts_cleaner_title">Czyszczenie kontaktów</string>
-    <string name="no_duplicates_found">Brak duplikatów</string>
-    <string name="contacts_loading">Skanowanie kontaktów…</string>
     <string name="contacts_permission_rationale">Potrzebujemy dostępu do twoich kontaktów, aby znaleźć i połączyć duplikaty. Dane nigdy nie opuszczą twojego urządzenia.</string>
-    <string name="keep_newest_remove_older">Zachowaj najnowszy i usuń starsze</string>
-    <string name="merge_all_duplicates">Połącz wszystkie duplikaty</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Inteligentne czyszczenie</string>
     <string name="smart_clean_all">Inteligentne czyszczenie wszystkich</string>
     <string name="contacts_permission_denied">Odmowa uprawnień. Możesz je włączyć w ustawieniach systemu.</string>

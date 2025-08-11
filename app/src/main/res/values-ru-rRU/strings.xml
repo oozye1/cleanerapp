@@ -70,8 +70,6 @@
     <!-- Home -->
     <string name="delete_forever">Удалить навсегда</string>
     <string name="move_to_trash">Переместить в корзину</string>
-    <string name="cleaned_space">Очищенное пространство</string>
-    <string name="free_space">Свободное место</string>
     <string name="delete_forever_title">Удалить навсегда</string>
     <string name="delete_forever_message">Вы уверены, что хотите удалить эти файлы навсегда? Это действие нельзя отменить.</string>
     <string name="move_to_trash_title">Переместить в корзину</string>
@@ -104,10 +102,6 @@
         <item quantity="other">%1$d дней подряд — так держать!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Идеальная неделя! 💎 Вы это заслужили.</string>
-    <string name="streak_reward_day1">Хорошее начало!</string>
-    <string name="streak_reward_day3">Знаете, что можно сортировать по размеру?</string>
-    <string name="streak_reward_day5">Оцените системный мусор!</string>
-    <string name="streak_reward_day7">Идеальная неделя 🏅</string>
     <string name="streak_notification_title">Не прерывайте свою серию очисток!</string>
     <string name="streak_notification_daily">Пора почистить устройство и продолжить серию.</string>
     <string name="streak_notification_missed">Вчера чистка пропущена — наведите порядок, чтобы сохранить 🔥!</string>
@@ -118,7 +112,6 @@
     <string name="hide_clean_streak_message">Скрыть карточку серии очисток?</string>
     <string name="dont_show_again">Больше не показывать</string>
     <string name="preference_show_streak_card">Показывать карточку серии очисток</string>
-    <string name="streak_quiet_banner">Вы в тихом режиме. Серия возобновится на следующей неделе.</string>
     <string name="streak_return_toast">Серия очисток вернётся при следующей чистке.</string>
     <string name="apk_card_title">Найдены старые установщики</string>
     <string name="apk_card_subtitle">Удалите оставшиеся установочные файлы и освободите место.</string>
@@ -133,7 +126,6 @@
     <string name="empty_folder_card_subtitle">Мгновенно удаляйте неиспользуемые папки.</string>
     <string name="empty_folders_found_format">Найдено %1$d пустых папок</string>
     <string name="clean_empty_folders">Удалить пустые папки</string>
-    <string name="empty_folders_cleaned">Пустые папки удалены</string>
     <string name="whatsapp_card_title">Файлы WhatsApp</string>
     <string name="whatsapp_card_subtitle">Очистите медиа, которые вам больше не нужны.</string>
     <string name="clean_whatsapp">Очистить медиаданные WhatsApp</string>
@@ -173,7 +165,6 @@
     <string name="cleaner_recommends">Рекомендации Cleaner</string>
     <string name="image_optimizer_card_title">Оптимизация изображений</string>
     <string name="image_optimizer_card_subtitle">Сжимайте фото без потери качества.&#10;Экономьте место одним нажатием.</string>
-    <string name="image_optimizer_last_format">Последняя оптимизация: %1$s</string>
     <string name="cache_cleaner_card_title">Очистка кеша</string>
     <string name="cache_cleaner_card_subtitle">Освободите место, удалив кэш приложений</string>
     <string name="large_files_card_title">Крупные файлы</string>
@@ -249,13 +240,8 @@
     </plurals>
     <string name="no_files_found">Файлы не найдены</string>
     <string name="contacts_cleaner_title">Очистка контактов</string>
-    <string name="no_duplicates_found">Дубликаты не найдены</string>
-    <string name="contacts_loading">Сканирование контактов…</string>
     <string name="contacts_permission_rationale">Нам нужен доступ к вашим контактам, чтобы найти и объединить дубликаты. Данные никогда не покидают ваше устройство.</string>
-    <string name="keep_newest_remove_older">Сохранить новый &amp; удалить старые</string>
-    <string name="merge_all_duplicates">Объединить все дубликаты</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Умная очистка</string>
     <string name="smart_clean_all">Умная очистка всех</string>
     <string name="contacts_permission_denied">Доступ запрещён. Вы можете включить его в настройках системы.</string>

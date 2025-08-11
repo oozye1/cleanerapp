@@ -67,8 +67,6 @@
     <!-- Home -->
     <string name="delete_forever">Hapus selamanya</string>
     <string name="move_to_trash">Pindahkan ke sampah</string>
-    <string name="cleaned_space">Ruang yang Dibersihkan</string>
-    <string name="free_space">Ruang Kosong</string>
     <string name="delete_forever_title">Hapus Selamanya</string>
     <string name="delete_forever_message">Apakah Anda yakin ingin menghapus file-file ini selamanya? Tindakan ini tidak dapat dibatalkan.</string>
     <string name="move_to_trash_title">Pindahkan ke Sampah</string>
@@ -98,10 +96,6 @@
         <item quantity="other">%1$d hari berturut-turut — teruskan!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Minggu sempurna! 💎 Kamu pantas mendapatkannya.</string>
-    <string name="streak_reward_day1">Awalan yang bagus!</string>
-    <string name="streak_reward_day3">Tahukah kamu bisa mengurutkan berdasarkan ukuran?</string>
-    <string name="streak_reward_day5">Perkirakan junk sistem!</string>
-    <string name="streak_reward_day7">Minggu Sempurna 🏅</string>
     <string name="streak_notification_title">Pertahankan Rangkaian Bersihmu!</string>
     <string name="streak_notification_daily">Saatnya membersihkan perangkat dan teruskan rangkaianmu.</string>
     <string name="streak_notification_missed">Kamu tidak membersihkan kemarin — bersihkan sekarang agar 🔥 tetap menyala!</string>
@@ -112,7 +106,6 @@
     <string name="hide_clean_streak_message">Ingin menyembunyikan kartu Rangkaian Bersih?</string>
     <string name="dont_show_again">Jangan tampilkan lagi</string>
     <string name="preference_show_streak_card">Tampilkan Kartu Rangkaian Bersih</string>
-    <string name="streak_quiet_banner">Kamu sedang dalam mode senyap. Rangkaian bersih dilanjutkan minggu depan.</string>
     <string name="streak_return_toast">Rangkaian bersih akan kembali saat kamu membersihkan lagi.</string>
     <string name="apk_card_title">Pemasang Lama Ditemukan</string>
     <string name="apk_card_subtitle">Hapus file pemasang yang tersisa dan kosongkan ruang.</string>
@@ -124,7 +117,6 @@
     <string name="empty_folder_card_subtitle">Hapus folder yang tidak terpakai seketika.</string>
     <string name="empty_folders_found_format">Ditemukan %1$d folder kosong</string>
     <string name="clean_empty_folders">Hapus folder kosong</string>
-    <string name="empty_folders_cleaned">Folder kosong telah dihapus</string>
     <string name="whatsapp_card_title">File WhatsApp</string>
     <string name="whatsapp_card_subtitle">Bersihkan media yang tidak lagi dibutuhkan.</string>
     <string name="clean_whatsapp">Bersihkan Media WhatsApp</string>
@@ -164,7 +156,6 @@
     <string name="cleaner_recommends">Rekomendasi Cleaner</string>
     <string name="image_optimizer_card_title">Pengoptimal Gambar</string>
     <string name="image_optimizer_card_subtitle">Kompres foto tanpa mengurangi kualitas.&#10;Hemat ruang dengan satu ketukan.</string>
-    <string name="image_optimizer_last_format">Optimisasi terakhir: %1$s</string>
     <string name="cache_cleaner_card_title">Pembersih Cache</string>
     <string name="cache_cleaner_card_subtitle">Kosongkan ruang dari cache aplikasi</string>
     <string name="large_files_card_title">File besar</string>
@@ -225,13 +216,8 @@
     </plurals>
     <string name="no_files_found">Tidak ada file yang ditemukan</string>
     <string name="contacts_cleaner_title">Pembersih Kontak</string>
-    <string name="no_duplicates_found">Tidak ada duplikat ditemukan</string>
-    <string name="contacts_loading">Memindai kontak…</string>
     <string name="contacts_permission_rationale">Kami memerlukan akses ke kontak Anda untuk menemukan dan menggabungkan duplikat. Data tidak pernah meninggalkan perangkat Anda.</string>
-    <string name="keep_newest_remove_older">Simpan yang terbaru &amp; hapus yang lama</string>
-    <string name="merge_all_duplicates">Gabungkan semua duplikat</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Bersihkan Cerdas</string>
     <string name="smart_clean_all">Bersihkan Semua Cerdas</string>
     <string name="contacts_permission_denied">Izin ditolak. Anda dapat mengaktifkannya di pengaturan sistem.</string>

@@ -67,8 +67,6 @@
     <!-- Home -->
     <string name="delete_forever">Xóa vĩnh viễn</string>
     <string name="move_to_trash">Chuyển vào thùng rác</string>
-    <string name="cleaned_space">Dung lượng đã dọn dẹp</string>
-    <string name="free_space">Dung lượng trống</string>
     <string name="delete_forever_title">Xóa vĩnh viễn</string>
     <string name="delete_forever_message">Bạn có chắc chắn muốn xóa vĩnh viễn các tệp này không? Hành động này không thể hoàn tác.</string>
     <string name="move_to_trash_title">Chuyển vào thùng rác</string>
@@ -98,10 +96,6 @@
         <item quantity="other">%1$d ngày liên tiếp — tiếp tục nhé!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Tuần hoàn hảo! 💎 Bạn xứng đáng.</string>
-    <string name="streak_reward_day1">Khởi đầu tốt!</string>
-    <string name="streak_reward_day3">Bạn có biết có thể sắp xếp theo kích thước không?</string>
-    <string name="streak_reward_day5">Ước tính rác hệ thống!</string>
-    <string name="streak_reward_day7">Tuần hoàn hảo 🏅</string>
     <string name="streak_notification_title">Giữ vững chuỗi dọn dẹp của bạn!</string>
     <string name="streak_notification_daily">Đã đến lúc dọn thiết bị để tiếp tục chuỗi.</string>
     <string name="streak_notification_missed">Hôm qua bạn chưa dọn — dọn ngay để giữ 🔥!</string>
@@ -112,7 +106,6 @@
     <string name="hide_clean_streak_message">Bạn có muốn ẩn thẻ chuỗi dọn dẹp không?</string>
     <string name="dont_show_again">Không hiển thị lại</string>
     <string name="preference_show_streak_card">Hiển thị thẻ chuỗi dọn dẹp</string>
-    <string name="streak_quiet_banner">Bạn đang ở chế độ yên lặng. Chuỗi dọn dẹp sẽ tiếp tục vào tuần sau.</string>
     <string name="streak_return_toast">Chuỗi dọn dẹp sẽ trở lại lần dọn tiếp theo.</string>
     <string name="apk_card_title">Tìm thấy trình cài đặt cũ</string>
     <string name="apk_card_subtitle">Xóa tệp cài đặt còn sót lại để lấy lại dung lượng.</string>
@@ -124,7 +117,6 @@
     <string name="empty_folder_card_subtitle">Xóa ngay các thư mục không dùng.</string>
     <string name="empty_folders_found_format">Tìm thấy %1$d thư mục trống</string>
     <string name="clean_empty_folders">Xóa thư mục trống</string>
-    <string name="empty_folders_cleaned">Các thư mục trống đã được xóa</string>
     <string name="whatsapp_card_title">Tệp WhatsApp</string>
     <string name="whatsapp_card_subtitle">Dọn dẹp phương tiện bạn không cần nữa.</string>
     <string name="clean_whatsapp">Dọn sạch phương tiện WhatsApp</string>
@@ -164,7 +156,6 @@
     <string name="cleaner_recommends">Gợi ý từ Cleaner</string>
     <string name="image_optimizer_card_title">Trình tối ưu ảnh</string>
     <string name="image_optimizer_card_subtitle">Nén ảnh mà không giảm chất lượng.&#10;Tiết kiệm dung lượng chỉ với một chạm.</string>
-    <string name="image_optimizer_last_format">Tối ưu lần cuối: %1$s</string>
     <string name="cache_cleaner_card_title">Trình dọn bộ nhớ đệm</string>
     <string name="cache_cleaner_card_subtitle">Giải phóng dung lượng từ bộ nhớ đệm ứng dụng</string>
     <string name="large_files_card_title">Tệp lớn</string>
@@ -225,13 +216,8 @@
     </plurals>
     <string name="no_files_found">Không tìm thấy tệp nào</string>
     <string name="contacts_cleaner_title">Trình dọn liên hệ</string>
-    <string name="no_duplicates_found">Không tìm thấy liên hệ trùng</string>
-    <string name="contacts_loading">Đang quét liên hệ…</string>
     <string name="contacts_permission_rationale">Chúng tôi cần quyền truy cập danh bạ để tìm và gộp các bản trùng. Dữ liệu của bạn không bao giờ rời khỏi thiết bị.</string>
-    <string name="keep_newest_remove_older">Giữ mới nhất &amp; xóa bản cũ</string>
-    <string name="merge_all_duplicates">Gộp tất cả bản trùng</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Dọn dẹp thông minh</string>
     <string name="smart_clean_all">Dọn dẹp thông minh tất cả</string>
     <string name="contacts_permission_denied">Quyền bị từ chối. Bạn có thể bật lại trong cài đặt hệ thống.</string>

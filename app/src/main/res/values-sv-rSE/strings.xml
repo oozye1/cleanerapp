@@ -68,8 +68,6 @@
     <!-- Home -->
     <string name="delete_forever">Radera permanent</string>
     <string name="move_to_trash">Flytta till papperskorgen</string>
-    <string name="cleaned_space">Rensat utrymme</string>
-    <string name="free_space">Ledigt utrymme</string>
     <string name="delete_forever_title">Radera permanent</string>
     <string name="delete_forever_message">Är du säker på att du vill radera dessa filer permanent? Denna åtgärd kan inte ångras.</string>
     <string name="move_to_trash_title">Flytta till papperskorgen</string>
@@ -100,10 +98,6 @@
         <item quantity="other">%1$d dagar i rad — fortsätt så!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Perfekt vecka! 💎 Det har du förtjänat.</string>
-    <string name="streak_reward_day1">Bra start!</string>
-    <string name="streak_reward_day3">Visste du att du kan sortera efter storlek?</string>
-    <string name="streak_reward_day5">Uppskatta systemskräp!</string>
-    <string name="streak_reward_day7">Perfekt vecka 🏅</string>
     <string name="streak_notification_title">Fortsätt din städsvit!</string>
     <string name="streak_notification_daily">Dags att städa enheten och fortsätta sviten.</string>
     <string name="streak_notification_missed">Du städade inte igår – städa nu för att hålla 🔥 vid liv!</string>
@@ -114,7 +108,6 @@
     <string name="hide_clean_streak_message">Vill du dölja kortet för städsviten?</string>
     <string name="dont_show_again">Visa inte igen</string>
     <string name="preference_show_streak_card">Visa kortet Städsvit</string>
-    <string name="streak_quiet_banner">Du är i tyst läge. Städsviten återupptas nästa vecka.</string>
     <string name="streak_return_toast">Städsviten återkommer nästa gång du städar.</string>
     <string name="apk_card_title">Gamla installerare hittades</string>
     <string name="apk_card_subtitle">Ta bort kvarvarande installationsfiler och frigör utrymme.</string>
@@ -127,7 +120,6 @@
     <string name="empty_folder_card_subtitle">Ta bort oanvända mappar direkt.</string>
     <string name="empty_folders_found_format">%1$d tomma mappar hittades</string>
     <string name="clean_empty_folders">Radera tomma mappar</string>
-    <string name="empty_folders_cleaned">Tomma mappar har tagits bort</string>
     <string name="whatsapp_card_title">WhatsApp-filer</string>
     <string name="whatsapp_card_subtitle">Rensa bort media du inte längre behöver.</string>
     <string name="clean_whatsapp">Rensa WhatsApp-media</string>
@@ -167,7 +159,6 @@
     <string name="cleaner_recommends">Cleaner rekommenderar</string>
     <string name="image_optimizer_card_title">Bildoptimerare</string>
     <string name="image_optimizer_card_subtitle">Komprimera foton utan kvalitetsförlust.&#10;Spara utrymme med ett tryck.</string>
-    <string name="image_optimizer_last_format">Senaste optimering: %1$s</string>
     <string name="cache_cleaner_card_title">Cache-rensare</string>
     <string name="cache_cleaner_card_subtitle">Frigör utrymme från appcache</string>
     <string name="large_files_card_title">Stora filer</string>
@@ -233,13 +224,8 @@
     </plurals>
     <string name="no_files_found">Inga filer hittades</string>
     <string name="contacts_cleaner_title">Kontaktrensare</string>
-    <string name="no_duplicates_found">Inga dubletter hittades</string>
-    <string name="contacts_loading">Skannar kontakter…</string>
     <string name="contacts_permission_rationale">Vi behöver åtkomst till dina kontakter för att hitta och slå ihop dubletter. Data lämnar aldrig din enhet.</string>
-    <string name="keep_newest_remove_older">Behåll senaste &amp; ta bort äldre</string>
-    <string name="merge_all_duplicates">Slå ihop alla dubletter</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Smart rengöring</string>
     <string name="smart_clean_all">Rengör allt smart</string>
     <string name="contacts_permission_denied">Behörighet nekad. Du kan aktivera den i systeminställningarna.</string>

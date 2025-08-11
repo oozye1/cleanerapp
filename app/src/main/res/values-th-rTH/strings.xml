@@ -67,8 +67,6 @@
     <!-- Home -->
     <string name="delete_forever">ลบถาวร</string>
     <string name="move_to_trash">ย้ายไปที่ถังขยะ</string>
-    <string name="cleaned_space">พื้นที่ที่ทำความสะอาดแล้ว</string>
-    <string name="free_space">พื้นที่ว่าง</string>
     <string name="delete_forever_title">ลบถาวร</string>
     <string name="delete_forever_message">คุณแน่ใจหรือไม่ว่าต้องการลบไฟล์เหล่านี้อย่างถาวร? การกระทำนี้ไม่สามารถเลิกทำได้</string>
     <string name="move_to_trash_title">ย้ายไปที่ถังขยะ</string>
@@ -98,10 +96,6 @@
         <item quantity="other">%1$d วันติดต่อกัน — ทำต่อไป!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">สัปดาห์สมบูรณ์แบบ! 💎 คุณคู่ควร</string>
-    <string name="streak_reward_day1">เริ่มต้นได้ดี!</string>
-    <string name="streak_reward_day3">คุณรู้ไหมว่าจัดเรียงตามขนาดได้?</string>
-    <string name="streak_reward_day5">ประเมินไฟล์ขยะของระบบ!</string>
-    <string name="streak_reward_day7">สัปดาห์เพอร์เฟ็กต์ 🏅</string>
     <string name="streak_notification_title">รักษาสถิติการล้างของคุณไว้!</string>
     <string name="streak_notification_daily">ได้เวลาล้างเครื่องเพื่อรักษาสถิติแล้ว</string>
     <string name="streak_notification_missed">เมื่อวานคุณไม่ได้ล้าง — ล้างตอนนี้เพื่อให้ 🔥 ดำเนินต่อ!</string>
@@ -112,7 +106,6 @@
     <string name="hide_clean_streak_message">คุณต้องการซ่อนการ์ดสถิติการล้างหรือไม่?</string>
     <string name="dont_show_again">ไม่ต้องแสดงอีก</string>
     <string name="preference_show_streak_card">แสดงการ์ดสถิติการล้าง</string>
-    <string name="streak_quiet_banner">คุณอยู่ในโหมดเงียบ สถิติการล้างจะกลับมาในสัปดาห์หน้า</string>
     <string name="streak_return_toast">สถิติการล้างจะกลับมาเมื่อคุณล้างครั้งถัดไป</string>
     <string name="apk_card_title">พบตัวติดตั้งเก่า</string>
     <string name="apk_card_subtitle">ลบไฟล์ติดตั้งที่เหลือและคืนพื้นที่</string>
@@ -124,7 +117,6 @@
     <string name="empty_folder_card_subtitle">ลบโฟลเดอร์ที่ไม่ได้ใช้ทันที</string>
     <string name="empty_folders_found_format">พบโฟลเดอร์ว่าง %1$d โฟลเดอร์</string>
     <string name="clean_empty_folders">ลบโฟลเดอร์ว่าง</string>
-    <string name="empty_folders_cleaned">โฟลเดอร์ว่างถูกลบแล้ว</string>
     <string name="whatsapp_card_title">ไฟล์ WhatsApp</string>
     <string name="whatsapp_card_subtitle">ล้างสื่อที่คุณไม่ต้องการแล้ว</string>
     <string name="clean_whatsapp">ล้างสื่อ WhatsApp</string>
@@ -164,7 +156,6 @@
     <string name="cleaner_recommends">คำแนะนำจาก Cleaner</string>
     <string name="image_optimizer_card_title">ตัวเพิ่มประสิทธิภาพรูปภาพ</string>
     <string name="image_optimizer_card_subtitle">บีบอัดรูปภาพโดยไม่ลดคุณภาพ&#10;ประหยัดพื้นที่ด้วยการแตะครั้งเดียว</string>
-    <string name="image_optimizer_last_format">การเพิ่มประสิทธิภาพล่าสุด: %1$s</string>
     <string name="cache_cleaner_card_title">ตัวล้างแคช</string>
     <string name="cache_cleaner_card_subtitle">เพิ่มพื้นที่ว่างจากแคชของแอป</string>
     <string name="large_files_card_title">ไฟล์ขนาดใหญ่</string>
@@ -225,13 +216,8 @@
     </plurals>
     <string name="no_files_found">ไม่พบไฟล์</string>
     <string name="contacts_cleaner_title">ตัวล้างรายชื่อ</string>
-    <string name="no_duplicates_found">ไม่พบรายชื่อซ้ำ</string>
-    <string name="contacts_loading">กำลังสแกนรายชื่อ…</string>
     <string name="contacts_permission_rationale">เราต้องการสิทธิ์เข้าถึงรายชื่อของคุณเพื่อค้นหาและรวมรายการซ้ำ ข้อมูลจะไม่ออกจากอุปกรณ์ของคุณ</string>
-    <string name="keep_newest_remove_older">เก็บรายการใหม่สุดและลบรายการเก่า</string>
-    <string name="merge_all_duplicates">รวมรายการที่ซ้ำทั้งหมด</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">ทำความสะอาดอัจฉริยะ</string>
     <string name="smart_clean_all">ทำความสะอาดทั้งหมดอย่างอัจฉริยะ</string>
     <string name="contacts_permission_denied">ปฏิเสธการอนุญาต คุณสามารถเปิดได้ในตั้งค่าระบบ</string>

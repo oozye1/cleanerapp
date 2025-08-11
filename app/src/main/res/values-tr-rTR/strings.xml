@@ -68,8 +68,6 @@
     <!-- Home -->
     <string name="delete_forever">Kalıcı olarak sil</string>
     <string name="move_to_trash">Çöp kutusuna taşı</string>
-    <string name="cleaned_space">Temizlenen Alan</string>
-    <string name="free_space">Boş Alan</string>
     <string name="delete_forever_title">Kalıcı Olarak Sil</string>
     <string name="delete_forever_message">Bu dosyaları kalıcı olarak silmek istediğinizden emin misiniz? Bu işlem geri alınamaz.</string>
     <string name="move_to_trash_title">Çöp Kutusuna Taşı</string>
@@ -100,10 +98,6 @@
         <item quantity="other">%1$d gün üst üste — devam et!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Mükemmel hafta! 💎 Hak ettin.</string>
-    <string name="streak_reward_day1">Güzel başlangıç!</string>
-    <string name="streak_reward_day3">Boyuta göre sıralayabileceğini biliyor muydun?</string>
-    <string name="streak_reward_day5">Sistem çöpünü tahmin et!</string>
-    <string name="streak_reward_day7">Mükemmel Hafta 🏅</string>
     <string name="streak_notification_title">Temizlik Serini Sürdür!</string>
     <string name="streak_notification_daily">Cihazını temizleme zamanı, seriye devam et.</string>
     <string name="streak_notification_missed">Dün temizlemedin — 🔥 sürsün diye şimdi temizle!</string>
@@ -114,7 +108,6 @@
     <string name="hide_clean_streak_message">Temizlik Serisi kartını gizlemek ister misin?</string>
     <string name="dont_show_again">Bir daha gösterme</string>
     <string name="preference_show_streak_card">Temizlik Serisi Kartını Göster</string>
-    <string name="streak_quiet_banner">Sessiz moddasın. Seri gelecek hafta devam edecek.</string>
     <string name="streak_return_toast">Temizlik Serisi bir sonraki temizlemende geri döner.</string>
     <string name="apk_card_title">Eski Yükleyiciler Bulundu</string>
     <string name="apk_card_subtitle">Artık kalan yükleyici dosyalarını sil ve alan kazan.</string>
@@ -127,7 +120,6 @@
     <string name="empty_folder_card_subtitle">Kullanılmayan klasörleri anında sil.</string>
     <string name="empty_folders_found_format">%1$d boş klasör bulundu</string>
     <string name="clean_empty_folders">Boş klasörleri sil</string>
-    <string name="empty_folders_cleaned">Boş klasörler silindi</string>
     <string name="whatsapp_card_title">WhatsApp Dosyaları</string>
     <string name="whatsapp_card_subtitle">Artık ihtiyaç duymadığın medyaları temizle.</string>
     <string name="clean_whatsapp">WhatsApp Medyasını Temizle</string>
@@ -167,7 +159,6 @@
     <string name="cleaner_recommends">Cleaner Öneriyor</string>
     <string name="image_optimizer_card_title">Görüntü Optimize Edici</string>
     <string name="image_optimizer_card_subtitle">Fotoğrafları kalite kaybı olmadan sıkıştırın.&#10;Tek dokunuşla yer açın.</string>
-    <string name="image_optimizer_last_format">Son optimizasyon: %1$s</string>
     <string name="cache_cleaner_card_title">Önbellek Temizleyici</string>
     <string name="cache_cleaner_card_subtitle">Uygulama önbelleğinden alan boşaltın</string>
     <string name="large_files_card_title">Büyük dosyalar</string>
@@ -233,13 +224,8 @@
     </plurals>
     <string name="no_files_found">Dosya bulunamadı</string>
     <string name="contacts_cleaner_title">Kişi Temizleyici</string>
-    <string name="no_duplicates_found">Yinelenen kişi bulunamadı</string>
-    <string name="contacts_loading">Kişiler taranıyor…</string>
     <string name="contacts_permission_rationale">Yinelenenleri bulup birleştirmek için kişilerinizin erişimine ihtiyacımız var. Veriler cihazınızdan dışarı çıkmaz.</string>
-    <string name="keep_newest_remove_older">En yeniyi tut, eskileri sil</string>
-    <string name="merge_all_duplicates">Tüm yinelenenleri birleştir</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Akıllı Temizlik</string>
     <string name="smart_clean_all">Tümünü Akıllı Temizle</string>
     <string name="contacts_permission_denied">İzin reddedildi. Sistem ayarlarından etkinleştirebilirsiniz.</string>

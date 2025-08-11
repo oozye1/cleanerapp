@@ -68,8 +68,6 @@
     <!-- Home -->
     <string name="delete_forever">চিরতরে মুছুন</string>
     <string name="move_to_trash">ট্র্যাশে সরান</string>
-    <string name="cleaned_space">পরিষ্কার করা স্থান</string>
-    <string name="free_space">খালি স্থান</string>
     <string name="delete_forever_title">চিরতরে মুছুন</string>
     <string name="delete_forever_message">আপনি কি নিশ্চিত যে এই ফাইলগুলি চিরতরে মুছতে চান? এই কাজটি আর ফেরানো যাবে না।</string>
     <string name="move_to_trash_title">ট্র্যাশে সরান</string>
@@ -100,10 +98,6 @@
         <item quantity="other">%1$d দিন পরপর — চালিয়ে যান!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">পারফেক্ট সপ্তাহ! 💎 আপনি প্রাপ্য।</string>
-    <string name="streak_reward_day1">চমৎকার শুরু!</string>
-    <string name="streak_reward_day3">আপনি কি জানেন আকার অনুযায়ী বাছাই করা যায়?</string>
-    <string name="streak_reward_day5">সিস্টেমের জাঙ্ক অনুমান করুন!</string>
-    <string name="streak_reward_day7">পারফেক্ট সপ্তাহ 🏅</string>
     <string name="streak_notification_title">পরিষ্কার অভ্যাস চালিয়ে যান!</string>
     <string name="streak_notification_daily">আপনার ডিভাইস পরিষ্কার করুন এবং ধারাবাহিকতা বজায় রাখুন।</string>
     <string name="streak_notification_missed">আপনি গতকাল পরিষ্কার করেননি — 🔥 জিইয়ে রাখতে এখনই পরিষ্কার করুন!</string>
@@ -114,7 +108,6 @@
     <string name="hide_clean_streak_message">আপনি কি পরিষ্কার অভ্যাস কার্ড লুকাতে চান?</string>
     <string name="dont_show_again">আর দেখাবেন না</string>
     <string name="preference_show_streak_card">পরিষ্কার অভ্যাস কার্ড দেখান</string>
-    <string name="streak_quiet_banner">আপনি নীরব মোডে আছেন। পরিষ্কার অভ্যাস পরের সপ্তাহে আবার শুরু হবে।</string>
     <string name="streak_return_toast">পরেরবার পরিষ্কার করলে অভ্যাস ফিরে আসবে।</string>
     <string name="apk_card_title">পুরোনো ইনস্টলার পাওয়া গেছে</string>
     <string name="apk_card_subtitle">অবশিষ্ট ইনস্টলার ফাইল মুছে জায়গা উদ্ধার করুন।</string>
@@ -127,7 +120,6 @@
     <string name="empty_folder_card_subtitle">অব্যবহৃত ফোল্ডার সাথে সাথে মুছে ফেলুন।</string>
     <string name="empty_folders_found_format">%1$d টি খালি ফোল্ডার পাওয়া গেছে</string>
     <string name="clean_empty_folders">খালি ফোল্ডার মুছুন</string>
-    <string name="empty_folders_cleaned">খালি ফোল্ডারগুলি সরানো হয়েছে</string>
     <string name="whatsapp_card_title">হোয়াটসঅ্যাপ ফাইল</string>
     <string name="whatsapp_card_subtitle">আপনার দরকার নেই এমন মিডিয়া সরান।</string>
     <string name="clean_whatsapp">হোয়াটসঅ্যাপ মিডিয়া পরিষ্কার করুন</string>
@@ -167,7 +159,6 @@
     <string name="cleaner_recommends">ক্লিনার সুপারিশ করে</string>
     <string name="image_optimizer_card_title">ইমেজ অপটিমাইজার</string>
     <string name="image_optimizer_card_subtitle">গুণগত মান না হারিয়ে ছবি কম্প্রেস করুন.&#10;এক ট্যাপে জায়গা বাঁচান।</string>
-    <string name="image_optimizer_last_format">সর্বশেষ অপটিমাইজেশন: %1$s</string>
     <string name="cache_cleaner_card_title">ক্যাশে ক্লিনার</string>
     <string name="cache_cleaner_card_subtitle">অ্যাপ ক্যাশে থেকে জায়গা খালি করুন</string>
     <string name="large_files_card_title">বড় ফাইল</string>
@@ -233,13 +224,8 @@
     </plurals>
     <string name="no_files_found">কোনও ফাইল পাওয়া যায়নি</string>
     <string name="contacts_cleaner_title">কন্টাক্টস ক্লিনার</string>
-    <string name="no_duplicates_found">কোনো নকল পাওয়া যায়নি</string>
-    <string name="contacts_loading">কন্টাক্ট স্ক্যান করা হচ্ছে…</string>
     <string name="contacts_permission_rationale">ডুপ্লিকেট খুঁজে মেশানোর জন্য আমাদের আপনার কন্টাক্ট অ্যাক্সেস দরকার। ডেটা কখনোই আপনার ডিভাইস ছাড়ে না।</string>
-    <string name="keep_newest_remove_older">নতুনটি রাখুন, পুরোনো মুছে ফেলুন</string>
-    <string name="merge_all_duplicates">সব ডুপ্লিকেট মিশিয়ে দিন</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">বুদ্ধিমান পরিষ্কার</string>
     <string name="smart_clean_all">সব বুদ্ধিমান পরিষ্কার</string>
     <string name="contacts_permission_denied">অনুমতি প্রত্যাখ্যান করা হয়েছে। সিস্টেম সেটিংসে এটি চালু করতে পারেন।</string>

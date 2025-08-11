@@ -68,8 +68,6 @@
     <!-- Home -->
     <string name="delete_forever">Burahin nang tuluyan</string>
     <string name="move_to_trash">Ilipat sa trash</string>
-    <string name="cleaned_space">Nalinis na Espasyo</string>
-    <string name="free_space">Libreng Espasyo</string>
     <string name="delete_forever_title">Burahin Nang Tuluyan</string>
     <string name="delete_forever_message">Sigurado ka bang gusto mong burahin ang mga file na ito nang tuluyan? Hindi na maibabalik ang aksyong ito.</string>
     <string name="move_to_trash_title">Ilipat sa Trash</string>
@@ -100,10 +98,6 @@
         <item quantity="other">%1$d araw nang sunod-sunod — tuloy lang!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Perpektong linggo! 💎 Karapat-dapat ka.</string>
-    <string name="streak_reward_day1">Magandang simula!</string>
-    <string name="streak_reward_day3">Alam mo bang puwedeng mag-sort ayon sa laki?</string>
-    <string name="streak_reward_day5">Tantiya ang system junk!</string>
-    <string name="streak_reward_day7">Perpektong Linggo 🏅</string>
     <string name="streak_notification_title">Panatilihin ang Clean Streak mo!</string>
     <string name="streak_notification_daily">Panahon nang linisin ang device mo at ituloy ang streak.</string>
     <string name="streak_notification_missed">Hindi ka naglinis kahapon — linisin na ngayon para manatili ang 🔥!</string>
@@ -114,7 +108,6 @@
     <string name="hide_clean_streak_message">Gusto mo bang itago ang Clean Streak card mo?</string>
     <string name="dont_show_again">Huwag ipakita muli</string>
     <string name="preference_show_streak_card">Ipakita ang Clean Streak Card</string>
-    <string name="streak_quiet_banner">Nasa tahimik na mode ka. Magpapatuloy ang streak sa susunod na linggo.</string>
     <string name="streak_return_toast">Babalik ang Clean Streak sa susunod mong paglilinis.</string>
     <string name="apk_card_title">Natagpuan ang mga Lumang Installer</string>
     <string name="apk_card_subtitle">Alisin ang natirang installer files at bawiin ang espasyo.</string>
@@ -127,7 +120,6 @@
     <string name="empty_folder_card_subtitle">Agad na tanggalin ang hindi nagagamit na mga folder.</string>
     <string name="empty_folders_found_format">%1$d na walang laman na folder ang nakita</string>
     <string name="clean_empty_folders">Burahin ang mga walang lamang folder</string>
-    <string name="empty_folders_cleaned">Natanggal ang mga walang laman na folder</string>
     <string name="whatsapp_card_title">Mga WhatsApp File</string>
     <string name="whatsapp_card_subtitle">Linisin ang media na hindi mo na kailangan.</string>
     <string name="clean_whatsapp">I-clear ang WhatsApp Media</string>
@@ -167,7 +159,6 @@
     <string name="cleaner_recommends">Inirerekomenda ng Cleaner</string>
     <string name="image_optimizer_card_title">Tagapag-optimize ng Larawan</string>
     <string name="image_optimizer_card_subtitle">I-compress ang mga larawan nang hindi nawawala ang kalidad.&#10;Magtipid ng puwang sa isang tap.</string>
-    <string name="image_optimizer_last_format">Huling pag-optimize: %1$s</string>
     <string name="cache_cleaner_card_title">Panglinis ng Cache</string>
     <string name="cache_cleaner_card_subtitle">Magbakante ng puwang mula sa cache ng app</string>
     <string name="large_files_card_title">Malalaking file</string>
@@ -233,13 +224,8 @@
     </plurals>
     <string name="no_files_found">Walang nahanap na file</string>
     <string name="contacts_cleaner_title">Panglinis ng Contacts</string>
-    <string name="no_duplicates_found">Walang nakitang dobleng contact</string>
-    <string name="contacts_loading">Sinusuri ang mga contact…</string>
     <string name="contacts_permission_rationale">Kailangan naming ma-access ang iyong mga contact para mahanap at pagsamahin ang mga dobleng entry. Hindi umaalis ang datos sa iyong device.</string>
-    <string name="keep_newest_remove_older">Panatilihin ang pinakabago at alisin ang luma</string>
-    <string name="merge_all_duplicates">Pagsamahin lahat ng dobleng contact</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Matalinong Linis</string>
     <string name="smart_clean_all">Matalinong Linisin Lahat</string>
     <string name="contacts_permission_denied">Tinanggihan ang permiso. Maaari mo itong paganahin sa mga setting ng system.</string>

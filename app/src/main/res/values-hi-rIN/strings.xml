@@ -68,8 +68,6 @@
     <!-- Home -->
     <string name="delete_forever">हमेशा के लिए हटाएं</string>
     <string name="move_to_trash">ट्रैश में ले जाएं</string>
-    <string name="cleaned_space">साफ़ किया गया स्थान</string>
-    <string name="free_space">खाली स्थान</string>
     <string name="delete_forever_title">हमेशा के लिए हटाएं</string>
     <string name="delete_forever_message">क्या आप वाकई इन फ़ाइलों को हमेशा के लिए हटाना चाहते हैं? यह कार्रवाई पूर्ववत नहीं की जा सकती।</string>
     <string name="move_to_trash_title">ट्रैश में ले जाएं</string>
@@ -100,10 +98,6 @@
         <item quantity="other">%1$d दिन लगातार — जारी रखें!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">परफेक्ट सप्ताह! 💎 आपने इसे कमाया है.</string>
-    <string name="streak_reward_day1">अच्छी शुरुआत!</string>
-    <string name="streak_reward_day3">क्या आप जानते हैं कि आप आकार के आधार पर छाँट सकते हैं?</string>
-    <string name="streak_reward_day5">सिस्टम जंक का अनुमान लगाएँ!</string>
-    <string name="streak_reward_day7">परफेक्ट सप्ताह 🏅</string>
     <string name="streak_notification_title">अपनी क्लीन स्ट्रीक जारी रखें!</string>
     <string name="streak_notification_daily">अपना डिवाइस साफ़ करने का समय है और स्ट्रीक जारी रखें.</string>
     <string name="streak_notification_missed">आपने कल सफाई नहीं की — 🔥 बनाए रखने के लिए अभी साफ़ करें!</string>
@@ -114,7 +108,6 @@
     <string name="hide_clean_streak_message">क्या आप अपनी क्लीन स्ट्रीक कार्ड छिपाना चाहते हैं?</string>
     <string name="dont_show_again">फिर से न दिखाएँ</string>
     <string name="preference_show_streak_card">क्लीन स्ट्रीक कार्ड दिखाएँ</string>
-    <string name="streak_quiet_banner">आप शांत मोड में हैं. क्लीन स्ट्रीक अगले हफ्ते फिर शुरू होगी.</string>
     <string name="streak_return_toast">अगली बार सफाई करने पर क्लीन स्ट्रीक वापस होगी.</string>
     <string name="apk_card_title">पुराने इंस्टॉलर पाए गए</string>
     <string name="apk_card_subtitle">बचे हुए इंस्टॉलर फ़ाइलें हटाएँ और जगह वापस पाएं.</string>
@@ -127,7 +120,6 @@
     <string name="empty_folder_card_subtitle">अनउपयोगी फ़ोल्डर तुरंत हटाएँ।</string>
     <string name="empty_folders_found_format">%1$d खाली फ़ोल्डर मिले</string>
     <string name="clean_empty_folders">खाली फ़ोल्डर हटाएं</string>
-    <string name="empty_folders_cleaned">खाली फ़ोल्डर हटाए गए</string>
     <string name="whatsapp_card_title">व्हाट्सएप फ़ाइलें</string>
     <string name="whatsapp_card_subtitle">वे मीडिया हटाएँ जिनकी अब ज़रूरत नहीं.</string>
     <string name="clean_whatsapp">व्हाट्सएप मीडिया साफ़ करें</string>
@@ -167,7 +159,6 @@
     <string name="cleaner_recommends">क्लीनर की सिफारिशें</string>
     <string name="image_optimizer_card_title">इमेज ऑप्टिमाइज़र</string>
     <string name="image_optimizer_card_subtitle">गुणवत्ता खोए बिना फोटो कंप्रेस करें।&#10;एक टैप में जगह बचाएं।</string>
-    <string name="image_optimizer_last_format">अंतिम ऑप्टिमाइजेशन: %1$s</string>
     <string name="cache_cleaner_card_title">कैश क्लीनर</string>
     <string name="cache_cleaner_card_subtitle">ऐप कैश से जगह खाली करें</string>
     <string name="large_files_card_title">बड़ी फ़ाइलें</string>
@@ -233,13 +224,8 @@
     </plurals>
     <string name="no_files_found">कोई फ़ाइल नहीं मिली</string>
     <string name="contacts_cleaner_title">संपर्क क्लीनर</string>
-    <string name="no_duplicates_found">कोई डुप्लीकेट नहीं मिला</string>
-    <string name="contacts_loading">संपर्क स्कैन किए जा रहे हैं…</string>
     <string name="contacts_permission_rationale">डुप्लीकेट खोजने और मिलाने के लिए हमें आपके संपर्कों की अनुमति चाहिए। डेटा कभी भी आपके डिवाइस से बाहर नहीं जाता।</string>
-    <string name="keep_newest_remove_older">नवीनतम रखें और पुराने हटाएँ</string>
-    <string name="merge_all_duplicates">सभी डुप्लीकेट मिलाएँ</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">स्मार्ट क्लीन</string>
     <string name="smart_clean_all">सब कुछ स्मार्ट क्लीन</string>
     <string name="contacts_permission_denied">अनुमति अस्वीकृत। आप इसे सिस्टम सेटिंग में सक्षम कर सकते हैं।</string>

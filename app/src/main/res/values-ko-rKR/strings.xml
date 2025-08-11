@@ -67,8 +67,6 @@
     <!-- Home -->
     <string name="delete_forever">영구 삭제</string>
     <string name="move_to_trash">휴지통으로 이동</string>
-    <string name="cleaned_space">정리된 공간</string>
-    <string name="free_space">사용 가능한 공간</string>
     <string name="delete_forever_title">영구 삭제</string>
     <string name="delete_forever_message">이 파일을 영구적으로 삭제하시겠습니까? 이 작업은 되돌릴 수 없습니다.</string>
     <string name="move_to_trash_title">휴지통으로 이동</string>
@@ -98,10 +96,6 @@
         <item quantity="other">%1$d일 연속 — 계속 유지하세요!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">완벽한 한 주! 💎 자격이 있습니다.</string>
-    <string name="streak_reward_day1">좋은 시작이에요!</string>
-    <string name="streak_reward_day3">크기별로 정렬할 수 있다는 사실, 알고 계셨나요?</string>
-    <string name="streak_reward_day5">시스템 정크를 추정해 보세요!</string>
-    <string name="streak_reward_day7">완벽한 주 🏅</string>
     <string name="streak_notification_title">클린 연속 기록을 이어가세요!</string>
     <string name="streak_notification_daily">기기를 정리하고 연속 기록을 유지할 시간입니다.</string>
     <string name="streak_notification_missed">어제 청소하지 않았습니다 — 지금 청소해서 🔥을 유지하세요!</string>
@@ -112,7 +106,6 @@
     <string name="hide_clean_streak_message">클린 연속 기록 카드를 숨기시겠습니까?</string>
     <string name="dont_show_again">다시 표시하지 않기</string>
     <string name="preference_show_streak_card">클린 연속 기록 카드 표시</string>
-    <string name="streak_quiet_banner">조용한 모드입니다. 클린 연속 기록은 다음 주에 다시 시작됩니다.</string>
     <string name="streak_return_toast">다음 청소 시 클린 연속 기록이 돌아옵니다.</string>
     <string name="apk_card_title">오래된 설치 프로그램 발견</string>
     <string name="apk_card_subtitle">남은 설치 파일을 삭제하여 공간을 확보하세요.</string>
@@ -124,7 +117,6 @@
     <string name="empty_folder_card_subtitle">사용하지 않는 폴더를 즉시 삭제합니다.</string>
     <string name="empty_folders_found_format">빈 폴더 %1$d개 발견</string>
     <string name="clean_empty_folders">빈 폴더 삭제</string>
-    <string name="empty_folders_cleaned">빈 폴더가 삭제되었습니다</string>
     <string name="whatsapp_card_title">WhatsApp 파일</string>
     <string name="whatsapp_card_subtitle">더 이상 필요 없는 미디어를 정리하세요.</string>
     <string name="clean_whatsapp">WhatsApp 미디어 정리</string>
@@ -164,7 +156,6 @@
     <string name="cleaner_recommends">Cleaner 추천</string>
     <string name="image_optimizer_card_title">이미지 최적화</string>
     <string name="image_optimizer_card_subtitle">품질 저하 없이 사진을 압축합니다.&#10;한 번 탭으로 공간을 절약하세요.</string>
-    <string name="image_optimizer_last_format">마지막 최적화: %1$s</string>
     <string name="cache_cleaner_card_title">캐시 클리너</string>
     <string name="cache_cleaner_card_subtitle">앱 캐시에서 공간 확보</string>
     <string name="large_files_card_title">큰 파일</string>
@@ -225,13 +216,8 @@
     </plurals>
     <string name="no_files_found">파일을 찾을 수 없습니다.</string>
     <string name="contacts_cleaner_title">연락처 클리너</string>
-    <string name="no_duplicates_found">중복된 연락처가 없습니다</string>
-    <string name="contacts_loading">연락처를 스캔하는 중…</string>
     <string name="contacts_permission_rationale">중복을 찾고 병합하려면 연락처 접근 권한이 필요합니다. 데이터는 절대 기기를 벗어나지 않습니다.</string>
-    <string name="keep_newest_remove_older">최신만 남기고 나머지 삭제</string>
-    <string name="merge_all_duplicates">모든 중복 병합</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">스마트 클린</string>
     <string name="smart_clean_all">전체 스마트 클린</string>
     <string name="contacts_permission_denied">권한이 거부되었습니다. 시스템 설정에서 활성화할 수 있습니다.</string>

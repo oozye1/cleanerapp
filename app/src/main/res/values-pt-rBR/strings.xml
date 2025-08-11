@@ -69,8 +69,6 @@
     <!-- Home -->
     <string name="delete_forever">Excluir para sempre</string>
     <string name="move_to_trash">Mover para a lixeira</string>
-    <string name="cleaned_space">Espaço Limpo</string>
-    <string name="free_space">Espaço Livre</string>
     <string name="delete_forever_title">Excluir Para Sempre</string>
     <string name="delete_forever_message">Tem certeza de que deseja excluir esses arquivos para sempre? Esta ação não pode ser desfeita.</string>
     <string name="move_to_trash_title">Mover para a Lixeira</string>
@@ -102,10 +100,6 @@
         <item quantity="many">%1$d dias seguidos — continue assim!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Semana perfeita! 💎 Você merece.</string>
-    <string name="streak_reward_day1">Bom começo!</string>
-    <string name="streak_reward_day3">Sabia que dá pra ordenar por tamanho?</string>
-    <string name="streak_reward_day5">Estime o lixo do sistema!</string>
-    <string name="streak_reward_day7">Semana Perfeita 🏅</string>
     <string name="streak_notification_title">Mantenha sua sequência de limpeza!</string>
     <string name="streak_notification_daily">Hora de limpar o aparelho e continuar na sequência.</string>
     <string name="streak_notification_missed">Você não limpou ontem — limpe agora para manter o 🔥!</string>
@@ -116,7 +110,6 @@
     <string name="hide_clean_streak_message">Deseja ocultar o cartão de sequência de limpeza?</string>
     <string name="dont_show_again">Não mostrar novamente</string>
     <string name="preference_show_streak_card">Mostrar Cartão de Sequência de Limpeza</string>
-    <string name="streak_quiet_banner">Você está no modo silencioso. A sequência volta na próxima semana.</string>
     <string name="streak_return_toast">A sequência de limpeza voltará na próxima limpeza.</string>
     <string name="apk_card_title">Instaladores Antigos Encontrados</string>
     <string name="apk_card_subtitle">Remova arquivos de instalador restantes e libere espaço.</string>
@@ -130,7 +123,6 @@
     <string name="empty_folder_card_subtitle">Remova pastas não usadas instantaneamente.</string>
     <string name="empty_folders_found_format">%1$d pastas vazias encontradas</string>
     <string name="clean_empty_folders">Excluir pastas vazias</string>
-    <string name="empty_folders_cleaned">Pastas vazias removidas</string>
     <string name="whatsapp_card_title">Arquivos do WhatsApp</string>
     <string name="whatsapp_card_subtitle">Limpe as mídias de que você não precisa mais.</string>
     <string name="clean_whatsapp">Limpar mídias do WhatsApp</string>
@@ -170,7 +162,6 @@
     <string name="cleaner_recommends">Recomendações do Cleaner</string>
     <string name="image_optimizer_card_title">Otimizador de imagens</string>
     <string name="image_optimizer_card_subtitle">Comprime fotos sem perder qualidade.&#10;Economize espaço com um toque.</string>
-    <string name="image_optimizer_last_format">Última otimização: %1$s</string>
     <string name="cache_cleaner_card_title">Limpador de cache</string>
     <string name="cache_cleaner_card_subtitle">Libere espaço do cache dos apps</string>
     <string name="large_files_card_title">Arquivos grandes</string>
@@ -241,13 +232,8 @@
     </plurals>
     <string name="no_files_found">Nenhum arquivo encontrado</string>
     <string name="contacts_cleaner_title">Limpeza de contatos</string>
-    <string name="no_duplicates_found">Nenhum duplicado encontrado</string>
-    <string name="contacts_loading">Analisando contatos…</string>
     <string name="contacts_permission_rationale">Precisamos acessar seus contatos para localizar e mesclar duplicados. Seus dados nunca saem do dispositivo.</string>
-    <string name="keep_newest_remove_older">Manter o mais recente &amp; remover os antigos</string>
-    <string name="merge_all_duplicates">Mesclar todos os duplicados</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Limpeza Inteligente</string>
     <string name="smart_clean_all">Limpeza Inteligente de Tudo</string>
     <string name="contacts_permission_denied">Permissão negada. Você pode ativá-la nas configurações do sistema.</string>

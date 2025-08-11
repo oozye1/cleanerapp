@@ -68,8 +68,6 @@
     <!-- Home -->
     <string name="delete_forever">ہمیشہ کے لیے حذف کریں</string>
     <string name="move_to_trash">ردی کی ٹوکری میں منتقل کریں</string>
-    <string name="cleaned_space">صاف شدہ جگہ</string>
-    <string name="free_space">خالی جگہ</string>
     <string name="delete_forever_title">ہمیشہ کے لیے حذف کریں</string>
     <string name="delete_forever_message">کیا آپ واقعی ان فائلوں کو ہمیشہ کے لیے حذف کرنا چاہتے ہیں؟ اس کارروائی کو واپس نہیں کیا جا سکتا۔</string>
     <string name="move_to_trash_title">ردی کی ٹوکری میں منتقل کریں</string>
@@ -100,10 +98,6 @@
         <item quantity="other">%1$d دن مسلسل — جاری رکھیں!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">کامل ہفتہ! 💎 آپ نے حق دار ہو۔</string>
-    <string name="streak_reward_day1">اچھا آغاز!</string>
-    <string name="streak_reward_day3">کیا آپ جانتے ہیں کہ آپ سائز کے مطابق ترتیب دے سکتے ہیں؟</string>
-    <string name="streak_reward_day5">سسٹم جنک کا اندازہ لگائیں!</string>
-    <string name="streak_reward_day7">کامل ہفتہ 🏅</string>
     <string name="streak_notification_title">اپنا صفائی سلسلہ جاری رکھیں!</string>
     <string name="streak_notification_daily">اپنا آلہ صاف کرنے اور سلسلہ برقرار رکھنے کا وقت۔</string>
     <string name="streak_notification_missed">آپ نے کل صفائی نہیں کی — 🔥 برقرار رکھنے کے لیے ابھی صاف کریں!</string>
@@ -114,7 +108,6 @@
     <string name="hide_clean_streak_message">کیا آپ صفائی سلسلہ کارڈ چھپانا چاہتے ہیں؟</string>
     <string name="dont_show_again">دوبارہ نہ دکھائیں</string>
     <string name="preference_show_streak_card">صفائی سلسلہ کارڈ دکھائیں</string>
-    <string name="streak_quiet_banner">آپ خاموش موڈ میں ہیں۔ صفائی سلسلہ اگلے ہفتے دوبارہ شروع ہوگا۔</string>
     <string name="streak_return_toast">اگلی صفائی پر صفائی سلسلہ واپس آجائے گا۔</string>
     <string name="apk_card_title">پرانے انسٹالر مل گئے</string>
     <string name="apk_card_subtitle">باقی رہ جانے والی انسٹالر فائلیں ہٹا کر جگہ خالی کریں۔</string>
@@ -127,7 +120,6 @@
     <string name="empty_folder_card_subtitle">غیر استعمال شدہ فولڈرز فوراً حذف کریں۔</string>
     <string name="empty_folders_found_format">%1$d خالی فولڈرز ملے</string>
     <string name="clean_empty_folders">خالی فولڈرز حذف کریں</string>
-    <string name="empty_folders_cleaned">خالی فولڈرز حذف کر دیے گئے</string>
     <string name="whatsapp_card_title">واٹس ایپ فائلیں</string>
     <string name="whatsapp_card_subtitle">وہ میڈیا صاف کریں جس کی آپ کو ضرورت نہیں۔</string>
     <string name="clean_whatsapp">واٹس ایپ میڈیا صاف کریں</string>
@@ -167,7 +159,6 @@
     <string name="cleaner_recommends">Cleaner کی سفارشات</string>
     <string name="image_optimizer_card_title">امیج آپٹیمائزر</string>
     <string name="image_optimizer_card_subtitle">بغیر معیار کھوئے تصاویر کمپریس کریں۔&#10;ایک ٹیپ سے جگہ بچائیں۔</string>
-    <string name="image_optimizer_last_format">آخری آپٹیمائزیشن: %1$s</string>
     <string name="cache_cleaner_card_title">کیچ کلینر</string>
     <string name="cache_cleaner_card_subtitle">ایپ کیچ سے جگہ خالی کریں</string>
     <string name="large_files_card_title">بڑی فائلیں</string>
@@ -233,13 +224,8 @@
     </plurals>
     <string name="no_files_found">کوئی فائل نہیں ملی</string>
     <string name="contacts_cleaner_title">کانٹیکٹ کلینر</string>
-    <string name="no_duplicates_found">کوئی ڈپلیکیٹ نہیں ملا</string>
-    <string name="contacts_loading">کانٹیکٹس اسکین ہو رہے ہیں…</string>
     <string name="contacts_permission_rationale">ڈپلیکیٹ تلاش کرنے اور ملانے کے لیے ہمیں آپ کے کانٹیکٹس تک رسائی چاہیے۔ آپ کا ڈیٹا کبھی بھی آپ کی ڈیوائس سے باہر نہیں جاتا۔</string>
-    <string name="keep_newest_remove_older">جدید کو رکھیں اور پرانے حذف کریں</string>
-    <string name="merge_all_duplicates">تمام ڈپلیکیٹ ملائیں</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">سمارٹ صفائی</string>
     <string name="smart_clean_all">تمام کی سمارٹ صفائی</string>
     <string name="contacts_permission_denied">اجازت مسترد کر دی گئی۔ آپ اسے سسٹم سیٹنگز میں فعال کر سکتے ہیں.</string>

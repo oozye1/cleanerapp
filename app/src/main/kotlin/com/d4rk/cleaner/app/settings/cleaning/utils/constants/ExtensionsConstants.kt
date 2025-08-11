@@ -11,6 +11,5 @@ object ExtensionsConstants {
     const val WINDOWS_EXTENSIONS = "windows_extensions"
     const val OFFICE_EXTENSIONS = "office_extensions"
     const val FONT_EXTENSIONS = "font_extensions"
-    const val TEXT_EXTENSIONS = "text_extensions"
     const val OTHER_EXTENSIONS = "other_extensions"
 }

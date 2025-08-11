@@ -72,8 +72,6 @@
     <!-- Home -->
     <string name="delete_forever">حذف نهائي</string>
     <string name="move_to_trash">نقل لسلة المهملات</string>
-    <string name="cleaned_space">المساحة اللي اتنضفت</string>
-    <string name="free_space">مساحة فاضية</string>
     <string name="delete_forever_title">حذف نهائي</string>
     <string name="delete_forever_message">متأكد إنك عايز تحذف الملفات دي بشكل نهائي؟ الخطوة دي مش هينفع ترجع فيها.</string>
     <string name="move_to_trash_title">نقل لسلة المهملات</string>
@@ -108,10 +106,6 @@
         <item quantity="other">%1$d يومًا على التوالي — استمر!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">أسبوع مثالي! 💎 تستحق ذلك.</string>
-    <string name="streak_reward_day1">بداية موفقة!</string>
-    <string name="streak_reward_day3">هل تعلم أنه يمكنك الفرز حسب الحجم؟</string>
-    <string name="streak_reward_day5">قم بتقدير نفايات النظام!</string>
-    <string name="streak_reward_day7">أسبوع مثالي 🏅</string>
     <string name="streak_notification_title">واصل سلسلة التنظيف الخاصة بك!</string>
     <string name="streak_notification_daily">حان وقت تنظيف جهازك للحفاظ على السلسلة.</string>
     <string name="streak_notification_missed">لم تنظف بالأمس — نظف الآن لتحافظ على 🔥!</string>
@@ -122,7 +116,6 @@
     <string name="hide_clean_streak_message">هل تود إخفاء بطاقة سلسلة التنظيف؟</string>
     <string name="dont_show_again">لا تظهر مرة أخرى</string>
     <string name="preference_show_streak_card">إظهار بطاقة سلسلة التنظيف</string>
-    <string name="streak_quiet_banner">أنت في الوضع الصامت. ستستأنف السلسلة الأسبوع القادم.</string>
     <string name="streak_return_toast">ستعود سلسلة التنظيف في المرة القادمة التي تنظف فيها.</string>
     <string name="apk_card_title">تم العثور على مثبّتين قديمين</string>
     <string name="apk_card_subtitle">إزالة ملفات التثبيت المتبقية واستعادة المساحة.</string>
@@ -139,7 +132,6 @@
     <string name="empty_folder_card_subtitle">احذف المجلدات غير المستخدمة فوراً.</string>
     <string name="empty_folders_found_format">%1$d مجلد فارغ تم العثور عليه</string>
     <string name="clean_empty_folders">حذف المجلدات الفاضية</string>
-    <string name="empty_folders_cleaned">تم حذف المجلدات الفارغة</string>
     <string name="whatsapp_card_title">ملفات واتساب</string>
     <string name="whatsapp_card_subtitle">امسح الوسائط التي لم تعد تحتاجها.</string>
     <string name="clean_whatsapp">تنظيف وسائط واتساب</string>
@@ -179,7 +171,6 @@
     <string name="cleaner_recommends">يوصي Cleaner</string>
     <string name="image_optimizer_card_title">محسن الصور</string>
     <string name="image_optimizer_card_subtitle">ضغط الصور دون فقدان الجودة.&#10;وفر المساحة بلمسة واحدة.</string>
-    <string name="image_optimizer_last_format">آخر تحسين: %1$s</string>
     <string name="cache_cleaner_card_title">منظف الكاش</string>
     <string name="cache_cleaner_card_subtitle">حرر المساحة من ذاكرة التطبيقات المؤقتة</string>
     <string name="large_files_card_title">ملفات كبيرة</string>
@@ -265,13 +256,8 @@
     </plurals>
     <string name="no_files_found">مفيش ملفات</string>
     <string name="contacts_cleaner_title">منظف جهات الاتصال</string>
-    <string name="no_duplicates_found">لم يتم العثور على نسخ مكررة</string>
-    <string name="contacts_loading">يتم فحص جهات الاتصال…</string>
     <string name="contacts_permission_rationale">نحتاج للوصول إلى جهات الاتصال للعثور على المكررات ودمجها. لا تغادر بياناتك جهازك.</string>
-    <string name="keep_newest_remove_older">احتفظ بالأحدث واحذف الأقدم</string>
-    <string name="merge_all_duplicates">دمج كل المكررات</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">تنظيف ذكي</string>
     <string name="smart_clean_all">تنظيف ذكي للجميع</string>
     <string name="contacts_permission_denied">تم رفض الإذن. يمكنك تمكينه من إعدادات النظام.</string>

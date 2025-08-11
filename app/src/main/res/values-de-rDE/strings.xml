@@ -68,8 +68,6 @@
     <!-- Home -->
     <string name="delete_forever">Endgültig löschen</string>
     <string name="move_to_trash">In den Papierkorb verschieben</string>
-    <string name="cleaned_space">Bereinigter Speicherplatz</string>
-    <string name="free_space">Freier Speicherplatz</string>
     <string name="delete_forever_title">Endgültig löschen</string>
     <string name="delete_forever_message">Sind Sie sicher, dass Sie diese Dateien endgültig löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.</string>
     <string name="move_to_trash_title">In den Papierkorb verschieben</string>
@@ -100,10 +98,6 @@
         <item quantity="other">%1$d Tage infolge — weiter so!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Perfekte Woche! 💎 Verdient.</string>
-    <string name="streak_reward_day1">Guter Start!</string>
-    <string name="streak_reward_day3">Wusstest du, dass du nach Größe sortieren kannst?</string>
-    <string name="streak_reward_day5">Schätze Systemmüll!</string>
-    <string name="streak_reward_day7">Perfekte Woche 🏅</string>
     <string name="streak_notification_title">Halte deine Reinigungsserie am Laufen!</string>
     <string name="streak_notification_daily">Zeit, dein Gerät zu säubern und die Serie fortzusetzen.</string>
     <string name="streak_notification_missed">Gestern nicht gereinigt — jetzt putzen, um das 🔥 am Leben zu halten!</string>
@@ -114,7 +108,6 @@
     <string name="hide_clean_streak_message">Möchtest du deine Reinigungsserien-Karte ausblenden?</string>
     <string name="dont_show_again">Nicht mehr anzeigen</string>
     <string name="preference_show_streak_card">Reinigungsserien-Karte anzeigen</string>
-    <string name="streak_quiet_banner">Du bist im Ruhemodus. Die Serie wird nächste Woche fortgesetzt.</string>
     <string name="streak_return_toast">Die Reinigungsserie kehrt beim nächsten Reinigen zurück.</string>
     <string name="apk_card_title">Alte Installer gefunden</string>
     <string name="apk_card_subtitle">Entferne verbleibende Installationsdateien und gewinne Speicherplatz zurück.</string>
@@ -127,7 +120,6 @@
     <string name="empty_folder_card_subtitle">Nicht genutzte Ordner sofort entfernen.</string>
     <string name="empty_folders_found_format">%1$d leere Ordner gefunden</string>
     <string name="clean_empty_folders">Leere Ordner löschen</string>
-    <string name="empty_folders_cleaned">Leere Ordner wurden entfernt</string>
     <string name="whatsapp_card_title">WhatsApp-Dateien</string>
     <string name="whatsapp_card_subtitle">Lösche Medien, die du nicht mehr brauchst.</string>
     <string name="clean_whatsapp">WhatsApp-Medien bereinigen</string>
@@ -167,7 +159,6 @@
     <string name="cleaner_recommends">Cleaner empfiehlt</string>
     <string name="image_optimizer_card_title">Bildoptimierer</string>
     <string name="image_optimizer_card_subtitle">Fotos ohne Qualitätsverlust komprimieren.&#10;Mit einem Tipp Speicher sparen.</string>
-    <string name="image_optimizer_last_format">Letzte Optimierung: %1$s</string>
     <string name="cache_cleaner_card_title">Cache-Reiniger</string>
     <string name="cache_cleaner_card_subtitle">Gibt Speicher aus App-Caches frei</string>
     <string name="large_files_card_title">Große Dateien</string>
@@ -233,13 +224,8 @@
     </plurals>
     <string name="no_files_found">Keine Dateien gefunden</string>
     <string name="contacts_cleaner_title">Kontaktbereinigung</string>
-    <string name="no_duplicates_found">Keine Duplikate gefunden</string>
-    <string name="contacts_loading">Kontakte werden durchsucht…</string>
     <string name="contacts_permission_rationale">Wir benötigen Zugriff auf deine Kontakte, um Duplikate zu finden und zusammenzuführen. Daten verlassen dein Gerät nie.</string>
-    <string name="keep_newest_remove_older">Neuester behalten &amp; ältere entfernen</string>
-    <string name="merge_all_duplicates">Alle Duplikate zusammenführen</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Intelligente Reinigung</string>
     <string name="smart_clean_all">Alle intelligent reinigen</string>
     <string name="contacts_permission_denied">Berechtigung verweigert. Du kannst sie in den Systemeinstellungen aktivieren.</string>
@@ -419,6 +405,6 @@
     <string name="cleanup_failed_details">Einige Dateien konnten nicht gelöscht werden</string>
     <string name="cleanup_cancelled">Bereinigung abgebrochen</string>
     <string name="cleanup_partial">%1$d Dateien gelöscht, %2$d fehlgeschlagen</string>
-    <string name="current_streak_label">Aktuelle Serie: %1$d Tage in Folge</string>
+    <string name="current_streak_label">Aktuelle Serie: %1$d Tage infolge</string>
     <string name="longest_streak_label">Längste Serie: Rekord von %1$d Tagen!</string>
 </resources>

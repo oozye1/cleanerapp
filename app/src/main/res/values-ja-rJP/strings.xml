@@ -67,8 +67,6 @@
     <!-- Home -->
     <string name="delete_forever">完全に削除</string>
     <string name="move_to_trash">ゴミ箱に移動</string>
-    <string name="cleaned_space">クリーンアップ済み容量</string>
-    <string name="free_space">空き容量</string>
     <string name="delete_forever_title">完全に削除</string>
     <string name="delete_forever_message">これらのファイルを完全に削除しますか？この操作は元に戻せません。</string>
     <string name="move_to_trash_title">ゴミ箱に移動</string>
@@ -98,10 +96,6 @@
         <item quantity="other">%1$d日連続 — この調子！</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">完璧な1週間！ 💎 お疲れさまです。</string>
-    <string name="streak_reward_day1">いいスタート！</string>
-    <string name="streak_reward_day3">サイズで並べ替えできるのをご存知ですか？</string>
-    <string name="streak_reward_day5">システムジャンクを見積もろう！</string>
-    <string name="streak_reward_day7">パーフェクトウィーク 🏅</string>
     <string name="streak_notification_title">クリーン記録を続けましょう！</string>
     <string name="streak_notification_daily">そろそろ端末をクリーンアップして記録を維持しましょう。</string>
     <string name="streak_notification_missed">昨日はクリーンしませんでした — 今すぐクリーンして🔥を保ちましょう！</string>
@@ -112,7 +106,6 @@
     <string name="hide_clean_streak_message">クリーン記録カードを隠しますか？</string>
     <string name="dont_show_again">今後表示しない</string>
     <string name="preference_show_streak_card">クリーン記録カードを表示</string>
-    <string name="streak_quiet_banner">サイレントモード中です。クリーン記録は来週再開します。</string>
     <string name="streak_return_toast">次回のクリーン時にクリーン記録が戻ります。</string>
     <string name="apk_card_title">古いインストーラーが見つかりました</string>
     <string name="apk_card_subtitle">残っているインストーラーを削除して容量を確保します。</string>
@@ -124,7 +117,6 @@
     <string name="empty_folder_card_subtitle">未使用のフォルダをすぐに削除します。</string>
     <string name="empty_folders_found_format">%1$d 個の空フォルダが見つかりました</string>
     <string name="clean_empty_folders">空のフォルダを削除</string>
-    <string name="empty_folders_cleaned">空のフォルダが削除されました</string>
     <string name="whatsapp_card_title">WhatsAppファイル</string>
     <string name="whatsapp_card_subtitle">不要になったメディアを整理します。</string>
     <string name="clean_whatsapp">WhatsAppメディアをクリーン</string>
@@ -164,7 +156,6 @@
     <string name="cleaner_recommends">Cleaner のおすすめ</string>
     <string name="image_optimizer_card_title">画像最適化</string>
     <string name="image_optimizer_card_subtitle">品質を落とさず写真を圧縮。&#10;ワンタップで容量節約。</string>
-    <string name="image_optimizer_last_format">最後の最適化: %1$s</string>
     <string name="cache_cleaner_card_title">キャッシュクリーナー</string>
     <string name="cache_cleaner_card_subtitle">アプリのキャッシュを削除して空き容量を確保</string>
     <string name="large_files_card_title">大きなファイル</string>
@@ -225,13 +216,8 @@
     </plurals>
     <string name="no_files_found">ファイルが見つかりません</string>
     <string name="contacts_cleaner_title">連絡先クリーナー</string>
-    <string name="no_duplicates_found">重複は見つかりませんでした</string>
-    <string name="contacts_loading">連絡先をスキャン中…</string>
     <string name="contacts_permission_rationale">重複を探して統合するために連絡先へのアクセスが必要です。データが端末の外に送信されることはありません。</string>
-    <string name="keep_newest_remove_older">最新を残して古いものを削除</string>
-    <string name="merge_all_duplicates">すべての重複を統合</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">スマートクリーニング</string>
     <string name="smart_clean_all">すべてをスマートにクリーニング</string>
     <string name="contacts_permission_denied">権限が拒否されました。システム設定で有効にできます。</string>

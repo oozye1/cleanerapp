@@ -69,8 +69,6 @@
     <!-- Home -->
     <string name="delete_forever">Șterge definitiv</string>
     <string name="move_to_trash">Mută în coș</string>
-    <string name="cleaned_space">Spațiu curățat</string>
-    <string name="free_space">Spațiu liber</string>
     <string name="delete_forever_title">Șterge definitiv</string>
     <string name="delete_forever_message">Sigur doriți să ștergeți aceste fișiere definitiv? Această acțiune nu poate fi anulată.</string>
     <string name="move_to_trash_title">Mută în coș</string>
@@ -102,10 +100,6 @@
         <item quantity="other">%1$d zile la rând — continuă așa!</item>
     </plurals>
     <string name="clean_streak_perfect_week_message">Săptămână perfectă! 💎 Meriți asta.</string>
-    <string name="streak_reward_day1">Un început bun!</string>
-    <string name="streak_reward_day3">Știai că poți sorta după mărime?</string>
-    <string name="streak_reward_day5">Estimează fișierele inutile ale sistemului!</string>
-    <string name="streak_reward_day7">Săptămână perfectă 🏅</string>
     <string name="streak_notification_title">Menține-ți seria de curățare!</string>
     <string name="streak_notification_daily">E timpul să-ți cureți dispozitivul și să păstrezi seria.</string>
     <string name="streak_notification_missed">Nu ai curățat ieri — curăță acum pentru a menține 🔥!</string>
@@ -116,7 +110,6 @@
     <string name="hide_clean_streak_message">Dorești să ascunzi cardul Seriei de Curățare?</string>
     <string name="dont_show_again">Nu mai afișa</string>
     <string name="preference_show_streak_card">Arată cardul Seriei de Curățare</string>
-    <string name="streak_quiet_banner">Ești în modul silențios. Seria se reia săptămâna viitoare.</string>
     <string name="streak_return_toast">Seria de curățare va reveni la următoarea curățare.</string>
     <string name="apk_card_title">Instalatoare vechi găsite</string>
     <string name="apk_card_subtitle">Elimină fișierele de instalare rămase și recuperează spațiu.</string>
@@ -130,7 +123,6 @@
     <string name="empty_folder_card_subtitle">Șterge instant folderele nefolosite.</string>
     <string name="empty_folders_found_format">S-au găsit %1$d foldere goale</string>
     <string name="clean_empty_folders">Șterge folderele goale</string>
-    <string name="empty_folders_cleaned">Folderele goale au fost eliminate</string>
     <string name="whatsapp_card_title">Fișiere WhatsApp</string>
     <string name="whatsapp_card_subtitle">Curăță fișierele media de care nu mai ai nevoie.</string>
     <string name="clean_whatsapp">Curăță fișierele WhatsApp</string>
@@ -170,7 +162,6 @@
     <string name="cleaner_recommends">Recomandările Cleaner</string>
     <string name="image_optimizer_card_title">Optimizator de imagini</string>
     <string name="image_optimizer_card_subtitle">Comprimă fotografiile fără pierderi de calitate.&#10;Economisește spațiu cu o atingere.</string>
-    <string name="image_optimizer_last_format">Ultima optimizare: %1$s</string>
     <string name="cache_cleaner_card_title">Curățător de cache</string>
     <string name="cache_cleaner_card_subtitle">Eliberează spațiu din cache-ul aplicațiilor</string>
     <string name="large_files_card_title">Fișiere mari</string>
@@ -241,13 +232,8 @@
     </plurals>
     <string name="no_files_found">Niciun fișier găsit</string>
     <string name="contacts_cleaner_title">Curățător contacte</string>
-    <string name="no_duplicates_found">Nu s-au găsit duplicate</string>
-    <string name="contacts_loading">Se scanează contactele…</string>
     <string name="contacts_permission_rationale">Avem nevoie de acces la contacte pentru a găsi și îmbina duplicatele. Datele nu părăsesc niciodată dispozitivul.</string>
-    <string name="keep_newest_remove_older">Păstrează cel mai nou și șterge-le pe cele vechi</string>
-    <string name="merge_all_duplicates">Combină toate duplicatele</string>
     <string name="merge_groups">Merge Groups</string>
-    <string name="keep_newest_in_each">Keep Newest in Each</string>
     <string name="smart_clean">Curățare inteligentă</string>
     <string name="smart_clean_all">Curățare inteligentă completă</string>
     <string name="contacts_permission_denied">Permisiune refuzată. O poți activa din setările sistemului.</string>
