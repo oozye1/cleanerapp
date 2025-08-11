@@ -32,7 +32,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
     val context = LocalContext.current
     val dataStore: DataStore = koinInject()
     val genericFilter: Boolean by dataStore.genericFilter.collectAsState(initial = true)
-    val deleteEmptyFolders: Boolean by dataStore.deleteEmptyFolders.collectAsState(initial = true)
+    val deleteEmptyFolders: Boolean by dataStore.deleteEmptyFolders.collectAsState(initial = false)
     val deleteArchives: Boolean by dataStore.deleteArchives.collectAsState(initial = false)
     val deleteInvalidMedia: Boolean by dataStore.deleteInvalidMedia.collectAsState(initial = false)
     val deleteCorpseFiles: Boolean by dataStore.deleteCorpseFiles.collectAsState(initial = false)
