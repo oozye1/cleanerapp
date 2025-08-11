@@ -131,7 +131,11 @@
     <string name="empty_folder_card_title">المجلدات الفارغة</string>
     <string name="empty_folder_card_subtitle">احذف المجلدات غير المستخدمة فوراً.</string>
     <plurals name="empty_folders_found_format">
+        <item quantity="zero">تم العثور على %1$d مجلد فارغ</item>
         <item quantity="one">تم العثور على %1$d مجلد فارغ</item>
+        <item quantity="two">تم العثور على مجلدين فارغين (%1$d)</item>
+        <item quantity="few">تم العثور على %1$d مجلدات فارغة</item>
+        <item quantity="many">تم العثور على %1$d مجلداً فارغاً</item>
         <item quantity="other">تم العثور على %1$d مجلدًا فارغًا</item>
     </plurals>
     <string name="clean_empty_folders">حذف المجلدات الفاضية</string>

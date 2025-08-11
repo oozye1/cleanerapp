@@ -123,6 +123,7 @@
     <string name="empty_folder_card_subtitle">Rimuovi subito le cartelle inutilizzate.</string>
     <plurals name="empty_folders_found_format">
         <item quantity="one">Trovata %1$d cartella vuota</item>
+        <item quantity="many">Trovate %1$d cartelle vuote</item>
         <item quantity="other">Trovate %1$d cartelle vuote</item>
     </plurals>
     <string name="clean_empty_folders">Elimina cartelle vuote</string>
@@ -412,6 +413,7 @@
     <string name="cleaning_in_progress">Pulizia in corso</string>
     <plurals name="cleanup_progress">
         <item quantity="one">%1$d/%2$d file pulito</item>
+        <item quantity="many">%1$d/%2$d file puliti</item>
         <item quantity="other">%1$d/%2$d file puliti</item>
     </plurals>
     <string name="cleanup_finished">Pulizia completata</string>
@@ -420,6 +422,7 @@
     <string name="cleanup_cancelled">Pulizia annullata</string>
     <plurals name="cleanup_partial">
         <item quantity="one">%1$d file eliminato, %2$d non riusciti</item>
+        <item quantity="many">%1$d file eliminati, %2$d non riusciti</item>
         <item quantity="other">%1$d file eliminati, %2$d non riusciti</item>
     </plurals>
     <plurals name="current_streak_label">

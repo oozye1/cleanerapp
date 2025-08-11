@@ -123,6 +123,7 @@
     <string name="empty_folder_card_subtitle">Șterge instant folderele nefolosite.</string>
     <plurals name="empty_folders_found_format">
         <item quantity="one">S-a găsit %1$d folder gol</item>
+        <item quantity="few">S-au găsit %1$d foldere goale</item>
         <item quantity="other">S-au găsit %1$d foldere goale</item>
     </plurals>
     <string name="clean_empty_folders">Șterge folderele goale</string>
@@ -412,6 +413,7 @@
     <string name="cleaning_in_progress">Curățare în curs</string>
     <plurals name="cleanup_progress">
         <item quantity="one">%1$d/%2$d fișier curățat</item>
+        <item quantity="few">%1$d/%2$d fișiere curățate</item>
         <item quantity="other">%1$d/%2$d fișiere curățate</item>
     </plurals>
     <string name="cleanup_finished">Curățare finalizată</string>
@@ -419,7 +421,8 @@
     <string name="cleanup_failed_details">Unele fișiere nu au putut fi șterse</string>
     <string name="cleanup_cancelled">Curățare anulată</string>
     <plurals name="cleanup_partial">
-        <item quantity="one">%1$d fișier șters, %2$d eșuate</item>
+        <item quantity="one">%1$d fișier șters, %2$d eșuat</item>
+        <item quantity="few">%1$d fișiere șterse, %2$d eșuate</item>
         <item quantity="other">%1$d fișiere șterse, %2$d eșuate</item>
     </plurals>
     <plurals name="current_streak_label">

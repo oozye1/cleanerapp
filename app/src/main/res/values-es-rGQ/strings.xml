@@ -123,6 +123,7 @@
     <string name="empty_folder_card_subtitle">Elimina las carpetas sin uso al instante.</string>
     <plurals name="empty_folders_found_format">
         <item quantity="one">%1$d carpeta vacía encontrada</item>
+        <item quantity="many">%1$d carpetas vacías encontradas</item>
         <item quantity="other">%1$d carpetas vacías encontradas</item>
     </plurals>
     <string name="clean_empty_folders">Eliminar carpetas vacías</string>
@@ -412,6 +413,7 @@
     <string name="cleaning_in_progress">Limpieza en curso</string>
     <plurals name="cleanup_progress">
         <item quantity="one">%1$d/%2$d archivo limpiado</item>
+        <item quantity="many">%1$d/%2$d archivos limpiados</item>
         <item quantity="other">%1$d/%2$d archivos limpiados</item>
     </plurals>
     <string name="cleanup_finished">Limpieza finalizada</string>
@@ -420,6 +422,7 @@
     <string name="cleanup_cancelled">Limpieza cancelada</string>
     <plurals name="cleanup_partial">
         <item quantity="one">%1$d archivo eliminado, %2$d fallidos</item>
+        <item quantity="many">%1$d archivos eliminados, %2$d fallidos</item>
         <item quantity="other">%1$d archivos eliminados, %2$d fallidos</item>
     </plurals>
     <plurals name="current_streak_label">

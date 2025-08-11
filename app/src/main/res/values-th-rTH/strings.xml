@@ -116,7 +116,6 @@
     <string name="empty_folder_card_title">โฟลเดอร์ว่าง</string>
     <string name="empty_folder_card_subtitle">ลบโฟลเดอร์ที่ไม่ได้ใช้ทันที</string>
     <plurals name="empty_folders_found_format">
-        <item quantity="one">พบโฟลเดอร์ว่าง %1$d โฟลเดอร์</item>
         <item quantity="other">พบโฟลเดอร์ว่าง %1$d โฟลเดอร์</item>
     </plurals>
     <string name="clean_empty_folders">ลบโฟลเดอร์ว่าง</string>
@@ -395,7 +394,6 @@
     <string name="no_cleaning_options_selected">โปรดเลือกการตั้งค่าการทำความสะอาดของคุณในการตั้งค่าเพื่อดำเนินการต่อ</string>
     <string name="cleaning_in_progress">กำลังทำความสะอาด</string>
     <plurals name="cleanup_progress">
-        <item quantity="one">ล้างแล้ว %1$d/%2$d ไฟล์</item>
         <item quantity="other">ล้างแล้ว %1$d/%2$d ไฟล์</item>
     </plurals>
     <string name="cleanup_finished">ล้างเสร็จแล้ว</string>
@@ -403,7 +401,6 @@
     <string name="cleanup_failed_details">ไม่สามารถลบไฟล์บางไฟล์ได้</string>
     <string name="cleanup_cancelled">ยกเลิกการล้าง</string>
     <plurals name="cleanup_partial">
-        <item quantity="one">ลบไฟล์ %1$d ไฟล์แล้ว, ล้มเหลว %2$d ไฟล์</item>
         <item quantity="other">ลบไฟล์ %1$d ไฟล์แล้ว, ล้มเหลว %2$d ไฟล์</item>
     </plurals>
     <plurals name="current_streak_label">

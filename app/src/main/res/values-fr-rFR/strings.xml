@@ -123,6 +123,7 @@
     <string name="empty_folder_card_subtitle">Supprimez instantanément les dossiers inutilisés.</string>
     <plurals name="empty_folders_found_format">
         <item quantity="one">%1$d dossier vide trouvé</item>
+        <item quantity="many">%1$d dossiers vides trouvés</item>
         <item quantity="other">%1$d dossiers vides trouvés</item>
     </plurals>
     <string name="clean_empty_folders">Supprimer les dossiers vides</string>
@@ -413,6 +414,7 @@
     <string name="cleaning_in_progress">Nettoyage en cours</string>
     <plurals name="cleanup_progress">
         <item quantity="one">%1$d/%2$d fichier nettoyé</item>
+        <item quantity="many">%1$d/%2$d fichiers nettoyés</item>
         <item quantity="other">%1$d/%2$d fichiers nettoyés</item>
     </plurals>
     <string name="cleanup_finished">Nettoyage terminé</string>
@@ -421,6 +423,7 @@
     <string name="cleanup_cancelled">Nettoyage annulé</string>
     <plurals name="cleanup_partial">
         <item quantity="one">%1$d fichier supprimé, %2$d échoués</item>
+        <item quantity="many">%1$d fichiers supprimés, %2$d échoués</item>
         <item quantity="other">%1$d fichiers supprimés, %2$d échoués</item>
     </plurals>
     <plurals name="current_streak_label">

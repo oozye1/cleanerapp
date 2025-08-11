@@ -116,7 +116,6 @@
     <string name="empty_folder_card_title">Folder Kosong</string>
     <string name="empty_folder_card_subtitle">Hapus folder yang tidak terpakai seketika.</string>
     <plurals name="empty_folders_found_format">
-        <item quantity="one">Ditemukan %1$d folder kosong</item>
         <item quantity="other">Ditemukan %1$d folder kosong</item>
     </plurals>
     <string name="clean_empty_folders">Hapus folder kosong</string>
@@ -395,7 +394,6 @@
     <string name="no_cleaning_options_selected">Pilih preferensi pembersihan Anda dalam pengaturan untuk melanjutkan.</string>
     <string name="cleaning_in_progress">Pembersihan sedang berlangsung</string>
     <plurals name="cleanup_progress">
-        <item quantity="one">%1$d/%2$d file dibersihkan</item>
         <item quantity="other">%1$d/%2$d file dibersihkan</item>
     </plurals>
     <string name="cleanup_finished">Pembersihan selesai</string>
@@ -403,7 +401,6 @@
     <string name="cleanup_failed_details">Beberapa file tidak dapat dihapus</string>
     <string name="cleanup_cancelled">Pembersihan dibatalkan</string>
     <plurals name="cleanup_partial">
-        <item quantity="one">%1$d file dihapus, %2$d gagal</item>
         <item quantity="other">%1$d file dihapus, %2$d gagal</item>
     </plurals>
     <plurals name="current_streak_label">

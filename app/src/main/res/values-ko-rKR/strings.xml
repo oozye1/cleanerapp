@@ -116,7 +116,6 @@
     <string name="empty_folder_card_title">빈 폴더</string>
     <string name="empty_folder_card_subtitle">사용하지 않는 폴더를 즉시 삭제합니다.</string>
     <plurals name="empty_folders_found_format">
-        <item quantity="one">빈 폴더 %1$d개 발견</item>
         <item quantity="other">빈 폴더 %1$d개 발견</item>
     </plurals>
     <string name="clean_empty_folders">빈 폴더 삭제</string>
@@ -395,7 +394,6 @@
     <string name="no_cleaning_options_selected">진행할 설정에서 청소 환경 설정을 선택하십시오.</string>
     <string name="cleaning_in_progress">정리 진행 중</string>
     <plurals name="cleanup_progress">
-        <item quantity="one">%1$d/%2$d개의 파일 정리됨</item>
         <item quantity="other">%1$d/%2$d개의 파일 정리됨</item>
     </plurals>
     <string name="cleanup_finished">정리 완료</string>
@@ -403,7 +401,6 @@
     <string name="cleanup_failed_details">일부 파일을 삭제할 수 없습니다</string>
     <string name="cleanup_cancelled">정리가 취소되었습니다</string>
     <plurals name="cleanup_partial">
-        <item quantity="one">%1$d개의 파일 삭제, %2$d개 실패</item>
         <item quantity="other">%1$d개의 파일 삭제, %2$d개 실패</item>
     </plurals>
     <plurals name="current_streak_label">

@@ -414,6 +414,7 @@
     <plurals name="cleanup_progress">
         <item quantity="one">%1$d/%2$d arquivo limpo</item>
         <item quantity="other">%1$d/%2$d arquivos limpos</item>
+        <item quantity="many">%1$d/%2$d arquivos limpos</item>
     </plurals>
     <string name="cleanup_finished">Limpeza concluída</string>
     <string name="cleanup_failed">Falha na limpeza</string>
@@ -422,6 +423,7 @@
     <plurals name="cleanup_partial">
         <item quantity="one">%1$d arquivo excluído, %2$d falharam</item>
         <item quantity="other">%1$d arquivos excluídos, %2$d falharam</item>
+        <item quantity="many">%1$d arquivos excluídos, %2$d falharam</item>
     </plurals>
     <plurals name="current_streak_label">
         <item quantity="one">Sequência atual: %1$d dia seguido</item>
