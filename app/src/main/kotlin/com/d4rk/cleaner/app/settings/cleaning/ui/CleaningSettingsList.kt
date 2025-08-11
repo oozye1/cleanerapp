@@ -36,7 +36,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
     val deleteArchives: Boolean by dataStore.deleteArchives.collectAsState(initial = false)
     val deleteInvalidMedia: Boolean by dataStore.deleteInvalidMedia.collectAsState(initial = false)
     val deleteCorpseFiles: Boolean by dataStore.deleteCorpseFiles.collectAsState(initial = false)
-    val deleteApkFiles: Boolean by dataStore.deleteApkFiles.collectAsState(initial = true)
+    val deleteApkFiles: Boolean by dataStore.deleteApkFiles.collectAsState(initial = false)
     val deleteAudioFiles: Boolean by dataStore.deleteAudioFiles.collectAsState(initial = false)
     val deleteVideoFiles: Boolean by dataStore.deleteVideoFiles.collectAsState(initial = false)
     val windowsExtensions: Boolean by dataStore.deleteWindowsFiles.collectAsState(initial = false)
