@@ -7,6 +7,7 @@ import android.os.Bundle
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ProcessLifecycleOwner
+import androidx.lifecycle.lifecycleScope
 import coil3.ImageLoader
 import coil3.SingletonImageLoader
 import coil3.disk.DiskCache
@@ -25,7 +26,7 @@ import com.d4rk.cleaner.core.utils.helpers.StreakTracker
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
 import org.koin.android.ext.android.getKoin
 
@@ -46,7 +47,7 @@ class Cleaner : BaseCoreManager(), SingletonImageLoader.Factory, DefaultLifecycl
         sessionStartTime = System.currentTimeMillis()
         CleanupReminderScheduler.schedule(this)
         StreakReminderScheduler.schedule(this)
-        runBlocking {
+        ProcessLifecycleOwner.get().lifecycleScope.launch {
             val ds = getKoin().get<DataStore>()
             if (ds.autoCleanEnabled.first()) {
                 AutoCleanScheduler.schedule(this@Cleaner, ds)
