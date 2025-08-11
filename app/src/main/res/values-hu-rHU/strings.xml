@@ -405,6 +405,9 @@
     <string name="cleanup_failed_details">Néhány fájlt nem sikerült törölni</string>
     <string name="cleanup_cancelled">Tisztítás megszakítva</string>
     <string name="cleanup_partial">%1$d fájl törölve, %2$d sikertelen</string>
-    <string name="current_streak_label">Jelenlegi sorozat: %1$d nap egymás után</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">Jelenlegi sorozat: %1$d nap egymás után</item>
+        <item quantity="other">Jelenlegi sorozat: %1$d nap egymás után</item>
+    </plurals>
     <string name="longest_streak_label">Leghosszabb sorozat: %1$d napos rekord!</string>
 </resources>

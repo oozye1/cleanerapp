@@ -397,6 +397,8 @@
     <string name="cleanup_failed_details">部分檔案無法刪除</string>
     <string name="cleanup_cancelled">清理已取消</string>
     <string name="cleanup_partial">已刪除 %1$d 個檔案，%2$d 個失敗</string>
-    <string name="current_streak_label">目前連續天數：%1$d 天</string>
+    <plurals name="current_streak_label">
+        <item quantity="other">目前連續天數：%1$d 天</item>
+    </plurals>
     <string name="longest_streak_label">最長連續紀錄：%1$d 天！</string>
 </resources>

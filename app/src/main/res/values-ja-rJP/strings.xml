@@ -397,6 +397,8 @@
     <string name="cleanup_failed_details">一部のファイルを削除できませんでした</string>
     <string name="cleanup_cancelled">クリーンアップをキャンセルしました</string>
     <string name="cleanup_partial">%1$d 件のファイルを削除、%2$d 件が失敗しました</string>
-    <string name="current_streak_label">現在の連続記録：%1$d日連続</string>
+    <plurals name="current_streak_label">
+        <item quantity="other">現在の連続記録：%1$d日連続</item>
+    </plurals>
     <string name="longest_streak_label">最長記録：%1$d日間の記録！</string>
 </resources>

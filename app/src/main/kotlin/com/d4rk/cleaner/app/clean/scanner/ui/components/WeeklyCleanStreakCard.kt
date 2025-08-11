@@ -126,7 +126,11 @@ fun WeeklyCleanStreakCard(
             }
 
             Text(
-                text = stringResource(id = R.string.current_streak_label, streakDays),
+                text = pluralStringResource(
+                    id = R.plurals.current_streak_label,
+                    count = streakDays,
+                    streakDays
+                ),
                 style = MaterialTheme.typography.bodyMedium
             )
             Text(

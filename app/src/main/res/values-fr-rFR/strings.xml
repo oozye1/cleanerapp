@@ -414,6 +414,10 @@
     <string name="cleanup_failed_details">Certains fichiers n\'ont pas pu être supprimés</string>
     <string name="cleanup_cancelled">Nettoyage annulé</string>
     <string name="cleanup_partial">%1$d fichiers supprimés, %2$d échoués</string>
-    <string name="current_streak_label">Série actuelle : %1$d jours d\'affilée</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">Série actuelle : %1$d jour d\'affilée</item>
+        <item quantity="many">Série actuelle : %1$d jours d\'affilée</item>
+        <item quantity="other">Série actuelle : %1$d jours d\'affilée</item>
+    </plurals>
     <string name="longest_streak_label">Série la plus longue : record de %1$d jours !</string>
 </resources>

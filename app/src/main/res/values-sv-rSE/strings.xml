@@ -405,6 +405,9 @@
     <string name="cleanup_failed_details">Vissa filer kunde inte tas bort</string>
     <string name="cleanup_cancelled">Rensning avbruten</string>
     <string name="cleanup_partial">%1$d filer raderades, %2$d misslyckades</string>
-    <string name="current_streak_label">Aktuell svit: %1$d dagar i rad</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">Aktuell svit: %1$d dag i rad</item>
+        <item quantity="other">Aktuell svit: %1$d dagar i rad</item>
+    </plurals>
     <string name="longest_streak_label">Längsta svit: rekord på %1$d dagar!</string>
 </resources>

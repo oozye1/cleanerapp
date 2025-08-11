@@ -397,6 +397,8 @@
     <string name="cleanup_failed_details">ไม่สามารถลบไฟล์บางไฟล์ได้</string>
     <string name="cleanup_cancelled">ยกเลิกการล้าง</string>
     <string name="cleanup_partial">ลบไฟล์ %1$d ไฟล์แล้ว, ล้มเหลว %2$d ไฟล์</string>
-    <string name="current_streak_label">สตรีคปัจจุบัน: %1$d วันติดต่อกัน</string>
+    <plurals name="current_streak_label">
+        <item quantity="other">สตรีคปัจจุบัน: %1$d วันติดต่อกัน</item>
+    </plurals>
     <string name="longest_streak_label">สตรีคที่ยาวที่สุด: สถิติ %1$d วัน!</string>
 </resources>

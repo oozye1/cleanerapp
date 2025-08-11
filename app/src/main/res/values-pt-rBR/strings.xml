@@ -413,6 +413,10 @@
     <string name="cleanup_failed_details">Alguns arquivos não puderam ser excluídos</string>
     <string name="cleanup_cancelled">Limpeza cancelada</string>
     <string name="cleanup_partial">%1$d arquivos excluídos, %2$d falharam</string>
-    <string name="current_streak_label">Sequência atual: %1$d dias seguidos</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">Sequência atual: %1$d dia seguido</item>
+        <item quantity="other">Sequência atual: %1$d dias seguidos</item>
+        <item quantity="many">Sequência atual: %1$d dias seguidos</item>
+    </plurals>
     <string name="longest_streak_label">Maior sequência: recorde de %1$d dias!</string>
 </resources>

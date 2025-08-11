@@ -404,6 +404,9 @@
     <string name="cleanup_failed_details">কিছু ফাইল মুছে ফেলা যায়নি</string>
     <string name="cleanup_cancelled">পরিষ্কার বাতিল করা হয়েছে</string>
     <string name="cleanup_partial">%1$d টি ফাইল মুছে ফেলা হয়েছে, %2$d টি ব্যর্থ হয়েছে</string>
-    <string name="current_streak_label">বর্তমান স্ট্রীক: পরপর %1$d দিন</string>
+    <plurals name="current_streak_label">
+        <item quantity="one">বর্তমান স্ট্রীক: পরপর %1$d দিন</item>
+        <item quantity="other">বর্তমান স্ট্রীক: পরপর %1$d দিন</item>
+    </plurals>
     <string name="longest_streak_label">দীর্ঘতম স্ট্রীক: %1$d দিনের রেকর্ড!</string>
 </resources>
