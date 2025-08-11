@@ -3,7 +3,6 @@ package com.d4rk.cleaner.app.clean.scanner.utils.helpers
 import android.app.usage.StorageStatsManager
 import android.content.Context
 import android.os.Build
-import android.os.Environment
 import android.os.StatFs
 import android.os.storage.StorageManager
 import android.os.storage.StorageVolume
@@ -30,7 +29,9 @@ object StorageUtils {
             totalSize = storageStatsManager.getTotalBytes(uuid)
             usedSize = totalSize - storageStatsManager.getFreeBytes(uuid)
         } else {
-            val statFs = StatFs(Environment.getExternalStorageDirectory().path)
+            val path = context.getExternalFilesDir(null)?.path
+                ?: context.filesDir.path
+            val statFs = StatFs(path)
             totalSize = statFs.blockSizeLong * statFs.blockCountLong
             usedSize = totalSize - (statFs.blockSizeLong * statFs.availableBlocksLong)
         }

@@ -1,7 +1,6 @@
 package com.d4rk.cleaner.app.clean.whatsapp.summary.data
 
 import android.app.Application
-import android.os.Environment
 import android.text.format.Formatter
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.DeleteResult
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.DirectorySummary
@@ -15,25 +14,24 @@ import java.io.File
 
 class WhatsAppCleanerRepositoryImpl(private val application: Application) :
     WhatsAppCleanerRepository {
-
-    private fun getWhatsAppMediaDir(): File {
-        val scoped = File(
-            Environment.getExternalStorageDirectory(),
-            "Android/media/com.whatsapp/WhatsApp/Media"
-        )
-        val legacy = File(
-            Environment.getExternalStorageDirectory(),
-            "WhatsApp/Media"
-        )
+    /**
+     * Locate the base WhatsApp media directory. Returns `null` when neither the
+     * legacy nor the scoped-storage path exists, indicating that WhatsApp media
+     * is not available on the device.
+     */
+    private fun getWhatsAppMediaDir(): File? {
+        val root = application.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile ?: return null
+        val scoped = File(root, "Android/media/com.whatsapp/WhatsApp/Media")
+        val legacy = File(root, "WhatsApp/Media")
         return when {
             scoped.exists() -> scoped
             legacy.exists() -> legacy
-            else -> scoped
+            else -> null
         }
     }
 
     override suspend fun getMediaSummary(): WhatsAppMediaSummary = withContext(Dispatchers.IO) {
-        val base = getWhatsAppMediaDir()
+        val base = getWhatsAppMediaDir() ?: return@withContext WhatsAppMediaSummary()
 
         fun collect(name: String): DirectorySummary {
             val dir = File(base, name)
@@ -97,7 +95,7 @@ class WhatsAppCleanerRepositoryImpl(private val application: Application) :
 
     override suspend fun listMediaFiles(type: String, offset: Int, limit: Int): List<File> =
         withContext(Dispatchers.IO) {
-            val base = getWhatsAppMediaDir()
+            val base = getWhatsAppMediaDir() ?: return@withContext emptyList<File>()
             val dirName =
                 WhatsAppMediaConstants.DIRECTORIES[type] ?: return@withContext emptyList<File>()
             val dir = File(base, dirName)

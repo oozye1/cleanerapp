@@ -3,7 +3,6 @@ package com.d4rk.cleaner.app.apps.manager.data
 import android.app.Application
 import android.database.Cursor
 import android.net.Uri
-import android.os.Environment
 import android.provider.MediaStore
 import com.d4rk.android.libs.apptoolkit.core.domain.model.network.DataState
 import com.d4rk.cleaner.app.apps.manager.domain.data.model.ApkInfo
@@ -55,15 +54,18 @@ class ApkFileManagerImpl(
                 }
             }
 
-            DirectoryScanner.scan(
-                root = Environment.getExternalStorageDirectory(),
-                skipDir = { dir -> dir.shouldSkip(showHidden) }
-            ) { file ->
-                if (file.shouldSkip(showHidden)) return@scan
-                if (file.extension.equals("apk", ignoreCase = true)) {
-                    val path = file.absolutePath
-                    if (file.exists() && file.canWrite() && addedPaths.add(path)) {
-                        apkFiles.add(ApkInfo(file.hashCode().toLong(), path, file.length()))
+            val root = application.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile
+            if (root != null) {
+                DirectoryScanner.scan(
+                    root = root,
+                    skipDir = { dir -> dir.shouldSkip(showHidden) }
+                ) { file ->
+                    if (file.shouldSkip(showHidden)) return@scan
+                    if (file.extension.equals("apk", ignoreCase = true)) {
+                        val path = file.absolutePath
+                        if (file.exists() && file.canWrite() && addedPaths.add(path)) {
+                            apkFiles.add(ApkInfo(file.hashCode().toLong(), path, file.length()))
+                        }
                     }
                 }
             }

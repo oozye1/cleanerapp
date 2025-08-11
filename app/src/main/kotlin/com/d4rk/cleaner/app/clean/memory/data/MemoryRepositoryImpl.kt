@@ -52,7 +52,9 @@ class MemoryRepositoryImpl(private val application: Application) : MemoryReposit
 
     private fun getStorageBreakdown(context: Context): Map<String, Long> {
         val breakdown: MutableMap<String, Long> = mutableMapOf()
-        val externalStoragePath: String = Environment.getExternalStorageDirectory().absolutePath
+        val externalStoragePath: String =
+            context.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile?.absolutePath
+                ?: "/"
 
         breakdown[context.getString(R.string.installed_apps)] = getInstalledAppsSize(context)
         breakdown[context.getString(R.string.system)] =

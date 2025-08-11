@@ -89,10 +89,13 @@ class ScannerRepositoryImpl(
             }
 
             val allFoundExtensions: MutableSet<String> = mutableSetOf()
-            DirectoryScanner.scan(Environment.getExternalStorageDirectory()) { file ->
-                val ext: String = file.extension.lowercase()
-                if (ext.isNotEmpty()) {
-                    allFoundExtensions.add(ext)
+            val root = application.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile
+            if (root != null) {
+                DirectoryScanner.scan(root) { file ->
+                    val ext: String = file.extension.lowercase()
+                    if (ext.isNotEmpty()) {
+                        allFoundExtensions.add(ext)
+                    }
                 }
             }
 
@@ -117,7 +120,8 @@ class ScannerRepositoryImpl(
 
     override fun getAllFiles(onLockedDir: ((File) -> Unit)?): Flow<File> = flow {
         val stack: ArrayDeque<File> = ArrayDeque()
-        val root: File = Environment.getExternalStorageDirectory()
+        val root = application.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile
+            ?: return@flow
         stack.addFirst(root)
 
         val trashDir =
@@ -271,7 +275,8 @@ class ScannerRepositoryImpl(
 
     override suspend fun getLargestFiles(limit: Int): List<File> {
         return withContext(Dispatchers.IO) {
-            val root = Environment.getExternalStorageDirectory()
+            val root = application.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile
+                ?: return@withContext emptyList()
             val minSize = 100L * 1024 * 1024 // 100MB threshold
             val trashed = dataStore.trashFileOriginalPaths.first()
             val showHidden = dataStore.showHiddenFiles.first()
@@ -345,7 +350,8 @@ class ScannerRepositoryImpl(
 
     override fun getEmptyFolders(): Flow<File> = flow {
         val stack: ArrayDeque<File> = ArrayDeque()
-        val root = Environment.getExternalStorageDirectory()
+        val root = application.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile
+            ?: return@flow
         stack.addFirst(root)
         val showHidden = dataStore.showHiddenFiles.first()
         while (stack.isNotEmpty()) {

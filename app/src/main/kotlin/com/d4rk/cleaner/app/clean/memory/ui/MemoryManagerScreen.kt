@@ -217,9 +217,14 @@ private fun handleStorageItemClick(context: Context, category: String) {
             }
         }
 
-        context.getString(R.string.other_files) -> FileManagerHelper.openFolderOrSettings(
-            context,
-            Environment.getExternalStorageDirectory()
-        )
+        context.getString(R.string.other_files) -> {
+            val root = context.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile
+            if (root != null) {
+                FileManagerHelper.openFolderOrSettings(
+                    context,
+                    root
+                )
+            }
+        }
     }
 }
