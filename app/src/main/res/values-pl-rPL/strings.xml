@@ -124,7 +124,12 @@
     <string name="clean_apks">Usuń instalatory</string>
     <string name="empty_folder_card_title">Puste foldery</string>
     <string name="empty_folder_card_subtitle">Usuń nieużywane foldery natychmiast.</string>
-    <string name="empty_folders_found_format">Znaleziono %1$d pustych folderów</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">Znaleziono %1$d pusty folder</item>
+        <item quantity="few">Znaleziono %1$d puste foldery</item>
+        <item quantity="many">Znaleziono %1$d pustych folderów</item>
+        <item quantity="other">Znaleziono %1$d pustych folderów</item>
+    </plurals>
     <string name="clean_empty_folders">Usuń puste foldery</string>
     <string name="whatsapp_card_title">Pliki WhatsApp</string>
     <string name="whatsapp_card_subtitle">Wyczyść media, których już nie potrzebujesz.</string>

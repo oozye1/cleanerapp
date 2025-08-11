@@ -118,7 +118,10 @@
     <string name="clean_apks">Yükleyicileri Sil</string>
     <string name="empty_folder_card_title">Boş Klasörler</string>
     <string name="empty_folder_card_subtitle">Kullanılmayan klasörleri anında sil.</string>
-    <string name="empty_folders_found_format">%1$d boş klasör bulundu</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">%1$d boş klasör bulundu</item>
+        <item quantity="other">%1$d boş klasör bulundu</item>
+    </plurals>
     <string name="clean_empty_folders">Boş klasörleri sil</string>
     <string name="whatsapp_card_title">WhatsApp Dosyaları</string>
     <string name="whatsapp_card_subtitle">Artık ihtiyaç duymadığın medyaları temizle.</string>

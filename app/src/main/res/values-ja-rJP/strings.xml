@@ -115,7 +115,10 @@
     <string name="clean_apks">インストーラーを削除</string>
     <string name="empty_folder_card_title">空のフォルダ</string>
     <string name="empty_folder_card_subtitle">未使用のフォルダをすぐに削除します。</string>
-    <string name="empty_folders_found_format">%1$d 個の空フォルダが見つかりました</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">%1$d 個の空フォルダが見つかりました</item>
+        <item quantity="other">%1$d 個の空フォルダが見つかりました</item>
+    </plurals>
     <string name="clean_empty_folders">空のフォルダを削除</string>
     <string name="whatsapp_card_title">WhatsAppファイル</string>
     <string name="whatsapp_card_subtitle">不要になったメディアを整理します。</string>

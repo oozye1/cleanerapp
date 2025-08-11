@@ -118,7 +118,10 @@
     <string name="clean_apks">Burahin ang mga Installer</string>
     <string name="empty_folder_card_title">Walang laman na mga folder</string>
     <string name="empty_folder_card_subtitle">Agad na tanggalin ang hindi nagagamit na mga folder.</string>
-    <string name="empty_folders_found_format">%1$d na walang laman na folder ang nakita</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">%1$d na walang laman na folder ang nakita</item>
+        <item quantity="other">%1$d na walang laman na folder ang nakita</item>
+    </plurals>
     <string name="clean_empty_folders">Burahin ang mga walang lamang folder</string>
     <string name="whatsapp_card_title">Mga WhatsApp File</string>
     <string name="whatsapp_card_subtitle">Linisin ang media na hindi mo na kailangan.</string>

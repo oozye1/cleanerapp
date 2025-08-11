@@ -115,7 +115,10 @@
     <string name="clean_apks">ลบตัวติดตั้ง</string>
     <string name="empty_folder_card_title">โฟลเดอร์ว่าง</string>
     <string name="empty_folder_card_subtitle">ลบโฟลเดอร์ที่ไม่ได้ใช้ทันที</string>
-    <string name="empty_folders_found_format">พบโฟลเดอร์ว่าง %1$d โฟลเดอร์</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">พบโฟลเดอร์ว่าง %1$d โฟลเดอร์</item>
+        <item quantity="other">พบโฟลเดอร์ว่าง %1$d โฟลเดอร์</item>
+    </plurals>
     <string name="clean_empty_folders">ลบโฟลเดอร์ว่าง</string>
     <string name="whatsapp_card_title">ไฟล์ WhatsApp</string>
     <string name="whatsapp_card_subtitle">ล้างสื่อที่คุณไม่ต้องการแล้ว</string>

@@ -118,7 +118,10 @@
     <string name="clean_apks">Telepítők törlése</string>
     <string name="empty_folder_card_title">Üres mappák</string>
     <string name="empty_folder_card_subtitle">A nem használt mappákat azonnal töröld.</string>
-    <string name="empty_folders_found_format">%1$d üres mappa található</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">%1$d üres mappa található</item>
+        <item quantity="other">%1$d üres mappa található</item>
+    </plurals>
     <string name="clean_empty_folders">Üres mappák törlése</string>
     <string name="whatsapp_card_title">WhatsApp fájlok</string>
     <string name="whatsapp_card_subtitle">Törölje a már nem szükséges médiát.</string>

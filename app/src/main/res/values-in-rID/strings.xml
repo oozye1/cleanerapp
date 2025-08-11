@@ -115,7 +115,10 @@
     <string name="clean_apks">Hapus Pemasang</string>
     <string name="empty_folder_card_title">Folder Kosong</string>
     <string name="empty_folder_card_subtitle">Hapus folder yang tidak terpakai seketika.</string>
-    <string name="empty_folders_found_format">Ditemukan %1$d folder kosong</string>
+    <plurals name="empty_folders_found_format">
+        <item quantity="one">Ditemukan %1$d folder kosong</item>
+        <item quantity="other">Ditemukan %1$d folder kosong</item>
+    </plurals>
     <string name="clean_empty_folders">Hapus folder kosong</string>
     <string name="whatsapp_card_title">File WhatsApp</string>
     <string name="whatsapp_card_subtitle">Bersihkan media yang tidak lagi dibutuhkan.</string>
