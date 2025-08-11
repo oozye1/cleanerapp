@@ -131,6 +131,7 @@
     <string name="whatsapp_card_title">WhatsApp Dosyaları</string>
     <string name="whatsapp_card_subtitle">Artık ihtiyaç duymadığın medyaları temizle.</string>
     <string name="clean_whatsapp">WhatsApp Medyasını Temizle</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">WhatsApp Medyasını Temizle</string>
     <string name="clean_whatsapp_warning_message">Bu işlem tüm WhatsApp medya dosyalarını silecek. Devam edilsin mi?</string>
     <string name="cancel">İptal</string>

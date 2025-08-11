@@ -50,7 +50,7 @@ fun WhatsAppCleanerCard(
         icon = Icons.Filled.Whatsapp,
         title = stringResource(id = R.string.whatsapp_card_title),
         subtitle = stringResource(id = R.string.whatsapp_card_subtitle),
-        actionLabel = stringResource(id = R.string.clean_whatsapp),
+        actionLabel = stringResource(id = R.string.open_whatsapp_cleaner),
         actionPainter = painterResource(id = R.drawable.ic_folder_search),
         onActionClick = onCleanClick,
         onHeaderClick = onCleanClick

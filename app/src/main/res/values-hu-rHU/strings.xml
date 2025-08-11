@@ -131,6 +131,7 @@
     <string name="whatsapp_card_title">WhatsApp fájlok</string>
     <string name="whatsapp_card_subtitle">Törölje a már nem szükséges médiát.</string>
     <string name="clean_whatsapp">WhatsApp média tisztítása</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">WhatsApp média tisztítása</string>
     <string name="clean_whatsapp_warning_message">Ez törli az összes WhatsApp médiát. Folytatja?</string>
     <string name="cancel">Mégse</string>

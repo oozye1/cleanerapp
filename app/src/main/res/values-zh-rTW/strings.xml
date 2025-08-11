@@ -128,6 +128,7 @@
     <string name="whatsapp_card_title">WhatsApp 檔案</string>
     <string name="whatsapp_card_subtitle">清除不需要的媒體。</string>
     <string name="clean_whatsapp">清理 WhatsApp 媒體</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">清理 WhatsApp 媒體</string>
     <string name="clean_whatsapp_warning_message">這將刪除所有 WhatsApp 媒體檔案。是否繼續？</string>
     <string name="cancel">取消</string>

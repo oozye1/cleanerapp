@@ -131,6 +131,7 @@
     <string name="whatsapp_card_title">WhatsApp-filer</string>
     <string name="whatsapp_card_subtitle">Rensa bort media du inte längre behöver.</string>
     <string name="clean_whatsapp">Rensa WhatsApp-media</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">Rensa WhatsApp-media</string>
     <string name="clean_whatsapp_warning_message">Detta tar bort alla WhatsApp-mediefiler. Fortsätta?</string>
     <string name="cancel">Avbryt</string>

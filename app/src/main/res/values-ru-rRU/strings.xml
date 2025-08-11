@@ -137,6 +137,7 @@
     <string name="whatsapp_card_title">Файлы WhatsApp</string>
     <string name="whatsapp_card_subtitle">Очистите медиа, которые вам больше не нужны.</string>
     <string name="clean_whatsapp">Очистить медиаданные WhatsApp</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">Очистить медиаданные WhatsApp</string>
     <string name="clean_whatsapp_warning_message">Это удалит все медиаданные WhatsApp. Продолжить?</string>
     <string name="cancel">Отмена</string>
