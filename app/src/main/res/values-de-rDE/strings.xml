@@ -402,12 +402,18 @@
     <string name="failed_to_update_trash_size">Die Müllgröße nicht aktualisieren: %1$s</string>
     <string name="no_cleaning_options_selected">Bitte wählen Sie Ihre Reinigungseinstellungen in Einstellungen, um fortzufahren.</string>
     <string name="cleaning_in_progress">Reinigung läuft</string>
-    <string name="cleanup_progress">%1$d/%2$d Dateien bereinigt</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">%1$d/%2$d Datei bereinigt</item>
+        <item quantity="other">%1$d/%2$d Dateien bereinigt</item>
+    </plurals>
     <string name="cleanup_finished">Bereinigung abgeschlossen</string>
     <string name="cleanup_failed">Bereinigung fehlgeschlagen</string>
     <string name="cleanup_failed_details">Einige Dateien konnten nicht gelöscht werden</string>
     <string name="cleanup_cancelled">Bereinigung abgebrochen</string>
-    <string name="cleanup_partial">%1$d Dateien gelöscht, %2$d fehlgeschlagen</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">%1$d Datei gelöscht, %2$d fehlgeschlagen</item>
+        <item quantity="other">%1$d Dateien gelöscht, %2$d fehlgeschlagen</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="one">Aktuelle Serie: %1$d Tag infolge</item>
         <item quantity="other">Aktuelle Serie: %1$d Tage infolge</item>

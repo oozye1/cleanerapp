@@ -394,12 +394,18 @@
     <string name="failed_to_update_trash_size">Không cập nhật kích thước rác: %1$s</string>
     <string name="no_cleaning_options_selected">Vui lòng chọn tùy chọn làm sạch của bạn trong cài đặt để tiếp tục.</string>
     <string name="cleaning_in_progress">Đang dọn dẹp</string>
-    <string name="cleanup_progress">%1$d/%2$d tệp đã được dọn</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">%1$d/%2$d tệp đã được dọn</item>
+        <item quantity="other">%1$d/%2$d tệp đã được dọn</item>
+    </plurals>
     <string name="cleanup_finished">Dọn dẹp xong</string>
     <string name="cleanup_failed">Dọn dẹp thất bại</string>
     <string name="cleanup_failed_details">Không thể xóa một số tệp</string>
     <string name="cleanup_cancelled">Đã hủy dọn dẹp</string>
-    <string name="cleanup_partial">%1$d tệp đã xóa, %2$d thất bại</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">%1$d tệp đã xóa, %2$d thất bại</item>
+        <item quantity="other">%1$d tệp đã xóa, %2$d thất bại</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="other">Chuỗi hiện tại: %1$d ngày liên tiếp</item>
     </plurals>

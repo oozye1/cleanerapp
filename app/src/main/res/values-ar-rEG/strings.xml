@@ -434,12 +434,26 @@
     <string name="failed_to_update_trash_size">فشل في تحديث حجم القمامة: %1$s</string>
     <string name="no_cleaning_options_selected">يرجى اختيار تفضيلات التنظيف الخاصة بك في الإعدادات للمتابعة.</string>
     <string name="cleaning_in_progress">جاري التنظيف</string>
-    <string name="cleanup_progress">تم تنظيف %1$d/%2$d ملف</string>
+    <plurals name="cleanup_progress">
+        <item quantity="zero">تم تنظيف %1$d/%2$d ملف</item>
+        <item quantity="one">تم تنظيف %1$d/%2$d ملف</item>
+        <item quantity="two">تم تنظيف %1$d/%2$d ملفين</item>
+        <item quantity="few">تم تنظيف %1$d/%2$d ملفات</item>
+        <item quantity="many">تم تنظيف %1$d/%2$d ملفًا</item>
+        <item quantity="other">تم تنظيف %1$d/%2$d ملف</item>
+    </plurals>
     <string name="cleanup_finished">اكتمل التنظيف</string>
     <string name="cleanup_failed">فشل التنظيف</string>
     <string name="cleanup_failed_details">تعذر حذف بعض الملفات</string>
     <string name="cleanup_cancelled">تم إلغاء التنظيف</string>
-    <string name="cleanup_partial">تم حذف %1$d ملفًا، فشل حذف %2$d</string>
+    <plurals name="cleanup_partial">
+        <item quantity="zero">تم حذف %1$d ملف، فشل حذف %2$d</item>
+        <item quantity="one">تم حذف %1$d ملف، فشل حذف %2$d</item>
+        <item quantity="two">تم حذف %1$d ملفين، فشل حذف %2$d</item>
+        <item quantity="few">تم حذف %1$d ملفات، فشل حذف %2$d</item>
+        <item quantity="many">تم حذف %1$d ملفًا، فشل حذف %2$d</item>
+        <item quantity="other">تم حذف %1$d ملف، فشل حذف %2$d</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="zero">السلسلة الحالية: %1$d يومًا على التوالي</item>
         <item quantity="one">السلسلة الحالية: %1$d يومًا على التوالي</item>

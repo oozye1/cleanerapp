@@ -420,12 +420,22 @@
     <string name="failed_to_update_trash_size">Не вдалося оновити розмір сміття: %1$s</string>
     <string name="no_cleaning_options_selected">Будь ласка, виберіть свої вподобання прибирання в налаштуваннях для продовження.</string>
     <string name="cleaning_in_progress">Триває очищення</string>
-    <string name="cleanup_progress">Очищено %1$d/%2$d файлів</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">Очищено %1$d/%2$d файл</item>
+        <item quantity="few">Очищено %1$d/%2$d файли</item>
+        <item quantity="many">Очищено %1$d/%2$d файлів</item>
+        <item quantity="other">Очищено %1$d/%2$d файлів</item>
+    </plurals>
     <string name="cleanup_finished">Очищення завершено</string>
     <string name="cleanup_failed">Очищення не вдалося</string>
     <string name="cleanup_failed_details">Деякі файли не вдалося видалити</string>
     <string name="cleanup_cancelled">Очищення скасовано</string>
-    <string name="cleanup_partial">Видалено %1$d файлів, %2$d не вдалося</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">Видалено %1$d файл, %2$d не вдалося</item>
+        <item quantity="few">Видалено %1$d файли, %2$d не вдалося</item>
+        <item quantity="many">Видалено %1$d файлів, %2$d не вдалося</item>
+        <item quantity="other">Видалено %1$d файлів, %2$d не вдалося</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="one">Поточна серія: %1$d день поспіль</item>
         <item quantity="few">Поточна серія: %1$d дні поспіль</item>

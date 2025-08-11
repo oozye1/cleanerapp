@@ -420,12 +420,22 @@
     <string name="failed_to_update_trash_size">Nie udało się zaktualizować rozmiaru śmieci: %1$s</string>
     <string name="no_cleaning_options_selected">Wybierz swoje preferencje czyszczące w ustawieniach, aby kontynuować.</string>
     <string name="cleaning_in_progress">Trwa czyszczenie</string>
-    <string name="cleanup_progress">%1$d/%2$d plików wyczyszczono</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">%1$d/%2$d plik wyczyszczono</item>
+        <item quantity="few">%1$d/%2$d pliki wyczyszczono</item>
+        <item quantity="many">%1$d/%2$d plików wyczyszczono</item>
+        <item quantity="other">%1$d/%2$d plików wyczyszczono</item>
+    </plurals>
     <string name="cleanup_finished">Czyszczenie zakończone</string>
     <string name="cleanup_failed">Czyszczenie nie powiodło się</string>
     <string name="cleanup_failed_details">Niektórych plików nie można było usunąć</string>
     <string name="cleanup_cancelled">Czyszczenie anulowane</string>
-    <string name="cleanup_partial">%1$d plików usunięto, %2$d nie powiodło się</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">%1$d plik usunięto, %2$d nie powiodło się</item>
+        <item quantity="few">%1$d pliki usunięto, %2$d nie powiodło się</item>
+        <item quantity="many">%1$d plików usunięto, %2$d nie powiodło się</item>
+        <item quantity="other">%1$d plików usunięto, %2$d nie powiodło się</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="one">Obecna passa: %1$d dzień z rzędu</item>
         <item quantity="few">Obecna passa: %1$d dni z rzędu</item>

@@ -394,12 +394,18 @@
     <string name="failed_to_update_trash_size">쓰레기 크기를 업데이트하지 못했습니다 : %1$s</string>
     <string name="no_cleaning_options_selected">진행할 설정에서 청소 환경 설정을 선택하십시오.</string>
     <string name="cleaning_in_progress">정리 진행 중</string>
-    <string name="cleanup_progress">%1$d/%2$d개의 파일 정리됨</string>
+    <plurals name="cleanup_progress">
+        <item quantity="one">%1$d/%2$d개의 파일 정리됨</item>
+        <item quantity="other">%1$d/%2$d개의 파일 정리됨</item>
+    </plurals>
     <string name="cleanup_finished">정리 완료</string>
     <string name="cleanup_failed">정리에 실패했습니다</string>
     <string name="cleanup_failed_details">일부 파일을 삭제할 수 없습니다</string>
     <string name="cleanup_cancelled">정리가 취소되었습니다</string>
-    <string name="cleanup_partial">%1$d개의 파일 삭제, %2$d개 실패</string>
+    <plurals name="cleanup_partial">
+        <item quantity="one">%1$d개의 파일 삭제, %2$d개 실패</item>
+        <item quantity="other">%1$d개의 파일 삭제, %2$d개 실패</item>
+    </plurals>
     <plurals name="current_streak_label">
         <item quantity="other">현재 스트릭: %1$d일 연속</item>
     </plurals>
