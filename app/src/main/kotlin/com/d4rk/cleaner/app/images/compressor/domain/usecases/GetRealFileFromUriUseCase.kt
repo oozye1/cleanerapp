@@ -26,7 +26,7 @@ class GetRealFileFromUriUseCase(private val context: Context) {
                     }
                 }
             } else if (uri.scheme == "file") {
-                return@runCatching File(uri.path!!)
+                uri.path?.let { return@runCatching File(it) }
             }
             null
         }
