@@ -730,9 +730,17 @@ class ScannerViewModel(
 
     private fun checkWhatsAppInstalled() {
         launch(context = dispatchers.io) {
-            _isWhatsAppInstalled.value = runCatching {
-                application.packageManager.getPackageInfo("com.whatsapp", 0)
-            }.isSuccess
+            val pm = application.packageManager
+            val knownPackages = listOf("com.whatsapp", "com.whatsapp.w4b")
+            var installed = knownPackages.any { pkg ->
+                runCatching { pm.getPackageInfo(pkg, 0) }.isSuccess
+            }
+            if (!installed) {
+                @Suppress("DEPRECATION")
+                val packages = runCatching { pm.getInstalledPackages(0) }.getOrNull()
+                installed = packages?.any { it.packageName.startsWith("com.whatsapp") } == true
+            }
+            _isWhatsAppInstalled.value = installed
         }
     }
 

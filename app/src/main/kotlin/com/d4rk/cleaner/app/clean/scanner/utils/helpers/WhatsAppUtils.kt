@@ -15,11 +15,31 @@ import java.io.File
  * media is not accessible on the device.
  */
 fun getWhatsAppMediaDirs(context: Context): File? {
-    val root = Environment.getExternalStorageDirectory()
-    val legacy = File(root, "WhatsApp/Media")
-    if (legacy.exists()) return legacy
-    val scoped = File(root, "Android/media/com.whatsapp/WhatsApp/Media")
-    return scoped.takeIf { it.exists() }
+    val roots = mutableListOf<File>()
+    roots += Environment.getExternalStorageDirectory()
+    context.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile?.let { roots += it }
+
+    roots.distinct().forEach { root ->
+        // Check legacy top-level directories like "WhatsApp" and "WhatsApp Business"
+        listOf("WhatsApp", "WhatsApp Business").forEach { name ->
+            val legacy = File(root, "$name/Media")
+            if (legacy.exists()) return legacy
+        }
+
+        // Scan scoped storage packages that start with "com.whatsapp"
+        val mediaRoot = File(root, "Android/media")
+        mediaRoot.listFiles()?.forEach { pkgDir ->
+            if (pkgDir.name.startsWith("com.whatsapp")) {
+                pkgDir.listFiles()?.forEach { waDir ->
+                    if (waDir.isDirectory && waDir.name.startsWith("WhatsApp")) {
+                        val media = File(waDir, "Media")
+                        if (media.exists()) return media
+                    }
+                }
+            }
+        }
+    }
+    return null
 }
 
 /**
