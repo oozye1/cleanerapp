@@ -131,6 +131,7 @@
     <string name="whatsapp_card_title">व्हाट्सएप फ़ाइलें</string>
     <string name="whatsapp_card_subtitle">वे मीडिया हटाएँ जिनकी अब ज़रूरत नहीं.</string>
     <string name="clean_whatsapp">व्हाट्सएप मीडिया साफ़ करें</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">व्हाट्सएप मीडिया साफ़ करें</string>
     <string name="clean_whatsapp_warning_message">इससे सभी व्हाट्सएप मीडिया फ़ाइलें हट जाएँगी। आगे बढ़ें?</string>
     <string name="cancel">रद्द करें</string>

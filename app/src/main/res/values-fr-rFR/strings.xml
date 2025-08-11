@@ -134,6 +134,7 @@
     <string name="whatsapp_card_title">Fichiers WhatsApp</string>
     <string name="whatsapp_card_subtitle">Nettoyez les médias dont vous n’avez plus besoin.</string>
     <string name="clean_whatsapp">Nettoyer les médias WhatsApp</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">Nettoyer les médias WhatsApp</string>
     <string name="clean_whatsapp_warning_message">Cela supprimera tous les fichiers médias WhatsApp. Continuer ?</string>
     <string name="cancel">Annuler</string>

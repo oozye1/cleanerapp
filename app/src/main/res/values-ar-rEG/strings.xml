@@ -143,6 +143,7 @@
     <string name="whatsapp_card_title">ملفات واتساب</string>
     <string name="whatsapp_card_subtitle">امسح الوسائط التي لم تعد تحتاجها.</string>
     <string name="clean_whatsapp">تنظيف وسائط واتساب</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">تنظيف وسائط واتساب</string>
     <string name="clean_whatsapp_warning_message">سيؤدي هذا إلى حذف جميع ملفات وسائط واتساب. المتابعة؟</string>
     <string name="cancel">إلغاء</string>

@@ -137,6 +137,7 @@
     <string name="whatsapp_card_title">Pliki WhatsApp</string>
     <string name="whatsapp_card_subtitle">Wyczyść media, których już nie potrzebujesz.</string>
     <string name="clean_whatsapp">Wyczyść multimedia WhatsApp</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">Wyczyść multimedia WhatsApp</string>
     <string name="clean_whatsapp_warning_message">Spowoduje to usunięcie wszystkich plików multimedialnych WhatsApp. Kontynuować?</string>
     <string name="cancel">Anuluj</string>

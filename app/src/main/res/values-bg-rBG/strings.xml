@@ -131,6 +131,7 @@
     <string name="whatsapp_card_title">Файлове от WhatsApp</string>
     <string name="whatsapp_card_subtitle">Изчистете медията, която вече не ви трябва.</string>
     <string name="clean_whatsapp">Почистване на WhatsApp медия</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">Почистване на WhatsApp медия</string>
     <string name="clean_whatsapp_warning_message">Това ще изтрие всички медийни файлове на WhatsApp. Да продължа ли?</string>
     <string name="cancel">Отказ</string>

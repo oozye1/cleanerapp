@@ -134,6 +134,7 @@
     <string name="whatsapp_card_title">Fișiere WhatsApp</string>
     <string name="whatsapp_card_subtitle">Curăță fișierele media de care nu mai ai nevoie.</string>
     <string name="clean_whatsapp">Curăță fișierele WhatsApp</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">Curăță fișierele WhatsApp</string>
     <string name="clean_whatsapp_warning_message">Aceasta va șterge toate fișierele media WhatsApp. Continui?</string>
     <string name="cancel">Anulează</string>

@@ -131,6 +131,7 @@
     <string name="whatsapp_card_title">হোয়াটসঅ্যাপ ফাইল</string>
     <string name="whatsapp_card_subtitle">আপনার দরকার নেই এমন মিডিয়া সরান।</string>
     <string name="clean_whatsapp">হোয়াটসঅ্যাপ মিডিয়া পরিষ্কার করুন</string>
+    <string name="open_whatsapp_cleaner">Open WhatsApp Cleaner</string>
     <string name="clean_whatsapp_warning_title">হোয়াটসঅ্যাপ মিডিয়া পরিষ্কার করুন</string>
     <string name="clean_whatsapp_warning_message">এটি সব হোয়াটসঅ্যাপ মিডিয়া ফাইল মুছে ফেলবে। চালিয়ে যাবেন?</string>
     <string name="cancel">বাতিল</string>
