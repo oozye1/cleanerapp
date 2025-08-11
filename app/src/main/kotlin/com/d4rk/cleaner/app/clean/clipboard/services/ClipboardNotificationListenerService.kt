@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.os.Build
 import android.service.notification.NotificationListenerService
+import androidx.core.content.ContextCompat
 import com.d4rk.cleaner.core.utils.extensions.clearClipboardCompat
 
 class ClipboardNotificationListenerService : NotificationListenerService() {
@@ -14,7 +15,12 @@ class ClipboardNotificationListenerService : NotificationListenerService() {
 
     override fun onCreate() {
         super.onCreate()
-        registerReceiver(screenReceiver, IntentFilter(Intent.ACTION_SCREEN_OFF))
+        ContextCompat.registerReceiver(
+            this,
+            screenReceiver,
+            IntentFilter(Intent.ACTION_SCREEN_OFF),
+            ContextCompat.RECEIVER_NOT_EXPORTED
+        )
     }
 
     override fun onDestroy() {

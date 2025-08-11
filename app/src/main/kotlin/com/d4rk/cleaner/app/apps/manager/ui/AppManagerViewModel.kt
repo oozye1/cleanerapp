@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
+import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewModelScope
 import com.d4rk.android.libs.apptoolkit.core.di.DispatcherProvider
 import com.d4rk.android.libs.apptoolkit.core.domain.model.network.DataState
@@ -138,13 +139,23 @@ class AppManagerViewModel(
     private fun registerPackageRemovedReceiver() {
         val filter = IntentFilter(Intent.ACTION_PACKAGE_REMOVED)
         filter.addDataScheme("package")
-        applicationContext.registerReceiver(packageRemovedReceiver, filter)
+        ContextCompat.registerReceiver(
+            applicationContext,
+            packageRemovedReceiver,
+            filter,
+            ContextCompat.RECEIVER_NOT_EXPORTED
+        )
     }
 
     private fun registerPackageAddedReceiver() {
         val filter = IntentFilter(Intent.ACTION_PACKAGE_ADDED)
         filter.addDataScheme("package")
-        applicationContext.registerReceiver(packageAddedReceiver, filter)
+        ContextCompat.registerReceiver(
+            applicationContext,
+            packageAddedReceiver,
+            filter,
+            ContextCompat.RECEIVER_NOT_EXPORTED
+        )
     }
 
     override fun onCleared() {
