@@ -507,21 +507,19 @@ object FilePreviewHelper {
                 val snippet by produceState<String?>(initialValue = null, file.path) {
                     value = loadTextSnippet(file)
                 }
-                if (snippet != null) {
+                snippet?.let {
                     Text(
-                        text = snippet!!,
+                        text = it,
                         style = MaterialTheme.typography.labelSmall,
                         maxLines = 3,
                         overflow = TextOverflow.Ellipsis,
                         modifier = modifier
                     )
-                } else {
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_unknown_document),
-                        contentDescription = null,
-                        modifier = modifier.size(24.dp)
-                    )
-                }
+                } ?: Icon(
+                    painter = painterResource(id = R.drawable.ic_unknown_document),
+                    contentDescription = null,
+                    modifier = modifier.size(24.dp)
+                )
             }
 
             PreviewType.Archive -> {
