@@ -4,8 +4,8 @@ import android.app.Application
 import androidx.work.WorkInfo
 import androidx.work.WorkManager
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.MainScope
 import java.util.UUID
 
 /**
@@ -16,6 +16,7 @@ import java.util.UUID
  */
 fun observeFileCleanWork(
     previousObserver: Job?,
+    scope: CoroutineScope,
     application: Application,
     dispatcher: CoroutineDispatcher,
     workId: UUID,
@@ -28,7 +29,7 @@ fun observeFileCleanWork(
 ): Job {
     previousObserver?.cancel()
     return WorkObserver.observe(
-        scope = MainScope(),
+        scope = scope,
         workManager = WorkManager.getInstance(application),
         workId = workId,
         dispatcher = dispatcher,
