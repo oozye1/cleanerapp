@@ -25,6 +25,7 @@ import com.d4rk.cleaner.core.utils.helpers.FileGroupingHelper
 import com.d4rk.cleaner.core.work.FileCleanWorkEnqueuer
 import com.d4rk.cleaner.core.work.FileCleaner
 import com.d4rk.cleaner.core.work.observeFileCleanWork
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collectLatest
@@ -70,6 +71,7 @@ class TrashViewModel(
     private fun observeWork(id: UUID) {
         activeWorkObserver = observeFileCleanWork(
             previousObserver = activeWorkObserver,
+            scope = viewModelScope,
             application = application,
             dispatcher = dispatchers.io,
             workId = id,

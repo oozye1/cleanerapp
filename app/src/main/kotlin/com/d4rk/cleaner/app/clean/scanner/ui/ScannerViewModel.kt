@@ -572,6 +572,7 @@ class ScannerViewModel(
     private fun observeCleaningWork(id: UUID) {
         activeCleanWorkObserver = observeFileCleanWork(
             previousObserver = activeCleanWorkObserver,
+            scope = viewModelScope,
             application = application,
             dispatcher = dispatchers.io,
             workId = id,
