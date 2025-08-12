@@ -58,6 +58,7 @@ class CleanOperationHandler(
             val scannedFiles = mutableListOf<File>()
             val emptyFolders = mutableListOf<File>()
 
+            var errorDuringScan = false
             analyzeFilesUseCase().collect { result ->
                 uiState.update { currentState ->
                     val currentData: UiScannerModel = currentState.data ?: UiScannerModel()
@@ -90,16 +91,25 @@ class CleanOperationHandler(
                         )
                     }
                 }
-                if (result is DataState.Error) return@launch
+                if (result is DataState.Error) {
+                    errorDuringScan = true
+                    return@collect
+                }
             }
+            if (errorDuringScan) return@launch
 
+            errorDuringScan = false
             getEmptyFoldersUseCase().collect { result: DataState<File, Errors> ->
                 when (result) {
                     is DataState.Success -> emptyFolders.add(result.data)
-                    is DataState.Error -> return@launch
+                    is DataState.Error -> {
+                        errorDuringScan = true
+                        return@collect
+                    }
                     else -> {}
                 }
             }
+            if (errorDuringScan) return@launch
 
             val currentData = uiState.value.data ?: UiScannerModel()
             val fileTypesData = currentData.analyzeState.fileTypesData
