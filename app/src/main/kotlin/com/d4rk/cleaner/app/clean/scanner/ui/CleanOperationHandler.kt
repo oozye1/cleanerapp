@@ -90,11 +90,14 @@ class CleanOperationHandler(
                         )
                     }
                 }
+                if (result is DataState.Error) return@launch
             }
 
             getEmptyFoldersUseCase().collect { result: DataState<File, Errors> ->
-                if (result is DataState.Success) {
-                    emptyFolders.add(result.data)
+                when (result) {
+                    is DataState.Success -> emptyFolders.add(result.data)
+                    is DataState.Error -> return@launch
+                    else -> {}
                 }
             }
 

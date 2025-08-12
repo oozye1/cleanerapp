@@ -68,7 +68,7 @@ class AutoCleanWorker(
                 else -> {}
             }
         }
-        if (errorDuringScan) return Result.success()
+        if (errorDuringScan) return Result.retry()
 
         val emptyFolders = mutableListOf<File>()
         errorDuringScan = false
@@ -82,7 +82,7 @@ class AutoCleanWorker(
                 else -> {}
             }
         }
-        if (errorDuringScan) return Result.success()
+        if (errorDuringScan) return Result.retry()
 
         val typesState = getFileTypes().first { it !is DataState.Loading }
         val types = if (typesState is DataState.Success) typesState.data else FileTypesData()
