@@ -5,6 +5,8 @@ import androidx.work.WorkManager
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import java.util.UUID
 
@@ -22,7 +24,7 @@ object WorkObserver {
         onProgress: suspend (WorkInfo) -> Unit = {}
     ): Job {
         return scope.launch(dispatcher) {
-            workManager.getWorkInfoByIdFlow(workId).collect { info ->
+            workManager.getWorkInfoByIdFlow(workId).collectLatest { info ->
                 info?.let { onProgress(it) }
                 when (info?.state) {
                     WorkInfo.State.ENQUEUED,
@@ -31,18 +33,22 @@ object WorkObserver {
                     WorkInfo.State.SUCCEEDED -> {
                         clearWorkId()
                         onSuccess(info)
+                        cancel()
                     }
                     WorkInfo.State.FAILED -> {
                         clearWorkId()
                         onFailed()
+                        cancel()
                     }
                     WorkInfo.State.CANCELLED -> {
                         clearWorkId()
                         onCancelled()
+                        cancel()
                     }
                     null -> {
                         clearWorkId()
                         onCancelled()
+                        cancel()
                     }
                 }
             }
