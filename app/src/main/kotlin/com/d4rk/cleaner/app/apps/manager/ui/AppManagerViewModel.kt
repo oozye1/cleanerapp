@@ -39,6 +39,7 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import java.io.File
 import java.util.Locale
 
 class AppManagerViewModel(
@@ -287,7 +288,11 @@ class AppManagerViewModel(
         launch(dispatchers.io) {
             when (item) {
                 is AppManagerItem.ApkFile -> {
-                    shareApkUseCase(item.path).collectLatest { result ->
+                    val pkgName =
+                        applicationContext.packageManager
+                            .getPackageArchiveInfo(item.path, 0)?.packageName
+                            ?: File(item.path).nameWithoutExtension
+                    shareApkUseCase(item.path, pkgName).collectLatest { result ->
                         when (result) {
                             is DataState.Success -> sendAction(
                                 AppManagerAction.LaunchShareIntent(
