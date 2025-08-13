@@ -56,7 +56,7 @@ class AppPackageManagerImpl(private val application: Application) : ApkInstaller
             )
             shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri)
             shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            shareIntent
+            Intent.createChooser(shareIntent, null)
         }.onSuccess { intent: Intent ->
             emit(value = DataState.Success(data = intent))
         }.onFailure { throwable ->
@@ -72,7 +72,7 @@ class AppPackageManagerImpl(private val application: Application) : ApkInstaller
             val playStoreLink = "https://play.google.com/store/apps/details?id=$packageName"
             val shareMessage = "Check out this app: ${getAppName(packageName)}\n$playStoreLink"
             shareIntent.putExtra(Intent.EXTRA_TEXT, shareMessage)
-            shareIntent
+            Intent.createChooser(shareIntent, null)
         }.onSuccess { intent: Intent ->
             emit(value = DataState.Success(data = intent))
         }.onFailure { throwable: Throwable ->

@@ -30,7 +30,12 @@ import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.material3.ListItem
+import androidx.compose.material3.Icon
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.material3.Text
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -40,11 +45,15 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.clickable
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Android
+import androidx.compose.material.icons.outlined.Link
 import com.d4rk.android.libs.apptoolkit.core.domain.model.ui.UiStateScreen
 import com.d4rk.android.libs.apptoolkit.core.ui.components.digits.AnimatedDigit
 import com.d4rk.android.libs.apptoolkit.core.ui.components.modifiers.bounceClick
@@ -75,12 +84,13 @@ object AppManagerBadgeTransitions {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
+@OptIn(ExperimentalFoundationApi::class, ExperimentalMaterial3Api::class)
 @Composable
 fun AppManagerScreen(snackbarHostState: SnackbarHostState, paddingValues: PaddingValues) {
     val viewModel: AppManagerViewModel = koinViewModel()
     val context: Context = LocalContext.current
     val uiState: UiStateScreen<UiAppManagerModel> by viewModel.uiState.collectAsState()
+    val sharePackage by viewModel.sharePackage.collectAsState()
 
     LaunchedEffect(context) {
         if (!PermissionsHelper.hasUsageAccessPermissions(context)) {
@@ -109,6 +119,29 @@ fun AppManagerScreen(snackbarHostState: SnackbarHostState, paddingValues: Paddin
         snackbarHostState = snackbarHostState,
         getDismissEvent = { AppManagerEvent.DismissSnackbar },
         onEvent = { viewModel.onEvent(event = it) })
+
+    sharePackage?.let {
+        val sheetState = rememberModalBottomSheetState()
+        ModalBottomSheet(
+            onDismissRequest = { viewModel.onEvent(AppManagerEvent.DismissShareOptions) },
+            sheetState = sheetState,
+        ) {
+            ListItem(
+                headlineContent = { Text(text = stringResource(id = R.string.share_play_store_link)) },
+                leadingContent = { Icon(imageVector = Icons.Outlined.Link, contentDescription = null) },
+                modifier = Modifier.clickable {
+                    viewModel.onEvent(AppManagerEvent.ShareStoreLink)
+                },
+            )
+            ListItem(
+                headlineContent = { Text(text = stringResource(id = R.string.share_apk_file)) },
+                leadingContent = { Icon(imageVector = Icons.Outlined.Android, contentDescription = null) },
+                modifier = Modifier.clickable {
+                    viewModel.onEvent(AppManagerEvent.ShareApkFile)
+                },
+            )
+        }
+    }
 }
 
 @OptIn(ExperimentalFoundationApi::class)
