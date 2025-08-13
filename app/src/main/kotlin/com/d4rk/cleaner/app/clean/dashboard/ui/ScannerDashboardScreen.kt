@@ -54,6 +54,7 @@ import com.d4rk.cleaner.app.clean.dashboard.ui.components.DashboardActionCard
 import com.d4rk.cleaner.app.clean.whatsapp.summary.ui.WhatsAppCleanerActivity
 import com.d4rk.cleaner.app.images.picker.ui.ImagePickerActivity
 import com.d4rk.cleaner.core.data.datastore.DataStore
+import com.d4rk.cleaner.core.utils.helpers.LogHelper
 import com.google.android.gms.common.ConnectionResult
 import com.google.android.gms.common.GoogleApiAvailability
 import org.koin.compose.koinInject
@@ -81,7 +82,7 @@ private sealed interface HomeItem {
     data class Ad(val slot: AdSlot) : HomeItem
 }
 
-private const val TAG = "ScannerDashboardScreen"
+private const val TAG = LogHelper.SCANNER_DASHBOARD_SCREEN
 
 @Composable
 fun ScannerDashboardScreen(

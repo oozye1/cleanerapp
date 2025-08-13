@@ -20,6 +20,7 @@ import com.d4rk.cleaner.app.clean.scanner.domain.usecases.DeleteFilesUseCase
 import com.d4rk.cleaner.core.domain.model.network.Errors
 import com.d4rk.cleaner.core.utils.helpers.CleaningEventBus
 import com.d4rk.cleaner.core.utils.helpers.isProtectedAndroidDir
+import com.d4rk.cleaner.core.utils.helpers.LogHelper
 import com.google.android.material.color.MaterialColors
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
@@ -286,6 +287,6 @@ class FileCleanupWorker(
         const val MAX_PATHS_PER_WORKER = 100
         private const val NOTIFICATION_ID = 2001
         private const val NOTIFICATION_CHANNEL = "file_cleanup"
-        private const val TAG = "FileCleanupWorker"
+        private const val TAG = LogHelper.FILE_CLEANUP_WORKER
     }
 }

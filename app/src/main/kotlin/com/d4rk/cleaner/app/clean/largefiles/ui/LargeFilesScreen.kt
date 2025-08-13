@@ -28,10 +28,11 @@ import com.d4rk.cleaner.app.clean.analyze.ui.components.FilesByDateSection
 import com.d4rk.cleaner.app.clean.largefiles.domain.actions.LargeFilesEvent
 import com.d4rk.cleaner.app.clean.largefiles.domain.data.model.ui.UiLargeFilesModel
 import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.CleaningState
+import com.d4rk.cleaner.core.utils.helpers.LogHelper
 import org.koin.compose.viewmodel.koinViewModel
 import java.io.File
 
-private const val TAG = "LargeFilesScreen"
+private const val TAG = LogHelper.LARGE_FILES_SCREEN
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LargeFilesScreen(activity: LargeFilesActivity) {

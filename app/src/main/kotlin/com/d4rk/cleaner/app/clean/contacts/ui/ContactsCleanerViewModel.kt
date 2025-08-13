@@ -17,6 +17,7 @@ import com.d4rk.cleaner.app.clean.contacts.domain.usecases.DeleteOlderContactsUs
 import com.d4rk.cleaner.app.clean.contacts.domain.usecases.GetDuplicateContactsUseCase
 import com.d4rk.cleaner.app.clean.contacts.domain.usecases.MergeContactsUseCase
 import com.d4rk.cleaner.core.utils.extensions.asUiText
+import com.d4rk.cleaner.core.utils.helpers.LogHelper
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.update
 
@@ -31,7 +32,7 @@ class ContactsCleanerViewModel(
 ) {
 
     companion object {
-        private const val TAG = "ContactsCleanerViewModel"
+        private const val TAG = LogHelper.CONTACTS_CLEANER_VIEW_MODEL
     }
 
     init {

@@ -36,9 +36,10 @@ import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.FileEntry
 import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.UiScannerModel
 import com.d4rk.cleaner.app.clean.scanner.ui.ScannerViewModel
 import com.d4rk.cleaner.app.clean.scanner.ui.components.TwoRowButtons
+import com.d4rk.cleaner.core.utils.helpers.LogHelper
 import kotlinx.coroutines.CoroutineScope
 
-private const val TAG = "AnalyzeScreen"
+private const val TAG = LogHelper.ANALYZE_SCREEN
 
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
@@ -69,10 +70,15 @@ fun AnalyzeScreen(
             when (data.analyzeState.state) {
 
                 CleaningState.Analyzing -> {
+                    Log.d(TAG, "Analyzing files")
                     LoadingScreen()
                 }
 
                 CleaningState.Cleaning -> {
+                    Log.d(
+                        TAG,
+                        "Cleaning: cleaned=${data.analyzeState.cleanedFilesCount} total=${data.analyzeState.totalFilesToClean}"
+                    )
                     CleaningAnimationScreen(
                         cleaned = data.analyzeState.cleanedFilesCount,
                         total = data.analyzeState.totalFilesToClean,
@@ -80,6 +86,7 @@ fun AnalyzeScreen(
                 }
 
                 CleaningState.ReadyToClean -> {
+                    Log.d(TAG, "ReadyToClean: groups=${groupedFiles.size}")
                     if (groupedFiles.isNotEmpty()) {
                         TabsContent(
                             groupedFiles = groupedFiles,
@@ -89,22 +96,27 @@ fun AnalyzeScreen(
                             data = data,
                         )
                     } else {
+                        Log.d(TAG, "No files found")
                         NoFilesFoundScreen(viewModel = viewModel)
                     }
                 }
 
                 CleaningState.Result -> {
+                    Log.d(TAG, "Showing results")
                     NoFilesFoundScreen(viewModel = viewModel)
                 }
 
                 CleaningState.Error -> {
+                    Log.e(TAG, "Error state encountered")
                     ErrorScreen(onRetry = {
                         viewModel.resetAfterError()
                         viewModel.onEvent(ScannerEvent.AnalyzeFiles)
                     })
                 }
 
-                CleaningState.Idle -> {}
+                CleaningState.Idle -> {
+                    Log.d(TAG, "Idle state")
+                }
             }
         }
         if (groupedFiles.isNotEmpty() && data.analyzeState.state == CleaningState.ReadyToClean) {
