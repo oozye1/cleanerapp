@@ -7,7 +7,10 @@ import com.d4rk.cleaner.core.domain.model.network.Errors
 import kotlinx.coroutines.flow.Flow
 
 class ShareApkUseCase(private val apkSharer: ApkSharer) {
-    operator fun invoke(apkPath: String): Flow<DataState<Intent, Errors>> {
-        return apkSharer.prepareShareIntent(apkPath = apkPath)
+    operator fun invoke(apkPath: String, packageName: String): Flow<DataState<Intent, Errors>> {
+        return apkSharer.prepareShareIntent(
+            apkPath = apkPath,
+            packageName = packageName,
+        )
     }
 }

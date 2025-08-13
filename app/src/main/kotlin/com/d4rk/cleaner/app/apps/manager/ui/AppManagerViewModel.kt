@@ -341,7 +341,7 @@ class AppManagerViewModel(
             runCatching {
                 applicationContext.packageManager.getApplicationInfo(packageName, 0).publicSourceDir
             }.onSuccess { apkPath ->
-                shareApkUseCase(apkPath).collectLatest { result ->
+                shareApkUseCase(apkPath, packageName).collectLatest { result ->
                     when (result) {
                         is DataState.Success -> sendAction(
                             AppManagerAction.LaunchShareIntent(result.data),
