@@ -24,19 +24,22 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.Android
+import androidx.compose.material.icons.outlined.Shop
 import androidx.compose.material3.Badge
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
 import androidx.compose.material3.TabRowDefaults
 import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
-import androidx.compose.material3.ModalBottomSheet
-import androidx.compose.material3.ListItem
-import androidx.compose.material3.Icon
-import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.material3.Text
-import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -51,21 +54,22 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.outlined.Android
-import androidx.compose.material.icons.outlined.Link
 import com.d4rk.android.libs.apptoolkit.core.domain.model.ui.UiStateScreen
 import com.d4rk.android.libs.apptoolkit.core.ui.components.digits.AnimatedDigit
 import com.d4rk.android.libs.apptoolkit.core.ui.components.modifiers.bounceClick
 import com.d4rk.android.libs.apptoolkit.core.ui.components.modifiers.hapticPagerSwipe
 import com.d4rk.android.libs.apptoolkit.core.ui.components.snackbar.DefaultSnackbarHandler
 import com.d4rk.android.libs.apptoolkit.core.ui.components.spacers.ExtraTinyHorizontalSpacer
+import com.d4rk.android.libs.apptoolkit.core.ui.components.spacers.ExtraTinyVerticalSpacer
+import com.d4rk.android.libs.apptoolkit.core.ui.components.spacers.LargeVerticalSpacer
+import com.d4rk.android.libs.apptoolkit.core.utils.constants.ui.SizeConstants
 import com.d4rk.cleaner.R
 import com.d4rk.cleaner.app.apps.manager.domain.actions.AppManagerAction
 import com.d4rk.cleaner.app.apps.manager.domain.actions.AppManagerEvent
 import com.d4rk.cleaner.app.apps.manager.domain.data.model.ui.UiAppManagerModel
 import com.d4rk.cleaner.app.apps.manager.ui.components.tabs.ApksTab
 import com.d4rk.cleaner.app.apps.manager.ui.components.tabs.AppsTab
+import com.d4rk.cleaner.app.core.ui.theme.GroupedGridStyle
 import com.d4rk.cleaner.core.utils.helpers.PermissionsHelper
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.collectLatest
@@ -126,20 +130,33 @@ fun AppManagerScreen(snackbarHostState: SnackbarHostState, paddingValues: Paddin
             onDismissRequest = { viewModel.onEvent(AppManagerEvent.DismissShareOptions) },
             sheetState = sheetState,
         ) {
-            ListItem(
-                headlineContent = { Text(text = stringResource(id = R.string.share_play_store_link)) },
-                leadingContent = { Icon(imageVector = Icons.Outlined.Link, contentDescription = null) },
-                modifier = Modifier.clickable {
-                    viewModel.onEvent(AppManagerEvent.ShareStoreLink)
-                },
-            )
-            ListItem(
-                headlineContent = { Text(text = stringResource(id = R.string.share_apk_file)) },
-                leadingContent = { Icon(imageVector = Icons.Outlined.Android, contentDescription = null) },
-                modifier = Modifier.clickable {
-                    viewModel.onEvent(AppManagerEvent.ShareApkFile)
-                },
-            )
+            Column(
+                modifier = Modifier
+                    .padding(horizontal = SizeConstants.LargeSize)
+                    .fillMaxWidth()
+                    .clip(GroupedGridStyle.gridClipShape),
+            ) {
+                ListItem(
+                    headlineContent = { Text(text = stringResource(id = R.string.share_play_store_link)) },
+                    leadingContent = { Icon(imageVector = Icons.Outlined.Shop, contentDescription = null) },
+                    modifier = Modifier.clickable {
+                        viewModel.onEvent(AppManagerEvent.ShareStoreLink)
+                    },
+                )
+
+                ExtraTinyVerticalSpacer()
+
+                ListItem(
+                    headlineContent = { Text(text = stringResource(id = R.string.share_apk_file)) },
+                    leadingContent = { Icon(imageVector = Icons.Outlined.Android, contentDescription = null) },
+                    modifier = Modifier
+                        .clickable {
+                        viewModel.onEvent(AppManagerEvent.ShareApkFile)
+                    },
+                )
+            }
+
+            LargeVerticalSpacer()
         }
     }
 }
