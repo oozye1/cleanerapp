@@ -1,6 +1,7 @@
 package com.d4rk.cleaner.app.clean.largefiles.ui
 
 import android.view.View
+import android.util.Log
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -27,9 +28,11 @@ import com.d4rk.cleaner.app.clean.analyze.ui.components.FilesByDateSection
 import com.d4rk.cleaner.app.clean.largefiles.domain.actions.LargeFilesEvent
 import com.d4rk.cleaner.app.clean.largefiles.domain.data.model.ui.UiLargeFilesModel
 import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.CleaningState
+import com.d4rk.cleaner.core.utils.helpers.LogHelper
 import org.koin.compose.viewmodel.koinViewModel
 import java.io.File
 
+private const val TAG = LogHelper.LARGE_FILES_SCREEN
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun LargeFilesScreen(activity: LargeFilesActivity) {
@@ -47,15 +50,15 @@ fun LargeFilesScreen(activity: LargeFilesActivity) {
                     CleaningAnimationScreen()
                 } else {
                     LoadingScreen()
-                    println("LoadingScreen")
+                    Log.d(TAG, "LoadingScreen")
                 }
             },
             onEmpty = {
-                println("onEmpty")
+                Log.d(TAG, "onEmpty")
                 NoDataScreen(textMessage = R.string.no_large_files, icon = Icons.Outlined.Folder)
             },
             onSuccess = { data: UiLargeFilesModel ->
-                println("onSuccess")
+                Log.d(TAG, "onSuccess")
                 ConstraintLayout(
                     modifier = Modifier
                         .padding(padding)
