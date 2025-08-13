@@ -384,6 +384,8 @@
     <string name="failed_to_open_app_info">App-Info konnte nicht geöffnet werden: %1$s</string>
     <string name="share_apk_failed">Teilen der APK fehlgeschlagen</string>
     <string name="share_app_failed">Teilen der App fehlgeschlagen</string>
+    <string name="share_play_store_link">Play-Store-Link teilen</string>
+    <string name="share_apk_file">APK-Datei teilen</string>
     <string name="apk_installed_successfully">APK erfolgreich installiert!</string>
     <string name="failed_to_install_apk">Installation der APK fehlgeschlagen: %1$s</string>
     <string name="failed_to_uninstall_app">Deinstallation der App fehlgeschlagen: %1$s</string>

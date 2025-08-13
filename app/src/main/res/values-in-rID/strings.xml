@@ -375,6 +375,8 @@
     <string name="failed_to_open_app_info">Gagal membuka info aplikasi: %1$s</string>
     <string name="share_apk_failed">Gagal membagikan APK</string>
     <string name="share_app_failed">Gagal membagikan aplikasi</string>
+    <string name="share_play_store_link">Bagikan link Play Store</string>
+    <string name="share_apk_file">Bagikan file APK</string>
     <string name="apk_installed_successfully">APK berhasil diinstal!</string>
     <string name="failed_to_install_apk">Gagal menginstal APK: %1$s</string>
     <string name="failed_to_uninstall_app">Gagal mencopot pemasangan aplikasi: %1$s</string>

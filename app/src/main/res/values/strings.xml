@@ -389,6 +389,8 @@
     <string name="failed_to_open_app_info">Failed to open app info: %1$s</string>
     <string name="share_apk_failed">Failed to share APK</string>
     <string name="share_app_failed">Failed to share app</string>
+    <string name="share_play_store_link">Share Play Store link</string>
+    <string name="share_apk_file">Share APK file</string>
     <string name="apk_installed_successfully">APK installed successfully!</string>
     <string name="failed_to_install_apk">Failed to install APK: %1$s</string>
     <string name="failed_to_uninstall_app">Failed to uninstall app: %1$s</string>

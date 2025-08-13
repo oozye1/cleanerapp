@@ -375,6 +375,8 @@
     <string name="failed_to_open_app_info">앱 정보를 열지 못했습니다: %1$s</string>
     <string name="share_apk_failed">APK 공유 실패</string>
     <string name="share_app_failed">앱 공유 실패</string>
+    <string name="share_play_store_link">Play 스토어 링크 공유</string>
+    <string name="share_apk_file">APK 파일 공유</string>
     <string name="apk_installed_successfully">APK가 성공적으로 설치되었습니다!</string>
     <string name="failed_to_install_apk">APK 설치 실패: %1$s</string>
     <string name="failed_to_uninstall_app">앱 제거 실패: %1$s</string>

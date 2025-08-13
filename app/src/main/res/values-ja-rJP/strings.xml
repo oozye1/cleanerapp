@@ -375,6 +375,8 @@
     <string name="failed_to_open_app_info">アプリ情報を開けませんでした: %1$s</string>
     <string name="share_apk_failed">APKの共有に失敗しました</string>
     <string name="share_app_failed">アプリの共有に失敗しました</string>
+    <string name="share_play_store_link">Play ストアのリンクを共有</string>
+    <string name="share_apk_file">APK ファイルを共有</string>
     <string name="apk_installed_successfully">APKが正常にインストールされました！</string>
     <string name="failed_to_install_apk">APKのインストールに失敗しました: %1$s</string>
     <string name="failed_to_uninstall_app">アプリのアンインストールに失敗しました: %1$s</string>

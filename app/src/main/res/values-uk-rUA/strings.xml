@@ -402,6 +402,8 @@
     <string name="failed_to_open_app_info">Не вдалося відкрити інформацію про додаток: %1$s</string>
     <string name="share_apk_failed">Не вдалося поділитися APK-файлом</string>
     <string name="share_app_failed">Не вдалося поділитися додатком</string>
+    <string name="share_play_store_link">Поділитися посиланням Play Store</string>
+    <string name="share_apk_file">Поділитися файлом APK</string>
     <string name="apk_installed_successfully">APK-файл успішно встановлено!</string>
     <string name="failed_to_install_apk">Не вдалося встановити APK: %1$s</string>
     <string name="failed_to_uninstall_app">Не вдалося видалити додаток: %1$s</string>

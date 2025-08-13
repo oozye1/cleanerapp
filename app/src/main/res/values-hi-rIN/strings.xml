@@ -384,6 +384,8 @@
     <string name="failed_to_open_app_info">ऐप जानकारी खोलने में विफल: %1$s</string>
     <string name="share_apk_failed">एपीके साझा करने में विफल</string>
     <string name="share_app_failed">ऐप साझा करने में विफल</string>
+    <string name="share_play_store_link">प्ले स्टोर लिंक साझा करें</string>
+    <string name="share_apk_file">APK फ़ाइल साझा करें</string>
     <string name="apk_installed_successfully">एपीके सफलतापूर्वक इंस्टॉल हो गया!</string>
     <string name="failed_to_install_apk">एपीके इंस्टॉल करने में विफल: %1$s</string>
     <string name="failed_to_uninstall_app">ऐप अनइंस्टॉल करने में विफल: %1$s</string>

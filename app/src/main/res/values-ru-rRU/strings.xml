@@ -402,6 +402,8 @@
     <string name="failed_to_open_app_info">Не удалось открыть информацию о приложении: %1$s</string>
     <string name="share_apk_failed">Не удалось поделиться APK</string>
     <string name="share_app_failed">Не удалось поделиться приложением</string>
+    <string name="share_play_store_link">Поделиться ссылкой на Play Store</string>
+    <string name="share_apk_file">Поделиться файлом APK</string>
     <string name="apk_installed_successfully">APK успешно установлен!</string>
     <string name="failed_to_install_apk">Не удалось установить APK: %1$s</string>
     <string name="failed_to_uninstall_app">Не удалось удалить приложение: %1$s</string>

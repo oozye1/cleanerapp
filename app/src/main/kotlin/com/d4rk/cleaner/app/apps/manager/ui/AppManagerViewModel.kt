@@ -67,6 +67,9 @@ class AppManagerViewModel(
     private var pendingInstallPackage: String? = null
     private var loadJob: Job? = null
 
+    private val _sharePackage = MutableStateFlow<String?>(null)
+    val sharePackage = _sharePackage.asStateFlow()
+
     fun onSearchQueryChange(query: String) {
         _searchQuery.value = query
     }
@@ -132,6 +135,9 @@ class AppManagerViewModel(
         when (event) {
             AppManagerEvent.LoadAppData -> loadAppData()
             is AppManagerEvent.ShareItem -> handleShareItem(event.item)
+            AppManagerEvent.ShareStoreLink -> shareStoreLink()
+            AppManagerEvent.ShareApkFile -> shareAppApk()
+            AppManagerEvent.DismissShareOptions -> _sharePackage.value = null
             is AppManagerEvent.DismissSnackbar -> screenState.dismissSnackbar()
         }
     }
@@ -285,14 +291,14 @@ class AppManagerViewModel(
                         when (result) {
                             is DataState.Success -> sendAction(
                                 AppManagerAction.LaunchShareIntent(
-                                    result.data
-                                )
+                                    result.data,
+                                ),
                             )
 
                             is DataState.Error -> postSnackbar(
                                 message = UiTextHelper.StringResource(
-                                    R.string.share_apk_failed
-                                ), isError = true
+                                    R.string.share_apk_failed,
+                                ), isError = true,
                             )
 
                             else -> {}
@@ -301,24 +307,62 @@ class AppManagerViewModel(
                 }
 
                 is AppManagerItem.InstalledApp -> {
-                    shareAppUseCase(item.packageName).collectLatest { result ->
-                        when (result) {
-                            is DataState.Success -> sendAction(
-                                AppManagerAction.LaunchShareIntent(
-                                    result.data
-                                )
-                            )
-
-                            is DataState.Error -> postSnackbar(
-                                message = UiTextHelper.StringResource(
-                                    R.string.share_app_failed
-                                ), isError = true
-                            )
-
-                            else -> {}
-                        }
-                    }
+                    _sharePackage.value = item.packageName
                 }
+            }
+        }
+    }
+
+    private fun shareStoreLink() {
+        val packageName = _sharePackage.value ?: return
+        launch(dispatchers.io) {
+            shareAppUseCase(packageName).collectLatest { result ->
+                when (result) {
+                    is DataState.Success -> sendAction(
+                        AppManagerAction.LaunchShareIntent(result.data),
+                    )
+
+                    is DataState.Error -> postSnackbar(
+                        message = UiTextHelper.StringResource(
+                            R.string.share_app_failed,
+                        ), isError = true,
+                    )
+
+                    else -> {}
+                }
+                _sharePackage.value = null
+            }
+        }
+    }
+
+    private fun shareAppApk() {
+        val packageName = _sharePackage.value ?: return
+        launch(dispatchers.io) {
+            runCatching {
+                applicationContext.packageManager.getApplicationInfo(packageName, 0).publicSourceDir
+            }.onSuccess { apkPath ->
+                shareApkUseCase(apkPath).collectLatest { result ->
+                    when (result) {
+                        is DataState.Success -> sendAction(
+                            AppManagerAction.LaunchShareIntent(result.data),
+                        )
+
+                        is DataState.Error -> postSnackbar(
+                            message = UiTextHelper.StringResource(
+                                R.string.share_apk_failed,
+                            ), isError = true,
+                        )
+
+                        else -> {}
+                    }
+                    _sharePackage.value = null
+                }
+            }.onFailure {
+                _sharePackage.value = null
+                postSnackbar(
+                    message = UiTextHelper.StringResource(R.string.share_apk_failed),
+                    isError = true,
+                )
             }
         }
     }

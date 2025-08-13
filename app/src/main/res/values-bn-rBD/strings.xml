@@ -383,6 +383,8 @@
     <string name="failed_to_open_app_info">অ্যাপের তথ্য খুলতে ব্যর্থ: %1$s</string>
     <string name="share_apk_failed">APK শেয়ার করতে ব্যর্থ</string>
     <string name="share_app_failed">অ্যাপ শেয়ার করতে ব্যর্থ</string>
+    <string name="share_play_store_link">প্লে স্টোর লিংক শেয়ার করুন</string>
+    <string name="share_apk_file">APK ফাইল শেয়ার করুন</string>
     <string name="apk_installed_successfully">APK সফলভাবে ইনস্টল হয়েছে!</string>
     <string name="failed_to_install_apk">APK ইনস্টল করতে ব্যর্থ: %1$s</string>
     <string name="failed_to_uninstall_app">অ্যাপ আনইনস্টল করতে ব্যর্থ: %1$s</string>
