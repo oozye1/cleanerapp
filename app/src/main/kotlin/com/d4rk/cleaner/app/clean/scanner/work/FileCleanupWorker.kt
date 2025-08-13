@@ -6,9 +6,9 @@ import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
 import android.util.Log
-import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import androidx.work.CoroutineWorker
 import androidx.work.Data
 import androidx.work.WorkerParameters
@@ -50,11 +50,11 @@ class FileCleanupWorker(
         }
         val action = inputData.getString(KEY_ACTION) ?: ACTION_DELETE
         val paths = rawPaths.toList()
-        println("FileCleanupWorker ---> Received paths: $paths")
+        Log.d(TAG, "Received paths: $paths")
         val files = mutableListOf<File>()
         var hasNonProtectedPath = false
         for (path in paths) {
-            println("FileCleanupWorker ---> Checking path: $path")
+            Log.d(TAG, "Checking path: $path")
             val file = File(path)
             if (file.isProtectedAndroidDir()) {
                 Log.i(TAG, "Skipping protected path: ${file.absolutePath}")
@@ -64,11 +64,11 @@ class FileCleanupWorker(
             val exists = file.exists()
             val isFile = file.isFile
             val isDirectory = file.isDirectory
-            println("FileCleanupWorker ---> File exists: $exists isFile: $isFile isDirectory: $isDirectory")
+            Log.d(TAG, "File exists: $exists isFile: $isFile isDirectory: $isDirectory")
             if (exists) {
-                println("FileCleanupWorker ---> canRead: ${file.canRead()} canWrite: ${file.canWrite()}")
+                Log.d(TAG, "canRead: ${file.canRead()} canWrite: ${file.canWrite()}")
                 if (isDirectory) {
-                    println("FileCleanupWorker ---> directory children: ${file.listFiles()?.size ?: 0}")
+                    Log.d(TAG, "directory children: ${file.listFiles()?.size ?: 0}")
                 }
                 files += file
             }
@@ -114,7 +114,7 @@ class FileCleanupWorker(
         setProgress(workDataOf(KEY_PROGRESS_CURRENT to processed, KEY_PROGRESS_TOTAL to total))
 
         val hasPermission = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            ActivityCompat.checkSelfPermission(
+            ContextCompat.checkSelfPermission(
                 applicationContext,
                 Manifest.permission.POST_NOTIFICATIONS,
             ) == android.content.pm.PackageManager.PERMISSION_GRANTED
@@ -145,7 +145,7 @@ class FileCleanupWorker(
                 return Result.failure()
             }
 
-            println("FileCleanupWorker ---> Attempting to $action: ${file.absolutePath}")
+            Log.d(TAG, "Attempting to $action: ${file.absolutePath}")
             when (val res = performAction(action, listOf(file))) {
                 is DataState.Error -> {
                     failedPaths += file.absolutePath
@@ -153,12 +153,12 @@ class FileCleanupWorker(
                         is Errors.Custom -> err.message
                         else -> err.toString()
                     }
-                    println("FileCleanupWorker ---> ERROR deleting ${file.absolutePath} → reason = $reason")
+                    Log.e(TAG, "Error deleting ${file.absolutePath} → reason = $reason")
                     Log.w(TAG, "Failed to process ${file.absolutePath}: $reason")
                 }
                 else -> {
                     successCount++
-                    println("FileCleanupWorker ---> Deleted: ${file.absolutePath} → result = success")
+                    Log.i(TAG, "Deleted: ${file.absolutePath} → result = success")
                 }
             }
             processed++
@@ -193,7 +193,7 @@ class FileCleanupWorker(
         builder.setProgress(0, 0, false)
 
         val failedCount = failedPaths.size
-        println("FileCleanupWorker ---> Deleted $successCount, failed $failedCount")
+        Log.i(TAG, "Deleted $successCount, failed $failedCount")
         val resultData = Data.Builder().apply {
             if (failedPaths.isNotEmpty()) {
                 putStringArray(KEY_FAILED_PATHS, failedPaths.toTypedArray())

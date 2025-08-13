@@ -1,5 +1,6 @@
 package com.d4rk.cleaner.app.clean.analyze.ui
 
+import android.util.Log
 import android.view.View
 import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.animation.animateContentSize
@@ -37,6 +38,8 @@ import com.d4rk.cleaner.app.clean.scanner.ui.ScannerViewModel
 import com.d4rk.cleaner.app.clean.scanner.ui.components.TwoRowButtons
 import kotlinx.coroutines.CoroutineScope
 
+private const val TAG = "AnalyzeScreen"
+
 @OptIn(ExperimentalAnimationApi::class)
 @Composable
 fun AnalyzeScreen(
@@ -62,7 +65,7 @@ fun AnalyzeScreen(
                 .weight(weight = 1f)
                 .fillMaxWidth(),
         ) {
-            println(message = "The state of the screen is ${data.analyzeState.state}")
+            Log.d(TAG, "The state of the screen is ${data.analyzeState.state}")
             when (data.analyzeState.state) {
 
                 CleaningState.Analyzing -> {

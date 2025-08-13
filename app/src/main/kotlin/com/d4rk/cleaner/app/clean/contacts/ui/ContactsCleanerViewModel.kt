@@ -1,5 +1,6 @@
 package com.d4rk.cleaner.app.clean.contacts.ui
 
+import android.util.Log
 import com.d4rk.android.libs.apptoolkit.core.di.DispatcherProvider
 import com.d4rk.android.libs.apptoolkit.core.domain.model.network.DataState
 import com.d4rk.android.libs.apptoolkit.core.domain.model.ui.ScreenState
@@ -28,6 +29,10 @@ class ContactsCleanerViewModel(
 ) : ScreenViewModel<UiContactsCleanerModel, ContactsCleanerEvent, ContactsCleanerAction>(
     initialState = UiStateScreen(data = UiContactsCleanerModel())
 ) {
+
+    companion object {
+        private const val TAG = "ContactsCleanerViewModel"
+    }
 
     init {
         onEvent(ContactsCleanerEvent.LoadDuplicates)
@@ -59,11 +64,9 @@ class ContactsCleanerViewModel(
             getDuplicatesUseCase().collectLatest { result ->
                 _uiState.update { current ->
 
-                    println("result: $result")
-
-
-                    println("error: ${(result as? DataState.Error)?.error}")
-                    println("message error: ${current.errors}")
+                    Log.d(TAG, "result: $result")
+                    Log.d(TAG, "error: ${(result as? DataState.Error)?.error}")
+                    Log.d(TAG, "message error: ${current.errors}")
 
 
                     when (result) {
