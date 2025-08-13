@@ -56,9 +56,10 @@ class AppPackageManagerImpl(private val application: Application) : ApkInstaller
             )
             shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri)
             shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            Intent.createChooser(shareIntent, null)
-        }.onSuccess { intent: Intent ->
-            emit(value = DataState.Success(data = intent))
+            val chooserIntent = Intent.createChooser(shareIntent, null)
+            chooserIntent
+        }.onSuccess { chooserIntent: Intent ->
+            emit(value = DataState.Success(data = chooserIntent))
         }.onFailure { throwable ->
             emit(value = DataState.Error(error = throwable.toError(default = Errors.UseCase.FAILED_TO_SHARE_APK)))
         }
