@@ -384,6 +384,8 @@
     <string name="failed_to_open_app_info">Nabigong buksan ang impormasyon ng app: %1$s</string>
     <string name="share_apk_failed">Nabigong ibahagi ang APK</string>
     <string name="share_app_failed">Nabigong ibahagi ang app</string>
+    <string name="share_play_store_link">Ibahagi ang Play Store link</string>
+    <string name="share_apk_file">Ibahagi ang APK file</string>
     <string name="apk_installed_successfully">Matagumpay na na-install ang APK!</string>
     <string name="failed_to_install_apk">Nabigong i-install ang APK: %1$s</string>
     <string name="failed_to_uninstall_app">Nabigong i-uninstall ang app: %1$s</string>

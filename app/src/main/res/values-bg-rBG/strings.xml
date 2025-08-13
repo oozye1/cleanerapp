@@ -383,6 +383,8 @@
     <string name="failed_to_open_app_info">Неуспешно отваряне на информацията за приложението: %1$s</string>
     <string name="share_apk_failed">Неуспешно споделяне на APK</string>
     <string name="share_app_failed">Неуспешно споделяне на приложението</string>
+    <string name="share_play_store_link">Сподели връзката в Play Store</string>
+    <string name="share_apk_file">Сподели APK файла</string>
     <string name="apk_installed_successfully">APK файлът е инсталиран успешно!</string>
     <string name="failed_to_install_apk">Неуспешно инсталиране на APK: %1$s</string>
     <string name="failed_to_uninstall_app">Неуспешно деинсталиране на приложението: %1$s</string>

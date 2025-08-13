@@ -393,6 +393,8 @@
     <string name="failed_to_open_app_info">Falha ao abrir informações do aplicativo: %1$s</string>
     <string name="share_apk_failed">Falha ao compartilhar APK</string>
     <string name="share_app_failed">Falha ao compartilhar aplicativo</string>
+    <string name="share_play_store_link">Compartilhar link da Play Store</string>
+    <string name="share_apk_file">Compartilhar arquivo APK</string>
     <string name="apk_installed_successfully">APK instalado com sucesso!</string>
     <string name="failed_to_install_apk">Falha ao instalar APK: %1$s</string>
     <string name="failed_to_uninstall_app">Falha ao desinstalar aplicativo: %1$s</string>

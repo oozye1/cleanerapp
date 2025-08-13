@@ -384,6 +384,8 @@
     <string name="failed_to_open_app_info">Kunde inte öppna appinformation: %1$s</string>
     <string name="share_apk_failed">Kunde inte dela APK</string>
     <string name="share_app_failed">Kunde inte dela app</string>
+    <string name="share_play_store_link">Dela Play Store-länk</string>
+    <string name="share_apk_file">Dela APK-fil</string>
     <string name="apk_installed_successfully">APK installerades framgångsrikt!</string>
     <string name="failed_to_install_apk">Kunde inte installera APK: %1$s</string>
     <string name="failed_to_uninstall_app">Kunde inte avinstallera app: %1$s</string>

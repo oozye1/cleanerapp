@@ -375,6 +375,8 @@
     <string name="failed_to_open_app_info">Không thể mở thông tin ứng dụng: %1$s</string>
     <string name="share_apk_failed">Không thể chia sẻ tệp APK</string>
     <string name="share_app_failed">Không thể chia sẻ ứng dụng</string>
+    <string name="share_play_store_link">Chia sẻ liên kết Play Store</string>
+    <string name="share_apk_file">Chia sẻ tệp APK</string>
     <string name="apk_installed_successfully">Đã cài đặt APK thành công!</string>
     <string name="failed_to_install_apk">Không thể cài đặt APK: %1$s</string>
     <string name="failed_to_uninstall_app">Không thể gỡ cài đặt ứng dụng: %1$s</string>

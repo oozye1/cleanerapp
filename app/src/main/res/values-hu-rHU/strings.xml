@@ -384,6 +384,8 @@
     <string name="failed_to_open_app_info">Nem sikerült megnyitni az alkalmazásinformációt: %1$s</string>
     <string name="share_apk_failed">Nem sikerült megosztani az APK-t</string>
     <string name="share_app_failed">Nem sikerült megosztani az alkalmazást</string>
+    <string name="share_play_store_link">Play Áruház hivatkozás megosztása</string>
+    <string name="share_apk_file">APK fájl megosztása</string>
     <string name="apk_installed_successfully">Az APK sikeresen telepítve!</string>
     <string name="failed_to_install_apk">Nem sikerült telepíteni az APK-t: %1$s</string>
     <string name="failed_to_uninstall_app">Nem sikerült eltávolítani az alkalmazást: %1$s</string>
