@@ -41,7 +41,7 @@ class Cleaner : BaseCoreManager(), SingletonImageLoader.Factory, DefaultLifecycl
 
     override fun onCreate() {
         initializeKoin(context = this)
-        StreakTracker.initialize()
+        StreakTracker.initialize(ProcessLifecycleOwner.get().lifecycleScope)
         SingletonImageLoader.setSafe { newImageLoader(this) }
         super<BaseCoreManager>.onCreate()
         sessionStartTime = System.currentTimeMillis()
@@ -57,6 +57,11 @@ class Cleaner : BaseCoreManager(), SingletonImageLoader.Factory, DefaultLifecycl
         }
         registerActivityLifecycleCallbacks(this)
         ProcessLifecycleOwner.get().lifecycle.addObserver(observer = this)
+    }
+
+    override fun onTerminate() {
+        StreakTracker.shutdown()
+        super<BaseCoreManager>.onTerminate()
     }
 
     override suspend fun onInitializeApp(): Unit = supervisorScope {
