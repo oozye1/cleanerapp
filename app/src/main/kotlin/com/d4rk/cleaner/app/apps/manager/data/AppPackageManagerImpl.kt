@@ -46,24 +46,31 @@ class AppPackageManagerImpl(private val application: Application) : ApkInstaller
         }
     }
 
-    override fun prepareShareIntent(apkPath: String): Flow<DataState<Intent, Errors>> = flow {
-        runCatching {
-            val apkFile = File(apkPath)
-            val shareIntent = Intent(Intent.ACTION_SEND)
-            shareIntent.type = "application/vnd.android.package-archive"
-            val contentUri: Uri = FileProvider.getUriForFile(
-                application, "${application.packageName}.fileprovider", apkFile
-            )
-            shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri)
-            shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            val chooserIntent = Intent.createChooser(shareIntent, null)
-            chooserIntent
-        }.onSuccess { chooserIntent: Intent ->
-            emit(value = DataState.Success(data = chooserIntent))
-        }.onFailure { throwable ->
-            emit(value = DataState.Error(error = throwable.toError(default = Errors.UseCase.FAILED_TO_SHARE_APK)))
+    override fun prepareShareIntent(apkPath: String, packageName: String): Flow<DataState<Intent, Errors>> =
+        flow {
+            runCatching {
+                val sourceFile = File(apkPath)
+                val label = getAppName(packageName).replace("[^A-Za-z0-9._-]".toRegex(), "_")
+                val cachedFile = File(application.cacheDir, "$label.apk")
+                sourceFile.copyTo(cachedFile, overwrite = true)
+                val shareIntent = Intent(Intent.ACTION_SEND)
+                shareIntent.type = "application/vnd.android.package-archive"
+                val contentUri: Uri = FileProvider.getUriForFile(
+                    application, "${application.packageName}.fileprovider", cachedFile
+                )
+                shareIntent.putExtra(Intent.EXTRA_STREAM, contentUri)
+                shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+                Intent.createChooser(shareIntent, null)
+            }.onSuccess { chooserIntent: Intent ->
+                emit(value = DataState.Success(data = chooserIntent))
+            }.onFailure { throwable ->
+                emit(
+                    value = DataState.Error(
+                        error = throwable.toError(default = Errors.UseCase.FAILED_TO_SHARE_APK)
+                    )
+                )
+            }
         }
-    }
 
     override fun shareApp(packageName: String): Flow<DataState<Intent, Errors>> = flow {
         runCatching {
