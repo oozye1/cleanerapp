@@ -7,6 +7,7 @@ import android.provider.MediaStore
 import com.d4rk.android.libs.apptoolkit.core.domain.model.network.DataState
 import com.d4rk.cleaner.app.apps.manager.domain.data.model.ApkInfo
 import com.d4rk.cleaner.app.apps.manager.domain.interfaces.ApkFileManager
+import com.d4rk.android.libs.apptoolkit.core.di.DispatcherProvider
 import com.d4rk.cleaner.core.data.datastore.DataStore
 import com.d4rk.cleaner.core.domain.model.network.Errors
 import com.d4rk.cleaner.core.utils.extensions.toError
@@ -15,11 +16,13 @@ import com.d4rk.cleaner.core.utils.helpers.shouldSkip
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOn
 import java.io.File
 
 class ApkFileManagerImpl(
     private val application: Application,
     private val dataStore: DataStore,
+    private val dispatchers: DispatcherProvider,
 ) : ApkFileManager {
     override fun getApkFilesFromStorage(): Flow<DataState<List<ApkInfo>, Errors>> = flow {
         val showHidden = dataStore.showHiddenFiles.first()
@@ -75,5 +78,5 @@ class ApkFileManagerImpl(
         }.onFailure { throwable: Throwable ->
             emit(value = DataState.Error(error = throwable.toError(default = Errors.UseCase.FAILED_TO_GET_APK_FILES)))
         }
-    }
+    }.flowOn(dispatchers.io)
 }
