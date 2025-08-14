@@ -14,6 +14,11 @@ object AutoCleanScheduler {
 
     suspend fun schedule(context: Context, dataStore: DataStore) {
         val frequency = dataStore.autoCleanFrequencyDays.first()
+        if (frequency <= 0) {
+            cancel(context)
+            return
+        }
+
         val constraints = Constraints.Builder()
             .setRequiresBatteryNotLow(true)
             .build()
