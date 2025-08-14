@@ -17,16 +17,20 @@ import java.io.File
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 import kotlin.math.pow
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class MemoryRepositoryImpl(private val application: Application) : MemoryRepository {
 
-    override suspend fun getStorageInfo(): StorageInfo {
-        return suspendCoroutine { continuation ->
+    override suspend fun getStorageInfo(): StorageInfo = withContext(Dispatchers.IO) {
+        val storageBreakdown: Map<String, Long> = getStorageBreakdown(application)
+        suspendCoroutine { continuation ->
             StorageUtils.getStorageInfo(application) { used, total, _, _, _ ->
-                val usedStorageBytes: Double = (used.toDoubleOrNull() ?: 0.0) * 1024.0.pow(n = 3)
-                val totalStorageBytes: Double = (total.toDoubleOrNull() ?: 0.0) * 1024.0.pow(n = 3)
+                val usedStorageBytes: Double =
+                    (used.toDoubleOrNull() ?: 0.0) * 1024.0.pow(n = 3)
+                val totalStorageBytes: Double =
+                    (total.toDoubleOrNull() ?: 0.0) * 1024.0.pow(n = 3)
 
-                val storageBreakdown: Map<String, Long> = getStorageBreakdown(application)
                 val storageInfo = StorageInfo(
                     storageUsageProgress = totalStorageBytes.toFloat(),
                     freeStorage = (totalStorageBytes - usedStorageBytes).toLong(),
@@ -50,31 +54,33 @@ class MemoryRepositoryImpl(private val application: Application) : MemoryReposit
         )
     }
 
-    private fun getStorageBreakdown(context: Context): Map<String, Long> {
-        val breakdown: MutableMap<String, Long> = mutableMapOf()
-        val externalStoragePath: String =
-            context.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile?.absolutePath
-                ?: "/"
+    private suspend fun getStorageBreakdown(context: Context): Map<String, Long> =
+        withContext(Dispatchers.IO) {
+            val breakdown: MutableMap<String, Long> = mutableMapOf()
+            val externalStoragePath: String =
+                context.getExternalFilesDir(null)?.parentFile?.parentFile?.parentFile?.absolutePath
+                    ?: "/"
 
-        breakdown[context.getString(R.string.installed_apps)] = getInstalledAppsSize(context)
-        breakdown[context.getString(R.string.system)] =
-            getDirectorySize(Environment.getRootDirectory())
-        breakdown[context.getString(R.string.music)] =
-            getDirectorySize(File(externalStoragePath, "Music"))
-        breakdown[context.getString(R.string.images)] =
-            getDirectorySize(File(externalStoragePath, "DCIM")) + getDirectorySize(
-                File(
-                    externalStoragePath, "Pictures"
+            breakdown[context.getString(R.string.installed_apps)] =
+                getInstalledAppsSize(context)
+            breakdown[context.getString(R.string.system)] =
+                getDirectorySize(Environment.getRootDirectory())
+            breakdown[context.getString(R.string.music)] =
+                getDirectorySize(File(externalStoragePath, "Music"))
+            breakdown[context.getString(R.string.images)] =
+                getDirectorySize(File(externalStoragePath, "DCIM")) + getDirectorySize(
+                    File(
+                        externalStoragePath, "Pictures"
+                    )
                 )
-            )
-        breakdown[context.getString(R.string.documents)] =
-            getDirectorySize(File(externalStoragePath, "Documents"))
-        breakdown[context.getString(R.string.downloads)] =
-            getDirectorySize(File(externalStoragePath, "Download"))
-        breakdown[context.getString(R.string.other_files)] = getOtherFilesSize(breakdown)
+            breakdown[context.getString(R.string.documents)] =
+                getDirectorySize(File(externalStoragePath, "Documents"))
+            breakdown[context.getString(R.string.downloads)] =
+                getDirectorySize(File(externalStoragePath, "Download"))
+            breakdown[context.getString(R.string.other_files)] = getOtherFilesSize(breakdown)
 
-        return breakdown
-    }
+            breakdown
+        }
 
     private fun getInstalledAppsSize(context: Context): Long {
         val packageManager: PackageManager = context.packageManager
