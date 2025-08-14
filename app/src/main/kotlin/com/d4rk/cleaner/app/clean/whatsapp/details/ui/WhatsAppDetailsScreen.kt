@@ -145,11 +145,11 @@ fun DetailsScreen(
                 fromRight = true)
 
             AnimatedIconButtonDirection(
-                visible = true,
+                visible = hasFiles,
                 icon = Icons.AutoMirrored.Filled.Sort,
                 contentDescription = null,
                 onClick = {
-                    showSort = hasFiles
+                    showSort = true
                 },
                 durationMillis = 400,
                 fromRight = true)
