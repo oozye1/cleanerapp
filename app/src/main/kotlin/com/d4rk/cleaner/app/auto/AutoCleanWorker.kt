@@ -91,7 +91,15 @@ class AutoCleanWorker(
         )
         if (toDelete.isEmpty()) return Result.success()
 
-        deleteFiles(repository = repository, files = toDelete, mode = DeleteFilesUseCase.Mode.PERMANENT).collect {}
+        val deleteState = deleteFiles(
+            repository = repository,
+            files = toDelete,
+            mode = DeleteFilesUseCase.Mode.PERMANENT
+        ).first()
+        if (deleteState is DataState.Error) {
+            CleaningEventBus.notifyCleaned(success = false)
+            return Result.retry()
+        }
         dataStore.saveLastScanTimestamp(now)
         CleaningEventBus.notifyCleaned(success = true)
         return Result.success()
