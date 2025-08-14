@@ -427,10 +427,17 @@ object FilePreviewHelper {
                     }
                 }
                 Box(modifier = modifier.size(24.dp), contentAlignment = Alignment.Center) {
-                    IconLoadingPlaceholder(iconRes = R.drawable.ic_apk_document, modifier = Modifier.fillMaxSize())
-                    icon?.let { loaded ->
+                    if (icon == null) {
+                        IconLoadingPlaceholder(
+                            iconRes = R.drawable.ic_apk_document,
+                            modifier = Modifier.fillMaxSize()
+                        )
+                    } else {
                         AsyncImage(
-                            model = ImageRequest.Builder(context).data(loaded).crossfade(true).build(),
+                            model = ImageRequest.Builder(context)
+                                .data(icon)
+                                .crossfade(true)
+                                .build(),
                             contentDescription = file.name,
                             modifier = Modifier.fillMaxSize(),
                             contentScale = ContentScale.Fit
