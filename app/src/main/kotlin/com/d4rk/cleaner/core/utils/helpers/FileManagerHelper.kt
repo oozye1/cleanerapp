@@ -18,6 +18,7 @@ object FileManagerHelper {
         )
         for (pkg in launchPackages) {
             pm.getLaunchIntentForPackage(pkg)?.let {
+                it.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 context.startActivity(it)
                 return true
             }
@@ -34,7 +35,7 @@ object FileManagerHelper {
             )
             val mime = context.contentResolver.getType(uri) ?: "*/*"
             val intent = Intent(Intent.ACTION_VIEW).setDataAndType(uri, mime)
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK)
             if (intent.resolveActivity(context.packageManager) != null) {
                 context.startActivity(intent)
             } else {
@@ -57,7 +58,12 @@ object FileManagerHelper {
         }
     }
 
-    fun openFolderOrSettings(context: Context, folder: File) {
+    private fun openFolder(
+        context: Context,
+        folder: File,
+        onNotStarted: () -> Unit,
+        onFailure: () -> Unit
+    ) {
         val pm = context.packageManager
         runCatching {
             val uri = FileProvider.getUriForFile(
@@ -67,71 +73,9 @@ object FileManagerHelper {
             )
 
             val baseIntent = Intent(Intent.ACTION_VIEW).setDataAndType(uri, "resource/folder")
-            baseIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-
-            val explorerPackages = listOf(
-                "com.google.android.apps.nbu.files", // Files by Google
-                "com.android.documentsui", // AOSP/Pixel
-                "com.sec.android.app.myfiles", // Samsung
-                "com.mi.android.fileexplorer" // Xiaomi
+            baseIntent.addFlags(
+                Intent.FLAG_GRANT_READ_URI_PERMISSION or Intent.FLAG_ACTIVITY_NEW_TASK
             )
-
-            var started = false
-            for (pkg in explorerPackages) {
-                val intent = Intent(baseIntent).setPackage(pkg)
-                if (intent.resolveActivity(pm) != null) {
-                    context.startActivity(intent)
-                    started = true
-                    break
-                }
-            }
-
-            if (!started && baseIntent.resolveActivity(pm) != null) {
-                context.startActivity(baseIntent)
-                started = true
-            }
-
-            if (!started) {
-                if (!launchFileManager(context, pm)) {
-                    val settingsIntent = Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS)
-                    if (settingsIntent.resolveActivity(pm) != null) {
-                        context.startActivity(settingsIntent)
-                    } else {
-                        Toast.makeText(
-                            context,
-                            context.getString(R.string.no_application_found),
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            }
-        }.onFailure {
-            if (!launchFileManager(context, pm)) {
-                val settingsIntent = Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS)
-                if (settingsIntent.resolveActivity(pm) != null) {
-                    context.startActivity(settingsIntent)
-                } else {
-                    Toast.makeText(
-                        context,
-                        context.getString(R.string.something_went_wrong),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
-        }
-    }
-
-    fun openFolderOrToast(context: Context, folder: File) {
-        val pm = context.packageManager
-        runCatching {
-            val uri = FileProvider.getUriForFile(
-                context,
-                context.packageName + ".fileprovider",
-                folder
-            )
-
-            val baseIntent = Intent(Intent.ACTION_VIEW).setDataAndType(uri, "resource/folder")
-            baseIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
 
             val explorerPackages = listOf(
                 "com.google.android.apps.nbu.files",
@@ -157,21 +101,68 @@ object FileManagerHelper {
 
             if (!started) {
                 if (!launchFileManager(context, pm)) {
+                    onNotStarted()
+                }
+            }
+        }.onFailure {
+            if (!launchFileManager(context, pm)) {
+                onFailure()
+            }
+        }
+    }
+
+    fun openFolderOrSettings(context: Context, folder: File) {
+        val pm = context.packageManager
+        openFolder(
+            context,
+            folder,
+            onNotStarted = {
+                val settingsIntent = Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS)
+                settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                if (settingsIntent.resolveActivity(pm) != null) {
+                    context.startActivity(settingsIntent)
+                } else {
                     Toast.makeText(
                         context,
                         context.getString(R.string.no_application_found),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+            },
+            onFailure = {
+                val settingsIntent = Intent(Settings.ACTION_INTERNAL_STORAGE_SETTINGS)
+                settingsIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                if (settingsIntent.resolveActivity(pm) != null) {
+                    context.startActivity(settingsIntent)
+                } else {
+                    Toast.makeText(
+                        context,
+                        context.getString(R.string.something_went_wrong),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
-        }.onFailure {
-            if (!launchFileManager(context, pm)) {
+        )
+    }
+
+    fun openFolderOrToast(context: Context, folder: File) {
+        openFolder(
+            context,
+            folder,
+            onNotStarted = {
+                Toast.makeText(
+                    context,
+                    context.getString(R.string.no_application_found),
+                    Toast.LENGTH_SHORT
+                ).show()
+            },
+            onFailure = {
                 Toast.makeText(
                     context,
                     context.getString(R.string.something_went_wrong),
                     Toast.LENGTH_SHORT
                 ).show()
             }
-        }
+        )
     }
 }
