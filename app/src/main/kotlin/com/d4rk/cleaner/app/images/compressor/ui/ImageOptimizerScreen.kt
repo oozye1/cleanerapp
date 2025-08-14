@@ -23,6 +23,8 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Tab
 import androidx.compose.material3.TabRow
+import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
@@ -42,6 +44,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstrainedLayoutReference
 import androidx.constraintlayout.compose.ConstraintLayout
@@ -50,6 +53,7 @@ import coil3.compose.AsyncImage
 import com.d4rk.android.libs.apptoolkit.core.domain.model.ads.AdsConfig
 import com.d4rk.android.libs.apptoolkit.core.ui.components.ads.AdBanner
 import com.d4rk.android.libs.apptoolkit.core.ui.components.buttons.OutlinedIconButtonWithText
+import com.d4rk.android.libs.apptoolkit.core.ui.components.modifiers.bounceClick
 import com.d4rk.android.libs.apptoolkit.core.ui.components.navigation.LargeTopAppBarWithScaffold
 import com.d4rk.android.libs.apptoolkit.core.ui.components.spacers.SmallHorizontalSpacer
 import com.d4rk.android.libs.apptoolkit.core.utils.constants.ui.SizeConstants
@@ -113,14 +117,39 @@ fun ImageOptimizerScreen(
                         .weight(1f)
                         .fillMaxHeight()
                 ) {
-                    TabRow(selectedTabIndex = pagerState.currentPage) {
+                    TabRow(
+                        selectedTabIndex = pagerState.currentPage,
+                        indicator = { tabPositions ->
+                            TabRowDefaults.PrimaryIndicator(
+                                modifier = Modifier.tabIndicatorOffset(
+                                    tabPositions[pagerState.currentPage]
+                                ),
+                                shape = RoundedCornerShape(
+                                    topStart = 3.dp,
+                                    topEnd = 3.dp,
+                                )
+                            )
+                        },
+                    ) {
                         tabs.forEachIndexed { index, title ->
                             Tab(
-                                text = { Text(text = title) },
+                                modifier = Modifier
+                                    .bounceClick()
+                                    .clip(RoundedCornerShape(50)),
+                                text = {
+                                    Text(
+                                        text = title,
+                                        maxLines = 1,
+                                        overflow = TextOverflow.Ellipsis,
+                                    )
+                                },
                                 selected = pagerState.currentPage == index,
                                 onClick = {
-                                    coroutineScope.launch { pagerState.animateScrollToPage(page = index) }
-                                })
+                                    coroutineScope.launch {
+                                        pagerState.animateScrollToPage(page = index)
+                                    }
+                                },
+                            )
                         }
                     }
 
@@ -195,15 +224,38 @@ fun ImageOptimizerScreen(
                         top.linkTo(anchor = imageCardView.bottom)
                         start.linkTo(anchor = parent.start)
                         end.linkTo(anchor = parent.end)
-                    }) {
+                    },
+                    indicator = { tabPositions ->
+                        TabRowDefaults.PrimaryIndicator(
+                            modifier = Modifier.tabIndicatorOffset(
+                                tabPositions[pagerState.currentPage]
+                            ),
+                            shape = RoundedCornerShape(
+                                topStart = 3.dp,
+                                topEnd = 3.dp,
+                            )
+                        )
+                    },
+                ) {
                     tabs.forEachIndexed { index, title ->
-                        Tab(text = { Text(text = title) },
+                        Tab(
+                            modifier = Modifier
+                                .bounceClick()
+                                .clip(RoundedCornerShape(50)),
+                            text = {
+                                Text(
+                                    text = title,
+                                    maxLines = 1,
+                                    overflow = TextOverflow.Ellipsis,
+                                )
+                            },
                             selected = pagerState.currentPage == index,
                             onClick = {
                                 coroutineScope.launch {
                                     pagerState.animateScrollToPage(page = index)
                                 }
-                            })
+                            },
+                        )
                     }
                 }
 
