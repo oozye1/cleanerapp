@@ -9,6 +9,7 @@
 - **Minor**: Improved search experience on app manager.
 - **Minor**: Redesigned the streak card for better visualisation.
 - **Minor**: Redesigned the image optimizer for better management.
+- **Patch**: Various bug fixes and performance improvements to keep the app running smoothly.
 
 # Version 3.5.0:
 

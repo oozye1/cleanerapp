@@ -28,7 +28,6 @@ class StreakHandler(
     private val _showStreakCard = MutableStateFlow(true)
     val showStreakCard: StateFlow<Boolean> = _showStreakCard
     private val _streakHideUntil = MutableStateFlow(0L)
-    val streakHideUntil: StateFlow<Long> = _streakHideUntil
 
     init {
         loadStreakStats()
