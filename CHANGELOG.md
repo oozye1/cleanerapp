@@ -10,7 +10,6 @@
 - **Minor**: Redesigned the streak card for better visualisation.
 - **Minor**: Redesigned the image optimizer for better management.
 - **Patch**: Various bug fixes and performance improvements to keep the app running smoothly.
-- **Patch**: Hide sort option on WhatsApp cleaner details when no media items are available.
 
 # Version 3.5.0:
 
