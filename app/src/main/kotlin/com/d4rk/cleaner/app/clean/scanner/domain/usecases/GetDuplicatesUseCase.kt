@@ -6,7 +6,6 @@ import com.d4rk.cleaner.core.utils.extensions.partialMd5
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.util.concurrent.ConcurrentHashMap
@@ -17,14 +16,14 @@ class GetDuplicatesUseCase(
     private val hashCache = ConcurrentHashMap<String, String>()
     private val chunkSize = 100
 
-    operator fun invoke(files: List<File>): List<List<FileEntry>> = runBlocking {
+    suspend operator fun invoke(files: List<File>): List<List<FileEntry>> {
         val candidates = files.filter { it.isFile }
             .groupBy { it.length() to it.lastModified() }
             .values
             .filter { it.size > 1 }
             .flatten()
 
-        if (candidates.isEmpty()) return@runBlocking emptyList()
+        if (candidates.isEmpty()) return emptyList()
 
         val hashed = coroutineScope {
             candidates.chunked(chunkSize).map { chunk ->
@@ -40,7 +39,7 @@ class GetDuplicatesUseCase(
             }.awaitAll().flatten()
         }
 
-        hashed.groupBy({ it.first }, { it.second })
+        return hashed.groupBy({ it.first }, { it.second })
             .values
             .filter { it.size > 1 }
             .map { group ->
