@@ -175,13 +175,7 @@ val appModule: Module = module {
     single<GetInstalledAppsUseCase> { GetInstalledAppsUseCase(packageManagerFacade = get()) }
     single<AppUsageStatsManager> { AppUsageStatsManagerImpl(application = get()) }
     single<GetAppsLastUsedUseCase> { GetAppsLastUsedUseCase(usageStatsManager = get()) }
-    single<ApkFileManager> {
-        ApkFileManagerImpl(
-            application = get(),
-            dataStore = get(),
-            dispatchers = get()
-        )
-    }
+    single<ApkFileManager> { ApkFileManagerImpl(application = get() , dataStore = get()) }
     single<GetApkFilesFromStorageUseCase> { GetApkFilesFromStorageUseCase(apkFileManager = get()) }
     single<AppPackageManagerImpl> { AppPackageManagerImpl(application = get()) }
     single<ApkInstaller> { get<AppPackageManagerImpl>() }
