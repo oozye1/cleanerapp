@@ -63,11 +63,11 @@ class FileCleanWorkEnqueuer(
 
         val finalRequestId = requestIds.lastOrNull() ?: return Result.Error(IllegalStateException("No work created"))
 
-        return try {
+        return runCatching {
             continuation?.enqueue()
             saveWorkId(finalRequestId.toString())
             Result.Enqueued(finalRequestId)
-        } catch (t: Throwable) {
+        }.getOrElse { t ->
             requestIds.forEach { workManager.cancelWorkById(it) }
             Result.Error(t)
         }
