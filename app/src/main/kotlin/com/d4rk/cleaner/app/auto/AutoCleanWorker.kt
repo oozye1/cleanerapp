@@ -21,6 +21,7 @@ import kotlinx.coroutines.flow.onEach
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import java.io.File
+import java.util.Locale
 import kotlin.time.Duration.Companion.days
 
 class AutoCleanWorker(
@@ -121,7 +122,7 @@ class AutoCleanWorker(
             if (includeDuplicates && file in duplicateFiles) {
                 result.add(file)
             } else {
-                val extension = file.extension.lowercase()
+                val extension = file.extension.lowercase(Locale.ROOT)
                 val match = when (extension) {
                     in fileTypesData.imageExtensions -> preferences[ExtensionsConstants.IMAGE_EXTENSIONS] == true
                     in fileTypesData.videoExtensions -> preferences[ExtensionsConstants.VIDEO_EXTENSIONS] == true
@@ -149,7 +150,7 @@ class AutoCleanWorker(
     ): List<List<File>> {
         val hashMap = mutableMapOf<String, MutableList<File>>()
         files.filter { it.isFile }.forEach { file ->
-            val extension = file.extension.lowercase()
+            val extension = file.extension.lowercase(Locale.ROOT)
             val hash = if (deepSearch && extension in imageExtensions) {
                 ImageHashUtils.perceptualHash(file)
             } else {
