@@ -22,7 +22,7 @@ fun File.md5(): String? = runCatching {
 
 fun File.partialMd5(): String? = runCatching {
     if (length() <= PARTIAL_HASH_SIZE * 2) {
-        return md5()
+        return@runCatching md5()
     }
 
     val md = MessageDigest.getInstance("MD5")
