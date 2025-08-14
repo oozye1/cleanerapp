@@ -2,6 +2,7 @@ package com.d4rk.cleaner.app.images.compressor.ui
 
 import android.app.Application
 import android.net.Uri
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.d4rk.cleaner.app.images.compressor.domain.data.model.ui.UiImageOptimizerState
@@ -96,7 +97,7 @@ class ImageOptimizerViewModel(
                     destinationFile?.apply { tempFile.copyTo(this, overwrite = true) }
                     destinationFile
                 }.getOrElse { e ->
-                    e.printStackTrace()
+                    Log.e("ImageOptimizer", "Compression failed for file: ${file.absolutePath}", e)
                     null
                 }
             }
@@ -207,7 +208,7 @@ class ImageOptimizerViewModel(
                         if (currentTab == 1 && _uiState.value.fileSizeKB > 0) _uiState.value.fileSizeKB * 1024L else null
                     compressImageUseCase(file, quality, targetWidth, targetHeight, desiredBytes)
                 }.getOrElse { e ->
-                    e.printStackTrace()
+                    Log.e("ImageOptimizer", "Compression failed for file: ${file.absolutePath}", e)
                     null
                 }
             }
