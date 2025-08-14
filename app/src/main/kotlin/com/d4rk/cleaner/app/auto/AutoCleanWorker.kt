@@ -16,6 +16,8 @@ import com.d4rk.cleaner.core.data.datastore.DataStore
 import com.d4rk.cleaner.core.utils.extensions.partialMd5
 import com.d4rk.cleaner.core.utils.helpers.CleaningEventBus
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.onEach
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 import java.io.File
@@ -45,32 +47,20 @@ class AutoCleanWorker(
         }
 
         val files = mutableListOf<File>()
-        var errorDuringScan = false
-        analyzeFiles().collect { state ->
-            when (state) {
-                is DataState.Success -> files.add(state.data)
-                is DataState.Error -> {
-                    errorDuringScan = true
-                    return@collect
-                }
-                else -> {}
+        val errorDuringScan = analyzeFiles()
+            .onEach { state ->
+                if (state is DataState.Success) files.add(state.data)
             }
-        }
+            .firstOrNull { it is DataState.Error } != null
         if (errorDuringScan) return Result.retry()
 
         val emptyFolders = mutableListOf<File>()
-        errorDuringScan = false
-        getEmptyFolders().collect { state ->
-            when (state) {
-                is DataState.Success -> emptyFolders.add(state.data)
-                is DataState.Error -> {
-                    errorDuringScan = true
-                    return@collect
-                }
-                else -> {}
+        val errorDuringEmpty = getEmptyFolders()
+            .onEach { state ->
+                if (state is DataState.Success) emptyFolders.add(state.data)
             }
-        }
-        if (errorDuringScan) return Result.retry()
+            .firstOrNull { it is DataState.Error } != null
+        if (errorDuringEmpty) return Result.retry()
 
         val typesState = getFileTypes().first { it !is DataState.Loading }
         val types = if (typesState is DataState.Success) typesState.data else FileTypesData()
