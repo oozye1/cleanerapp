@@ -12,7 +12,7 @@ import java.io.File
 class FileAnalyzer(
     private val getDuplicatesUseCase: GetDuplicatesUseCase
 ) {
-    fun computeGroupedFiles(
+    suspend fun computeGroupedFiles(
         scannedFiles: List<File>,
         emptyFolders: List<File>,
         fileTypesData: FileTypesData,
