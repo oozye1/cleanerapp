@@ -1,7 +1,6 @@
 package com.d4rk.cleaner.core.work
 
 import android.app.Application
-import androidx.work.OneTimeWorkRequest
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
@@ -49,7 +48,7 @@ class FileCleanWorkEnqueuer(
 
         val chunks = paths.chunked(FileCleanupWorker.MAX_PATHS_PER_WORKER)
         var continuation: androidx.work.WorkContinuation? = null
-        var lastRequest: OneTimeWorkRequest? = null
+        val requestIds = mutableListOf<UUID>()
         for (chunk in chunks) {
             val request = OneTimeWorkRequestBuilder<FileCleanupWorker>()
                 .setInputData(
@@ -58,18 +57,18 @@ class FileCleanWorkEnqueuer(
                         FileCleanupWorker.KEY_PATHS to chunk.toTypedArray()
                     )
                 ).build()
-            lastRequest = request
+            requestIds += request.id
             continuation = continuation?.then(request) ?: workManager.beginWith(request)
         }
 
-        val finalRequest = lastRequest ?: return Result.Error(IllegalStateException("No work created"))
+        val finalRequestId = requestIds.lastOrNull() ?: return Result.Error(IllegalStateException("No work created"))
 
-        return try {
+        return runCatching {
             continuation?.enqueue()
-            saveWorkId(finalRequest.id.toString())
-            Result.Enqueued(finalRequest.id)
-        } catch (t: Throwable) {
-            workManager.cancelWorkById(finalRequest.id)
+            saveWorkId(finalRequestId.toString())
+            Result.Enqueued(finalRequestId)
+        }.getOrElse { t ->
+            requestIds.forEach { workManager.cancelWorkById(it) }
             Result.Error(t)
         }
     }
