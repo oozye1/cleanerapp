@@ -67,7 +67,13 @@ class ApkFileManagerImpl(
                     if (file.extension.equals("apk", ignoreCase = true)) {
                         val path = file.absolutePath
                         if (file.exists() && file.canWrite() && addedPaths.add(path)) {
-                            apkFiles.add(ApkInfo(file.hashCode().toLong(), path, file.length()))
+                            apkFiles.add(
+                                ApkInfo(
+                                    id = path.hashCode().toLong(),
+                                    path = path,
+                                    size = file.length()
+                                )
+                            )
                         }
                     }
                 }
