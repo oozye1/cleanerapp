@@ -5,22 +5,30 @@ import com.d4rk.cleaner.core.utils.constants.TimeConstants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 
 object StreakTracker : KoinComponent {
-    private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     private val dataStore: DataStore by inject()
+    private var scope: CoroutineScope? = null
 
+    fun initialize(externalScope: CoroutineScope? = null) {
+        if (scope != null) return
 
-    fun initialize() {
-        scope.launch {
+        scope = externalScope ?: CoroutineScope(SupervisorJob() + Dispatchers.Default)
+        scope?.launch {
             CleaningEventBus.events.collect {
                 updateStreak()
             }
         }
+    }
+
+    fun shutdown() {
+        scope?.cancel()
+        scope = null
     }
 
     private suspend fun updateStreak() {
