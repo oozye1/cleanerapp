@@ -85,10 +85,10 @@ fun ImageOptimizerScreen(
     )
     val pagerState: PagerState = rememberPagerState(pageCount = { tabs.size })
 
-    var showPreview by remember { mutableStateOf(false) }
+    var showPreview by remember { mutableStateOf(true) }
 
     LaunchedEffect(key1 = uiState.selectedImageUri) {
-        showPreview = false
+        showPreview = true
     }
 
     LaunchedEffect(key1 = pagerState.currentPage) {
@@ -142,7 +142,7 @@ fun ImageOptimizerScreen(
                             coroutineScope.launch { viewModel.optimizeImage() }
                         },
                         onReset = {
-                            showPreview = false
+                            showPreview = true
                             viewModel.resetSettings()
                         },
                         modifier = Modifier
@@ -233,7 +233,7 @@ fun ImageOptimizerScreen(
                         coroutineScope.launch { viewModel.optimizeImage() }
                     },
                     onReset = {
-                        showPreview = false
+                        showPreview = true
                         viewModel.resetSettings()
                     },
                     modifier = Modifier
@@ -269,7 +269,11 @@ fun ImageDisplay(
     onTogglePreview: (Boolean) -> Unit,
 ) {
     val state: State<UiImageOptimizerState> = viewModel.uiState.collectAsState()
-    val imageUri = if (showPreview) state.value.compressedImageUri else state.value.selectedImageUri
+    val imageUri = if (showPreview) {
+        state.value.compressedImageUri ?: state.value.selectedImageUri
+    } else {
+        state.value.selectedImageUri
+    }
 
     Box(
         modifier = Modifier
@@ -311,7 +315,11 @@ fun ImageDisplay(
             Card(
                 shape = RoundedCornerShape(topEnd = SizeConstants.MediumSize),
             ) {
-                val size = if (showPreview) state.value.compressedSizeKB else state.value.originalSizeKB
+                val size = if (showPreview && state.value.compressedImageUri != null) {
+                    state.value.compressedSizeKB
+                } else {
+                    state.value.originalSizeKB
+                }
                 Text(
                     text = FileSizeFormatter.format((size * 1024).toLong()),
                     modifier = Modifier
