@@ -130,6 +130,7 @@
     <string name="all_clean">すべてきれい</string>
     <string name="whatsapp_cleaner_empty_message">WhatsAppがきれいになりました！もう掃除するものはありません。良い一日を！</string>
     <string name="contacts_cleaner_empty_message">連絡先は既に整理されています。掃除するものはありません。</string>
+    <string name="whatsapp_details_empty_message">準備完了！このカテゴリにはファイルが残っていません。</string>
     <string name="total_files_format">%1$s 件のファイル</string>
     <string name="delete_selected">選択したものを削除</string>
     <string name="sort_options">並び替えオプション</string>

@@ -142,6 +142,7 @@
     <string name="all_clean">Всі чисті</string>
     <string name="whatsapp_cleaner_empty_message">Ваш WhatsApp бездоганно чистий! Немає чого прибирати. Гарного дня!</string>
     <string name="contacts_cleaner_empty_message">Ваші контакти вже впорядковані! Нічого чистити.</string>
+    <string name="whatsapp_details_empty_message">Усе готово! У цій категорії не залишилося файлів.</string>
     <string name="total_files_format">%1$s файлів</string>
     <string name="delete_selected">Видалити вибране</string>
     <string name="sort_options">Параметри сортування</string>
