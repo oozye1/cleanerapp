@@ -138,6 +138,7 @@
     <string name="all_clean">Todo limpio</string>
     <string name="whatsapp_cleaner_empty_message">¡Tu WhatsApp está impecable! No hay nada que limpiar. ¡Disfruta tu día!</string>
     <string name="contacts_cleaner_empty_message">¡Tus contactos ya están organizados! No hay nada que limpiar.</string>
+    <string name="whatsapp_details_empty_message">¡Todo listo! No quedan archivos en esta categoría.</string>
     <string name="total_files_format">%1$s archivos</string>
     <string name="delete_selected">Eliminar seleccionados</string>
     <string name="sort_options">Opciones de ordenación</string>

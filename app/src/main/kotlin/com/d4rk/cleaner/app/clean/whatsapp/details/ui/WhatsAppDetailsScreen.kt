@@ -24,7 +24,6 @@ import androidx.compose.material.icons.automirrored.filled.Sort
 import androidx.compose.material.icons.automirrored.filled.ViewList
 import androidx.compose.material.icons.filled.GridView
 import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.icons.outlined.FolderOff
 import androidx.compose.material3.Card
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -60,7 +59,7 @@ import com.d4rk.android.libs.apptoolkit.core.ui.components.buttons.AnimatedIconB
 import com.d4rk.android.libs.apptoolkit.core.ui.components.buttons.IconButtonWithText
 import com.d4rk.android.libs.apptoolkit.core.ui.components.dialogs.BasicAlertDialog
 import com.d4rk.android.libs.apptoolkit.core.ui.components.layouts.LoadingScreen
-import com.d4rk.android.libs.apptoolkit.core.ui.components.layouts.NoDataScreen
+import com.d4rk.cleaner.app.clean.whatsapp.details.ui.components.states.WhatsAppDetailsEmptyState
 import com.d4rk.android.libs.apptoolkit.core.ui.components.layouts.ScreenStateHandler
 import com.d4rk.android.libs.apptoolkit.core.ui.components.navigation.LargeTopAppBarWithScaffold
 import com.d4rk.android.libs.apptoolkit.core.ui.components.spacers.ExtraSmallHorizontalSpacer
@@ -172,11 +171,7 @@ fun DetailsScreen(
                 }
             },
             onEmpty = {
-                NoDataScreen(
-                    icon = Icons.Outlined.FolderOff,
-                    showRetry = true,
-                    onRetry = { viewModel.onEvent(WhatsAppCleanerEvent.LoadMedia) }
-                )
+                WhatsAppDetailsEmptyState(paddingValues = paddingValues)
             },
             onSuccess = { data ->
                 LaunchedEffect(title) {
@@ -217,18 +212,7 @@ fun DetailsScreen(
                 }
 
                 if (tabFiles.isEmpty()) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(paddingValues),
-                        contentAlignment = Alignment.Center
-                    ) {
-                        NoDataScreen(
-                            icon = Icons.Outlined.FolderOff,
-                            showRetry = true,
-                            onRetry = { viewModel.onEvent(WhatsAppCleanerEvent.LoadMedia) }
-                        )
-                    }
+                    WhatsAppDetailsEmptyState(paddingValues = paddingValues)
                 } else {
 
                     val pagerState = rememberPagerState { tabs.size }

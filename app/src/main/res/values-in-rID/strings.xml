@@ -130,6 +130,7 @@
     <string name="all_clean">Semua bersih</string>
     <string name="whatsapp_cleaner_empty_message">WhatsApp Anda bersih! Tidak ada lagi yang perlu dibersihkan. Nikmati hari Anda!</string>
     <string name="contacts_cleaner_empty_message">Kontak Anda sudah tertata! Tidak ada yang perlu dibersihkan.</string>
+    <string name="whatsapp_details_empty_message">Semua siap! Tidak ada file yang tersisa dalam kategori ini.</string>
     <string name="total_files_format">%1$s file</string>
     <string name="delete_selected">Hapus yang Dipilih</string>
     <string name="sort_options">Opsi urutan</string>
