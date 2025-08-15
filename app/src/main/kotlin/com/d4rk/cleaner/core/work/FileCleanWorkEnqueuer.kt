@@ -1,6 +1,7 @@
 package com.d4rk.cleaner.core.work
 
 import android.app.Application
+import androidx.work.Data
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.workDataOf
@@ -46,7 +47,7 @@ class FileCleanWorkEnqueuer(
             return Result.Error(IllegalArgumentException("No paths provided"))
         }
 
-        val chunks = paths.chunked(FileCleanupWorker.MAX_PATHS_PER_WORKER)
+        val chunks = chunkPaths(paths, action)
         var continuation: androidx.work.WorkContinuation? = null
         val requestIds = mutableListOf<UUID>()
         for (chunk in chunks) {
@@ -71,6 +72,35 @@ class FileCleanWorkEnqueuer(
             requestIds.forEach { workManager.cancelWorkById(it) }
             Result.Error(t)
         }
+    }
+
+    private fun chunkPaths(paths: Collection<String>, action: String): List<List<String>> {
+        val result = mutableListOf<List<String>>()
+        val current = mutableListOf<String>()
+        for (path in paths) {
+            current += path
+            val tooBig = runCatching {
+                Data.Builder()
+                    .putString(FileCleanupWorker.KEY_ACTION, action)
+                    .putStringArray(FileCleanupWorker.KEY_PATHS, current.toTypedArray())
+                    .build()
+                    .toByteArray()
+                    .size > Data.MAX_DATA_BYTES
+            }.getOrDefault(true)
+            val overLimit = current.size > FileCleanupWorker.MAX_PATHS_PER_WORKER
+            if (tooBig || overLimit) {
+                val last = current.removeAt(current.lastIndex)
+                if (current.isNotEmpty()) {
+                    result += current.toList()
+                }
+                current.clear()
+                current += last
+            }
+        }
+        if (current.isNotEmpty()) {
+            result += current.toList()
+        }
+        return result
     }
 }
 
