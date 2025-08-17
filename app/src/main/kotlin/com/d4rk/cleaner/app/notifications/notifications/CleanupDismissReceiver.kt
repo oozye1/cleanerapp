@@ -11,11 +11,16 @@ import kotlin.time.Duration.Companion.days
 
 class CleanupDismissReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent?) {
+        val pending = goAsync()
         CoroutineScope(Dispatchers.IO).launch {
-            val store = DataStore(context)
-            store.saveCleanupNotificationSnoozedUntil(
-                System.currentTimeMillis() + 3.days.inWholeMilliseconds
-            )
+            try {
+                val store = DataStore(context)
+                store.saveCleanupNotificationSnoozedUntil(
+                    System.currentTimeMillis() + 3.days.inWholeMilliseconds
+                )
+            } finally {
+                pending.finish()
+            }
         }
     }
 }
