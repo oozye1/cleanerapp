@@ -10,6 +10,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
@@ -22,7 +23,6 @@ import com.d4rk.android.libs.apptoolkit.core.utils.constants.ui.SizeConstants
 import com.d4rk.cleaner.R
 import com.d4rk.cleaner.app.auto.AutoCleanScheduler
 import com.d4rk.cleaner.core.data.datastore.DataStore
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.compose.koinInject
@@ -30,6 +30,7 @@ import org.koin.compose.koinInject
 @Composable
 fun CleaningSettingsList(paddingValues: PaddingValues) {
     val context = LocalContext.current
+    val scope = rememberCoroutineScope()
     val dataStore: DataStore = koinInject()
     val genericFilter: Boolean by dataStore.genericFilter.collectAsState(initial = true)
     val deleteEmptyFolders: Boolean by dataStore.deleteEmptyFolders.collectAsState(initial = false)
@@ -69,7 +70,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_generic_filter),
                     checked = genericFilter,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveGenericFilter(isChecked)
                     }
                 }
@@ -80,7 +81,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     title = stringResource(id = R.string.delete_empty_folders),
                     checked = deleteEmptyFolders,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteEmptyFolders(isChecked)
                     }
                 }
@@ -92,7 +93,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_archive_filter),
                     checked = deleteArchives,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteArchives(isChecked)
                     }
                 }
@@ -104,7 +105,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_corpse_files),
                     checked = deleteCorpseFiles,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteCorpseFiles(isChecked)
                     }
                 }
@@ -116,7 +117,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_apk_files),
                     checked = deleteApkFiles,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteApkFiles(isChecked)
                     }
                 }
@@ -128,7 +129,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_windows_files),
                     checked = windowsExtensions,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteWindowsFiles(isChecked)
                     }
                 }
@@ -140,7 +141,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_office_files),
                     checked = officeExtensions,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteOfficeFiles(isChecked)
                     }
                 }
@@ -152,7 +153,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_font_files),
                     checked = fontExtensions,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteFontFiles(isChecked)
                     }
                 }
@@ -164,7 +165,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_other_files),
                     checked = otherExtensions,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteOtherFiles(isChecked)
                     }
                 }
@@ -185,7 +186,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_audio),
                     checked = deleteAudioFiles,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteAudioFiles(isChecked)
                     }
                 }
@@ -197,7 +198,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_video),
                     checked = deleteVideoFiles,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteVideoFiles(isChecked)
                     }
                 }
@@ -209,7 +210,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_images),
                     checked = deleteImageFiles,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteImageFiles(isChecked)
                     }
                 }
@@ -221,7 +222,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_invalid_media),
                     checked = deleteInvalidMedia,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteInvalidMedia(isChecked)
                     }
                 }
@@ -242,7 +243,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_show_hidden_files),
                     checked = showHiddenFiles,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveShowHiddenFiles(isChecked)
                     }
                 }
@@ -254,7 +255,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     summary = stringResource(id = R.string.summary_preference_settings_delete_duplicates),
                     checked = deleteDuplicateFiles,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveDeleteDuplicateFiles(isChecked)
                     }
                 }
@@ -265,7 +266,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     title = stringResource(id = R.string.preference_streak_reminder),
                     checked = streakReminderEnabled,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveStreakReminderEnabled(isChecked)
                     }
                 }
@@ -276,7 +277,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                         title = stringResource(id = R.string.preference_show_streak_card),
                         checked = false,
                     ) { isChecked ->
-                        CoroutineScope(Dispatchers.IO).launch {
+                        scope.launch(Dispatchers.IO) { 
                             dataStore.saveShowStreakCard(isChecked)
                             if (isChecked) dataStore.saveStreakHideUntil(0L)
                         }
@@ -305,7 +306,7 @@ fun CleaningSettingsList(paddingValues: PaddingValues) {
                     title = stringResource(id = R.string.enable_automatic_cleaning),
                     checked = autoCleanEnabled,
                 ) { isChecked ->
-                    CoroutineScope(Dispatchers.IO).launch {
+                    scope.launch(Dispatchers.IO) { 
                         dataStore.saveAutoCleanEnabled(isChecked)
                         if (isChecked) AutoCleanScheduler.schedule(
                             context,
