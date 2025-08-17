@@ -33,6 +33,7 @@ import com.google.android.ump.ConsentInformation
 import com.google.android.ump.UserMessagingPlatform
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -78,9 +79,14 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleStartup() {
         lifecycleScope.launch {
-            val isFirstLaunch: Boolean = dataStore.startup.first()
+            val isFirstLaunch = async { dataStore.startup.first() }
+            val isStreakReminderInitialized = async { dataStore.isStreakReminderInitialized() }
+            val storedTrashSize = async { dataStore.trashSize.first() }
 
-            if (!dataStore.isStreakReminderInitialized()) {
+            val trashDir = File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "Trash")
+            val actualTrashSize = withContext(Dispatchers.IO) { calculateDirectorySize(trashDir) }
+
+            if (!isStreakReminderInitialized.await()) {
                 val hasPermission =
                     Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
                             ContextCompat.checkSelfPermission(
@@ -92,17 +98,15 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            val trashDir = File(getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS), "Trash")
-            val actualTrashSize = withContext(Dispatchers.IO) { calculateDirectorySize(trashDir) }
-            val storedTrashSize = dataStore.trashSize.first()
+            val storedTrashSizeValue = storedTrashSize.await()
             when {
-                actualTrashSize > storedTrashSize -> dataStore.addTrashSize(actualTrashSize - storedTrashSize)
-                actualTrashSize < storedTrashSize -> dataStore.subtractTrashSize(storedTrashSize - actualTrashSize)
+                actualTrashSize > storedTrashSizeValue -> dataStore.addTrashSize(actualTrashSize - storedTrashSizeValue)
+                actualTrashSize < storedTrashSizeValue -> dataStore.subtractTrashSize(storedTrashSizeValue - actualTrashSize)
             }
 
             keepSplashVisible = false
 
-            if (isFirstLaunch) {
+            if (isFirstLaunch.await()) {
                 startStartupActivity()
             } else {
                 setMainActivityContent()
