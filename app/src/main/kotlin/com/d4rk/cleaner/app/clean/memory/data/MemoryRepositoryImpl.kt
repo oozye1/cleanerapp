@@ -17,6 +17,9 @@ import java.io.File
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 import kotlin.math.pow
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -82,14 +85,12 @@ class MemoryRepositoryImpl(private val application: Application) : MemoryReposit
             breakdown
         }
 
-    private fun getInstalledAppsSize(context: Context): Long {
+    private suspend fun getInstalledAppsSize(context: Context): Long {
         val packageManager: PackageManager = context.packageManager
         val installedApps: MutableList<ApplicationInfo> = packageManager.getInstalledApplications(0)
-        var installedAppsSize = 0L
-        for (app: ApplicationInfo in installedApps) {
-            installedAppsSize += getApkSize(context, app.packageName)
+        return coroutineScope {
+            installedApps.map { async { getApkSize(context, it.packageName) } }.awaitAll().sum()
         }
-        return installedAppsSize
     }
 
     private fun getApkSize(context: Context, packageName: String): Long {
