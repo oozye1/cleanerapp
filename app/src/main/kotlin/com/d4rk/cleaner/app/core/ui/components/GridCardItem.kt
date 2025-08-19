@@ -8,8 +8,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.matchParentSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Badge
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -33,6 +35,7 @@ fun GridCardItem(
     iconVector: ImageVector? = null,
     title: String,
     subtitle: String,
+    badgeText: String? = null,
     iconContainerColor: Color = GroupedGridStyle.iconContainerColor,
     iconShape: Shape = CircleShape,
     onClick: () -> Unit,
@@ -53,27 +56,39 @@ fun GridCardItem(
             Box(
                 modifier = Modifier
                     .padding(end = SizeConstants.SmallSize)
-                    .size(48.dp)
-                    .clip(iconShape)
-                    .background(iconContainerColor),
-                contentAlignment = Alignment.Center,
+                    .size(48.dp),
             ) {
-                when {
-                    iconPainter != null -> {
-                        Icon(
-                            modifier = Modifier.bounceClick(),
-                            painter = iconPainter,
-                            contentDescription = null,
-                            tint = Color.Unspecified,
-                        )
+                Box(
+                    modifier = Modifier
+                        .matchParentSize()
+                        .clip(iconShape)
+                        .background(iconContainerColor),
+                    contentAlignment = Alignment.Center,
+                ) {
+                    when {
+                        iconPainter != null -> {
+                            Icon(
+                                modifier = Modifier.bounceClick(),
+                                painter = iconPainter,
+                                contentDescription = null,
+                                tint = Color.Unspecified,
+                            )
+                        }
+                        iconVector != null -> {
+                            Icon(
+                                modifier = Modifier.bounceClick(),
+                                imageVector = iconVector,
+                                contentDescription = null,
+                                tint = MaterialTheme.colorScheme.onPrimaryContainer,
+                            )
+                        }
                     }
-                    iconVector != null -> {
-                        Icon(
-                            modifier = Modifier.bounceClick(),
-                            imageVector = iconVector,
-                            contentDescription = null,
-                            tint = MaterialTheme.colorScheme.onPrimaryContainer,
-                        )
+                }
+                if (badgeText != null) {
+                    Badge(
+                        modifier = Modifier.align(Alignment.TopStart)
+                    ) {
+                        Text(text = badgeText)
                     }
                 }
             }
@@ -93,6 +108,7 @@ fun GridCardItem(
 fun GridCardItem(
     model: GridCardModel,
     modifier: Modifier = Modifier,
+    badgeText: String? = null,
     iconContainerColor: Color = GroupedGridStyle.iconContainerColor,
     iconShape: Shape = CircleShape,
     onClick: () -> Unit,
@@ -102,6 +118,7 @@ fun GridCardItem(
         iconVector = model.iconVector,
         title = model.title,
         subtitle = model.subtitle,
+        badgeText = badgeText,
         iconContainerColor = iconContainerColor,
         iconShape = iconShape,
         onClick = onClick,
