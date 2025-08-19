@@ -194,7 +194,7 @@
     <string name="empty_folders">空のフォルダ</string>
     <string name="duplicates">ファイルの複製</string>
     <plurals name="status_selected_files">
-        <item quantity="other">ステータス: %1$d個のファイルを選択中</item>
+        <item quantity="other">ステータス: %1$d個のファイルを選択中 | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">ステータス: ファイルが選択されていません</string>
     <string name="select_all">すべて選択</string>

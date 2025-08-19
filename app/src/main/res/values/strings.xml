@@ -204,8 +204,8 @@
     <string name="empty_folders">Empty Folders</string>
     <string name="duplicates">Duplicates</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Status: Selected %1$d file</item>
-        <item quantity="other">Status: Selected %1$d files</item>
+        <item quantity="one">Status: Selected %1$d file | %2$s</item>
+        <item quantity="other">Status: Selected %1$d files | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Status: No files selected</string>
     <string name="select_all">Select All</string>

@@ -194,7 +194,7 @@
     <string name="empty_folders">Folder Kosong</string>
     <string name="duplicates">Duplikat file</string>
     <plurals name="status_selected_files">
-        <item quantity="other">Status: %1$d file dipilih</item>
+        <item quantity="other">Status: %1$d file dipilih | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Status: Tidak ada file yang dipilih</string>
     <string name="select_all">Pilih Semua</string>

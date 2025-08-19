@@ -1,5 +1,6 @@
 package com.d4rk.cleaner.app.clean.whatsapp.details.ui.components
 
+import android.text.format.Formatter
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
@@ -13,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import com.d4rk.cleaner.R
@@ -22,6 +24,7 @@ import com.d4rk.cleaner.app.clean.analyze.ui.components.SelectAllComposable
 fun DetailsStatusRow(
     modifier: Modifier = Modifier,
     selectedCount: Int,
+    selectedSize: Long,
     allSelected: Boolean,
     onClickSelectAll: () -> Unit
 ) {
@@ -30,11 +33,14 @@ fun DetailsStatusRow(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.SpaceBetween,
     ) {
+        val context = LocalContext.current
+        val formattedSize = Formatter.formatShortFileSize(context, selectedSize)
         val statusText = if (selectedCount > 0) {
             pluralStringResource(
                 id = R.plurals.status_selected_files,
                 count = selectedCount,
-                selectedCount
+                selectedCount,
+                formattedSize
             )
         } else {
             stringResource(id = R.string.status_no_files_selected)

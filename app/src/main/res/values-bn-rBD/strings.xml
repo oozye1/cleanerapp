@@ -199,8 +199,8 @@
     <string name="empty_folders">খালি ফোল্ডারসমূহ</string>
     <string name="duplicates">সদৃশ ফাইল</string>
     <plurals name="status_selected_files">
-        <item quantity="one">স্থিতি: %1$d টি ফাইল নির্বাচিত</item>
-        <item quantity="other">স্থিতি: %1$d টি ফাইল নির্বাচিত</item>
+        <item quantity="one">স্থিতি: %1$d টি ফাইল নির্বাচিত | %2$s</item>
+        <item quantity="other">স্থিতি: %1$d টি ফাইল নির্বাচিত | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">স্থিতি: কোনও ফাইল নির্বাচিত নেই</string>
     <string name="select_all">সব নির্বাচন করুন</string>

@@ -199,8 +199,8 @@
     <string name="empty_folders">खाली फ़ोल्डर</string>
     <string name="duplicates">डुप्लिकेट फ़ाइलें</string>
     <plurals name="status_selected_files">
-        <item quantity="one">स्थिति: %1$d फ़ाइल चयनित</item>
-        <item quantity="other">स्थिति: %1$d फ़ाइलें चयनित</item>
+        <item quantity="one">स्थिति: %1$d फ़ाइल चयनित | %2$s</item>
+        <item quantity="other">स्थिति: %1$d फ़ाइलें चयनित | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">स्थिति: कोई फ़ाइल चयनित नहीं</string>
     <string name="select_all">सभी चुनें</string>

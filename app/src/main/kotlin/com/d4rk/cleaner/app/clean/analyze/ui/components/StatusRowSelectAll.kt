@@ -1,5 +1,6 @@
 package com.d4rk.cleaner.app.clean.analyze.ui.components
 
+import android.text.format.Formatter
 import androidx.compose.animation.animateColorAsState
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.tween
@@ -13,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -23,11 +25,14 @@ import com.d4rk.cleaner.app.clean.scanner.domain.data.model.ui.UiScannerModel
 fun StatusRowSelectAll(
     data: UiScannerModel, onClickSelectAll: () -> Unit
 ) {
+    val context = LocalContext.current
+    val formattedSize = Formatter.formatShortFileSize(context, data.analyzeState.selectedFilesSize)
     val statusText: String = if (data.analyzeState.selectedFilesCount > 0) {
         pluralStringResource(
             id = R.plurals.status_selected_files,
             count = data.analyzeState.selectedFilesCount,
-            data.analyzeState.selectedFilesCount
+            data.analyzeState.selectedFilesCount,
+            formattedSize
         )
     } else {
         stringResource(id = R.string.status_no_files_selected)

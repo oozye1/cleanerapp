@@ -204,9 +204,9 @@
     <string name="empty_folders">Foldere goale</string>
     <string name="duplicates">Fișiere duplicate</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Stare: %1$d fișier selectat</item>
-        <item quantity="few">Stare: %1$d fișiere selectate</item>
-        <item quantity="other">Stare: %1$d de fișiere selectate</item>
+        <item quantity="one">Stare: %1$d fișier selectat | %2$s</item>
+        <item quantity="few">Stare: %1$d fișiere selectate | %2$s</item>
+        <item quantity="other">Stare: %1$d de fișiere selectate | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Stare: Niciun fișier selectat</string>
     <string name="select_all">Selectează tot</string>

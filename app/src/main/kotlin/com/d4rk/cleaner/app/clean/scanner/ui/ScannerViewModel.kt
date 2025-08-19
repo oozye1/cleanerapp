@@ -370,6 +370,7 @@ class ScannerViewModel(
                         duplicateGroupsByDate = emptyMap(),
                         selectedFiles = mutableSetOf(),
                         selectedFilesCount = 0,
+                        selectedFilesSize = 0L,
                         areAllFilesSelected = false,
                         state = CleaningState.Idle,
                         cleaningType = CleaningType.NONE
@@ -393,11 +394,16 @@ class ScannerViewModel(
                 val visiblePaths = visibleFiles.map { it.path }
                 val selectedVisibleCount: Int =
                     updatedFileSelectionStates.count { it in visiblePaths && !File(it).isProtectedAndroidDir() }
+                val selectedSize = calculateSelectedFilesSize(
+                    currentData.analyzeState.scannedFileList,
+                    updatedFileSelectionStates
+                )
                 state.copy(
                     data = currentData.copy(
                         analyzeState = currentData.analyzeState.copy(
                             selectedFiles = updatedFileSelectionStates,
                             selectedFilesCount = selectedVisibleCount,
+                            selectedFilesSize = selectedSize,
                             areAllFilesSelected = selectedVisibleCount == visibleFiles.size && visibleFiles.isNotEmpty()
                         )
                     )
@@ -435,12 +441,18 @@ class ScannerViewModel(
                     updatedSet.count { it in visiblePaths && !File(it).isProtectedAndroidDir() }
                 } else 0
 
+                val selectedSize = calculateSelectedFilesSize(
+                    currentData.analyzeState.scannedFileList,
+                    updatedSet
+                )
+
                 state.copy(
                     data = currentData.copy(
                         analyzeState = currentData.analyzeState.copy(
                             areAllFilesSelected = newState,
                             selectedFiles = updatedSet,
-                            selectedFilesCount = selectedVisibleCount
+                            selectedFilesCount = selectedVisibleCount,
+                            selectedFilesSize = selectedSize
                         )
                     )
                 )
@@ -513,12 +525,17 @@ class ScannerViewModel(
                 val visiblePaths = visibleFiles.map { it.path }
                 val selectedVisibleCount: Int =
                     updatedSelection.count { it in visiblePaths && !File(it).isProtectedAndroidDir() }
+                val selectedSize = calculateSelectedFilesSize(
+                    currentData.analyzeState.scannedFileList,
+                    updatedSelection
+                )
 
                 currentState.copy(
                     data = currentData.copy(
                         analyzeState = currentData.analyzeState.copy(
                             selectedFiles = updatedSelection,
                             selectedFilesCount = selectedVisibleCount,
+                            selectedFilesSize = selectedSize,
                             areAllFilesSelected = selectedVisibleCount == visibleFiles.size && visibleFiles.isNotEmpty()
                         )
                     )
@@ -553,12 +570,17 @@ class ScannerViewModel(
                 val visiblePaths = visibleFiles.map { it.path }
                 val selectedVisibleCount =
                     updatedSelectionSet.count { it in visiblePaths && !File(it).isProtectedAndroidDir() }
+                val selectedSize = calculateSelectedFilesSize(
+                    currentData.analyzeState.scannedFileList,
+                    updatedSelectionSet
+                )
 
                 currentState.copy(
                     data = currentData.copy(
                         analyzeState = currentData.analyzeState.copy(
                             selectedFiles = updatedSelectionSet,
                             selectedFilesCount = selectedVisibleCount,
+                            selectedFilesSize = selectedSize,
                             areAllFilesSelected = selectedVisibleCount == visibleFiles.size && visibleFiles.isNotEmpty()
                         )
                     )
@@ -568,6 +590,15 @@ class ScannerViewModel(
     }
 
 
+    private fun calculateSelectedFilesSize(
+        scannedFiles: List<FileEntry>,
+        selectedPaths: Set<String>
+    ): Long {
+        val sizeMap = scannedFiles.associate { it.path to it.size }
+        return selectedPaths.sumOf { path ->
+            if (!File(path).isProtectedAndroidDir()) sizeMap[path] ?: 0L else 0L
+        }
+    }
 
     private fun observeCleaningWork(id: UUID) {
         activeCleanWorkObserver = observeFileCleanWork(
@@ -842,6 +873,7 @@ class ScannerViewModel(
                                 duplicateGroupsByDate = emptyMap(),
                                 selectedFiles = mutableSetOf(),
                                 selectedFilesCount = 0,
+                                selectedFilesSize = 0L,
                                 areAllFilesSelected = false,
                                 state = CleaningState.Idle,
                                 cleaningType = CleaningType.NONE
@@ -857,6 +889,7 @@ class ScannerViewModel(
                     analyzeState = currentData.analyzeState.copy(
                         selectedFiles = mutableSetOf(),
                         selectedFilesCount = 0,
+                        selectedFilesSize = 0L,
                         areAllFilesSelected = false,
                         duplicateGroups = emptyList(),
                         duplicateGroupsByDate = emptyMap(),

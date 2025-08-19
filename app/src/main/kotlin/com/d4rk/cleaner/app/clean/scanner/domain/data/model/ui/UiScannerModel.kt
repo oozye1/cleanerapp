@@ -24,6 +24,7 @@ data class UiAnalyzeModel(
     /** Paths of selected files */
     var selectedFiles: MutableSet<String> = mutableSetOf(),
     var selectedFilesCount: Int = 0,
+    var selectedFilesSize: Long = 0L,
     var totalFilesToClean: Int = 0,
     var cleanedFilesCount: Int = 0,
     var groupedFiles: Map<String, List<FileEntry>> = emptyMap(),

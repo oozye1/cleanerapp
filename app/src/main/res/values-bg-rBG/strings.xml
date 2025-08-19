@@ -199,8 +199,8 @@
     <string name="empty_folders">Празни папки</string>
     <string name="duplicates">Дублиращи файлове</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Състояние: Избран %1$d файл</item>
-        <item quantity="other">Състояние: Избрани %1$d файла</item>
+        <item quantity="one">Състояние: Избран %1$d файл | %2$s</item>
+        <item quantity="other">Състояние: Избрани %1$d файла | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Състояние: Няма избрани файлове</string>
     <string name="select_all">Избери всички</string>
