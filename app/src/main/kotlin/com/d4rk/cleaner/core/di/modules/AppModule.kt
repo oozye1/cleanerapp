@@ -1,8 +1,6 @@
 package com.d4rk.cleaner.core.di.modules
 
 import android.content.Context
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.IntentSenderRequest
 import com.d4rk.android.libs.apptoolkit.app.onboarding.utils.interfaces.providers.OnboardingProvider
 import com.d4rk.android.libs.apptoolkit.data.client.KtorClient
 import com.d4rk.android.libs.apptoolkit.data.core.ads.AdsCoreManager
@@ -91,11 +89,7 @@ val appModule: Module = module {
 
     single<OnboardingProvider> { AppOnboardingProvider() }
 
-    viewModel<MainViewModel> { (launcher: ActivityResultLauncher<IntentSenderRequest>) ->
-        MainViewModel(
-            getTrashSizeUseCase = get(),
-        )
-    }
+    viewModel { MainViewModel(dispatcherProvider = get(), getTrashSizeUseCase = get()) }
 
     single<ScannerRepositoryInterface> {
         ScannerRepositoryImpl(

@@ -8,6 +8,7 @@ import androidx.compose.material.icons.outlined.Photo
 import androidx.compose.material.icons.outlined.Settings
 import androidx.compose.material.icons.outlined.Share
 import com.d4rk.android.libs.apptoolkit.R
+import com.d4rk.android.libs.apptoolkit.core.di.DispatcherProvider
 import com.d4rk.android.libs.apptoolkit.core.domain.model.navigation.NavigationDrawerItem
 import com.d4rk.android.libs.apptoolkit.core.domain.model.ui.UiStateScreen
 import com.d4rk.android.libs.apptoolkit.core.domain.model.ui.successData
@@ -19,6 +20,7 @@ import com.d4rk.cleaner.app.main.domain.model.UiMainScreen
 import com.d4rk.cleaner.core.utils.helpers.FileSizeFormatter
 
 class MainViewModel(
+    private val dispatcherProvider : DispatcherProvider,
     private val getTrashSizeUseCase: GetTrashSizeUseCase,
 ) : ScreenViewModel<UiMainScreen, MainEvent, MainAction>(initialState = UiStateScreen(data = UiMainScreen())) {
 
@@ -33,7 +35,7 @@ class MainViewModel(
     }
 
     private fun loadNavigationItems() {
-        launch {
+        launch(context = dispatcherProvider.default) {
             val trashSize = getTrashSizeUseCase()
             val trashBadge = if (trashSize > 0) FileSizeFormatter.format(trashSize) else ""
 
