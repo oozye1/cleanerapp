@@ -38,12 +38,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.core.graphics.createBitmap
 import coil3.compose.AsyncImage
-import coil3.imageLoader
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import coil3.video.VideoFrameDecoder
@@ -113,7 +113,7 @@ object FilePreviewHelper {
         @Composable get() {
             val cached = imageExtCache
             if (cached != null) return cached
-            val res = LocalContext.current.resources
+            val res = LocalResources.current
             val set = res.getStringArray(R.array.image_extensions).toSet()
             imageExtCache = set
             return set
@@ -123,7 +123,7 @@ object FilePreviewHelper {
         @Composable get() {
             val cached = videoExtCache
             if (cached != null) return cached
-            val res = LocalContext.current.resources
+            val res = LocalResources.current
             val set = res.getStringArray(R.array.video_extensions).toSet()
             videoExtCache = set
             return set
@@ -133,7 +133,7 @@ object FilePreviewHelper {
         @Composable get() {
             val cached = apkExtCache
             if (cached != null) return cached
-            val res = LocalContext.current.resources
+            val res = LocalResources.current
             val set = res.getStringArray(R.array.apk_extensions).toSet()
             apkExtCache = set
             return set
@@ -143,7 +143,7 @@ object FilePreviewHelper {
         @Composable get() {
             val cached = officeExtCache
             if (cached != null) return cached
-            val res = LocalContext.current.resources
+            val res = LocalResources.current
             val set = res.getStringArray(R.array.microsoft_office_extensions).toSet()
             officeExtCache = set
             return set
@@ -153,7 +153,7 @@ object FilePreviewHelper {
         @Composable get() {
             val cached = audioExtCache
             if (cached != null) return cached
-            val res = LocalContext.current.resources
+            val res = LocalResources.current
             val set = res.getStringArray(R.array.audio_extensions).toSet()
             audioExtCache = set
             return set
@@ -163,7 +163,7 @@ object FilePreviewHelper {
         @Composable get() {
             val cached = textExtCache
             if (cached != null) return cached
-            val res = LocalContext.current.resources
+            val res = LocalResources.current
             val set = res.getStringArray(R.array.text_extensions).toSet()
             textExtCache = set
             return set
@@ -173,7 +173,7 @@ object FilePreviewHelper {
         @Composable get() {
             val cached = archiveExtCache
             if (cached != null) return cached
-            val res = LocalContext.current.resources
+            val res = LocalResources.current
             val set = res.getStringArray(R.array.archive_extensions).toSet()
             archiveExtCache = set
             return set
@@ -376,7 +376,6 @@ object FilePreviewHelper {
     fun Preview(file: File, modifier: Modifier = Modifier) {
         val context = LocalContext.current
         val type = getPreviewType(file)
-        val imageLoader = LocalContext.current.imageLoader
         when (type) {
             PreviewType.Directory -> {
                 Icon(
@@ -391,7 +390,6 @@ object FilePreviewHelper {
                     model = remember(file) {
                         ImageRequest.Builder(context).data(file).size(64).crossfade(true).build()
                     },
-                    imageLoader = imageLoader,
                     contentDescription = file.name,
                     contentScale = ContentScale.FillWidth,
                     modifier = modifier.fillMaxWidth()

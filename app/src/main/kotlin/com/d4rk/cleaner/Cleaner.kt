@@ -68,12 +68,12 @@ class Cleaner : BaseCoreManager(), SingletonImageLoader.Factory, DefaultLifecycl
         listOf(async { initializeAds() }).awaitAll()
     }
 
-    private fun initializeAds() {
+    private suspend fun initializeAds() {
         adsCoreManager.initializeAds(appOpenUnitId = AdsConstants.APP_OPEN_UNIT_ID)
     }
 
     override fun onStart(owner: LifecycleOwner) {
-        currentActivity?.let { adsCoreManager.showAdIfAvailable(it) }
+        currentActivity?.let { adsCoreManager.showAdIfAvailable(it, owner.lifecycleScope) }
     }
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}

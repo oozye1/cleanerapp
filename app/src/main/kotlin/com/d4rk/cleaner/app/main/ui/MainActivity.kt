@@ -33,21 +33,21 @@ import com.google.android.ump.ConsentInformation
 import com.google.android.ump.UserMessagingPlatform
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.koin.android.ext.android.inject
-import org.koin.androidx.viewmodel.ext.android.getViewModel
-import org.koin.core.parameter.parametersOf
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
 
     private val dataStore: DataStore by inject()
     private var updateResultLauncher: ActivityResultLauncher<IntentSenderRequest> =
-            registerForActivityResult(contract = ActivityResultContracts.StartIntentSenderForResult()) {}
+        registerForActivityResult(contract = ActivityResultContracts.StartIntentSenderForResult()) {}
 
-    private lateinit var viewModel: MainViewModel
     private var keepSplashVisible: Boolean = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -68,12 +68,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initializeDependencies() {
-        CoroutineScope(context = Dispatchers.IO).launch {
-            MobileAds.initialize(this@MainActivity) {}
-            ConsentManagerHelper.applyInitialConsent(dataStore = dataStore)
+        lifecycleScope.launch {
+            coroutineScope {
+                val adsInitialization = async(Dispatchers.Default) { MobileAds.initialize(this@MainActivity) {} }
+                val consentInitialization = async(Dispatchers.IO) {
+                    ConsentManagerHelper.applyInitialConsent(dataStore)
+                }
+                awaitAll(adsInitialization, consentInitialization)
+            }
         }
-
-        viewModel = getViewModel { parametersOf(updateResultLauncher) }
     }
 
     private fun handleStartup() {
@@ -129,8 +132,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkUserConsent() {
-        val consentInfo: ConsentInformation = UserMessagingPlatform.getConsentInformation(this)
-        ConsentFormHelper.showConsentFormIfRequired(activity = this, consentInfo = consentInfo)
+        lifecycleScope.launch {
+            val consentInfo: ConsentInformation = UserMessagingPlatform.getConsentInformation(this@MainActivity)
+            ConsentFormHelper.showConsentFormIfRequired(activity = this@MainActivity, consentInfo = consentInfo)
+        }
     }
 
     private fun checkInAppReview() {
@@ -140,9 +145,10 @@ class MainActivity : AppCompatActivity() {
             ReviewHelper.launchInAppReviewIfEligible(
                 activity = this@MainActivity,
                 sessionCount = sessionCount,
-                hasPromptedBefore = hasPrompted
+                hasPromptedBefore = hasPrompted,
+                scope = this
             ) {
-                lifecycleScope.launch { dataStore.setHasPromptedReview(value = true) }
+                launch { dataStore.setHasPromptedReview(value = true) }
             }
             dataStore.incrementSessionCount()
         }
