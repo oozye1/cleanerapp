@@ -31,6 +31,7 @@ import com.d4rk.cleaner.app.core.ui.theme.GroupedGridStyle
 
 @Composable
 fun GridCardItem(
+    modifier: Modifier = Modifier,
     iconPainter: Painter? = null,
     iconVector: ImageVector? = null,
     title: String,
@@ -39,7 +40,6 @@ fun GridCardItem(
     iconContainerColor: Color = GroupedGridStyle.iconContainerColor,
     iconShape: Shape = CircleShape,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
 ) {
     Card(
         modifier = modifier.animateContentSize(),

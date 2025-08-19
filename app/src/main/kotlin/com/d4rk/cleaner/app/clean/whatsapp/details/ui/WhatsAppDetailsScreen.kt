@@ -76,7 +76,6 @@ import com.d4rk.cleaner.app.clean.whatsapp.details.domain.model.UiWhatsAppDetail
 import com.d4rk.cleaner.app.clean.whatsapp.details.ui.components.CustomTabLayout
 import com.d4rk.cleaner.app.clean.whatsapp.details.ui.components.DetailsStatusRow
 import com.d4rk.cleaner.app.clean.whatsapp.details.ui.components.dialogs.SortAlertDialog
-import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.actions.WhatsAppCleanerEvent
 import com.d4rk.cleaner.app.clean.whatsapp.summary.domain.model.UiWhatsAppCleanerModel
 import com.d4rk.cleaner.app.clean.whatsapp.summary.ui.WhatsappCleanerSummaryViewModel
 import com.d4rk.cleaner.app.clean.whatsapp.utils.constants.WhatsAppMediaConstants
