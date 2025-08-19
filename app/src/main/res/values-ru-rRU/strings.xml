@@ -209,10 +209,10 @@
     <string name="empty_folders">Пустые папки</string>
     <string name="duplicates">Дублировать файлы</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Статус: Выбран %1$d файл</item>
-        <item quantity="few">Статус: Выбрано %1$d файла</item>
-        <item quantity="many">Статус: Выбрано %1$d файлов</item>
-        <item quantity="other">Статус: Выбрано %1$d файла</item>
+        <item quantity="one">Статус: Выбран %1$d файл | %2$s</item>
+        <item quantity="few">Статус: Выбрано %1$d файла | %2$s</item>
+        <item quantity="many">Статус: Выбрано %1$d файлов | %2$s</item>
+        <item quantity="other">Статус: Выбрано %1$d файла | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Статус: Файлы не выбраны</string>
     <string name="select_all">Выбрать все</string>

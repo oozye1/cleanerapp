@@ -194,7 +194,7 @@
     <string name="empty_folders">Thư mục trống</string>
     <string name="duplicates">Các tập tin trùng lặp</string>
     <plurals name="status_selected_files">
-        <item quantity="other">Trạng thái: Đã chọn %1$d tệp</item>
+        <item quantity="other">Trạng thái: Đã chọn %1$d tệp | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Trạng thái: Chưa chọn tệp nào</string>
     <string name="select_all">Chọn tất cả</string>

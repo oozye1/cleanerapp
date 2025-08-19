@@ -199,8 +199,8 @@
     <string name="empty_folders">Leere Ordner</string>
     <string name="duplicates">Doppelte Dateien</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Status: %1$d Datei ausgewählt</item>
-        <item quantity="other">Status: %1$d Dateien ausgewählt</item>
+        <item quantity="one">Status: %1$d Datei ausgewählt | %2$s</item>
+        <item quantity="other">Status: %1$d Dateien ausgewählt | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Status: Keine Dateien ausgewählt</string>
     <string name="select_all">Alle auswählen</string>

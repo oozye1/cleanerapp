@@ -194,7 +194,7 @@
     <string name="empty_folders">빈 폴더</string>
     <string name="duplicates">중복 파일</string>
     <plurals name="status_selected_files">
-        <item quantity="other">상태: %1$d개 파일 선택됨</item>
+        <item quantity="other">상태: %1$d개 파일 선택됨 | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">상태: 선택된 파일 없음</string>
     <string name="select_all">모두 선택</string>

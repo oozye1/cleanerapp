@@ -204,9 +204,9 @@
     <string name="empty_folders">Carpetas vacías</string>
     <string name="duplicates">Archivos duplicados</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Estado: %1$d archivo seleccionado</item>
-        <item quantity="many">Estado: %1$d archivos seleccionados</item>
-        <item quantity="other">Estado: %1$d archivos seleccionados</item>
+        <item quantity="one">Estado: %1$d archivo seleccionado | %2$s</item>
+        <item quantity="many">Estado: %1$d archivos seleccionados | %2$s</item>
+        <item quantity="other">Estado: %1$d archivos seleccionados | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Estado: Ningún archivo seleccionado</string>
     <string name="select_all">Seleccionar todo</string>

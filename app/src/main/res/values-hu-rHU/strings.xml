@@ -199,8 +199,8 @@
     <string name="empty_folders">Üres mappák</string>
     <string name="duplicates">Másolatú fájlok</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Állapot: %1$d fájl kiválasztva</item>
-        <item quantity="other">Állapot: %1$d fájl kiválasztva</item>
+        <item quantity="one">Állapot: %1$d fájl kiválasztva | %2$s</item>
+        <item quantity="other">Állapot: %1$d fájl kiválasztva | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Állapot: Nincs kiválasztott fájl</string>
     <string name="select_all">Összes kijelölése</string>

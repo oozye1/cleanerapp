@@ -199,8 +199,8 @@
     <string name="empty_folders">Mga Walang Lamang Folder</string>
     <string name="duplicates">Dobleng mga file</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Katayuan: %1$d file ang napili</item>
-        <item quantity="other">Katayuan: %1$d (na) file ang napili</item>
+        <item quantity="one">Katayuan: %1$d file ang napili | %2$s</item>
+        <item quantity="other">Katayuan: %1$d (na) file ang napili | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Katayuan: Walang napiling file</string>
     <string name="select_all">Piliin Lahat</string>

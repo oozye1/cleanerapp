@@ -209,10 +209,10 @@
     <string name="empty_folders">Порожні теки</string>
     <string name="duplicates">Дублікат файлів</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Статус: Вибрано %1$d файл</item>
-        <item quantity="few">Статус: Вибрано %1$d файли</item>
-        <item quantity="many">Статус: Вибрано %1$d файлів</item>
-        <item quantity="other">Статус: Вибрано %1$d файлів</item>
+        <item quantity="one">Статус: Вибрано %1$d файл | %2$s</item>
+        <item quantity="few">Статус: Вибрано %1$d файли | %2$s</item>
+        <item quantity="many">Статус: Вибрано %1$d файлів | %2$s</item>
+        <item quantity="other">Статус: Вибрано %1$d файлів | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Статус: Файли не вибрано</string>
     <string name="select_all">Вибрати все</string>

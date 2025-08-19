@@ -293,6 +293,9 @@ fun DetailsScreen(
                             DetailsStatusRow(
                                 modifier = Modifier.padding(horizontal = 8.dp),
                                 selectedCount = selected.count { !it.isProtectedAndroidDir() },
+                                selectedSize =
+                                    selected.filterNot { it.isProtectedAndroidDir() }
+                                        .sumOf { it.length() },
                                 allSelected = selected.count { !it.isProtectedAndroidDir() } ==
                                         sortedFiles.count { !it.isProtectedAndroidDir() } &&
                                         sortedFiles.any { !it.isProtectedAndroidDir() },

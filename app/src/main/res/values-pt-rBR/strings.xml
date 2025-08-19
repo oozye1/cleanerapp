@@ -204,9 +204,9 @@
     <string name="empty_folders">Pastas Vazias</string>
     <string name="duplicates">Arquivos duplicados</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Status: %1$d arquivo selecionado</item>
-        <item quantity="other">Status: %1$d arquivos selecionados</item>
-        <item quantity="many">Status: %1$d arquivos selecionados</item>
+        <item quantity="one">Status: %1$d arquivo selecionado | %2$s</item>
+        <item quantity="other">Status: %1$d arquivos selecionados | %2$s</item>
+        <item quantity="many">Status: %1$d arquivos selecionados | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Status: Nenhum arquivo selecionado</string>
     <string name="select_all">Selecionar Tudo</string>

@@ -199,8 +199,8 @@
     <string name="empty_folders">Tomma mappar</string>
     <string name="duplicates">Duplicerade filer</string>
     <plurals name="status_selected_files">
-        <item quantity="one">Status: %1$d fil vald</item>
-        <item quantity="other">Status: %1$d filer valda</item>
+        <item quantity="one">Status: %1$d fil vald | %2$s</item>
+        <item quantity="other">Status: %1$d filer valda | %2$s</item>
     </plurals>
     <string name="status_no_files_selected">Status: Inga filer valda</string>
     <string name="select_all">Välj alla</string>
