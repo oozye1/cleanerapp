@@ -33,11 +33,11 @@ import org.koin.android.ext.android.getKoin
 class Cleaner : BaseCoreManager(), SingletonImageLoader.Factory, DefaultLifecycleObserver {
     private var currentActivity: Activity? = null
 
+    private val adsCoreManager: AdsCoreManager by lazy { getKoin().get<AdsCoreManager>() }
+
     companion object {
         var sessionStartTime: Long = System.currentTimeMillis()
     }
-
-    private val adsCoreManager: AdsCoreManager by lazy { getKoin().get<AdsCoreManager>() }
 
     override fun onCreate() {
         initializeKoin(context = this)
@@ -74,6 +74,10 @@ class Cleaner : BaseCoreManager(), SingletonImageLoader.Factory, DefaultLifecycl
 
     override fun onStart(owner: LifecycleOwner) {
         currentActivity?.let { adsCoreManager.showAdIfAvailable(it, owner.lifecycleScope) }
+    }
+
+    override fun onResume(owner: LifecycleOwner) {
+        billingRepository.processPastPurchases()
     }
 
     override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
