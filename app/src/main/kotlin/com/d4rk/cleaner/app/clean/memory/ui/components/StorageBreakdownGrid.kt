@@ -44,6 +44,7 @@ fun StorageBreakdownGrid(
 
         GridCardItem(
             model = model,
+            badgeText = model.subtitle,
             iconContainerColor = GroupedGridStyle.iconContainerColor,
             onClick = { onItemClick(label) },
             iconShape = MaterialTheme.shapes.medium,
