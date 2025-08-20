@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Badge
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -36,7 +35,6 @@ fun GridCardItem(
     iconVector: ImageVector? = null,
     title: String,
     subtitle: String,
-    badgeText: String? = null,
     iconContainerColor: Color = GroupedGridStyle.iconContainerColor,
     iconShape: Shape = CircleShape,
     onClick: () -> Unit,
@@ -84,13 +82,6 @@ fun GridCardItem(
                         }
                     }
                 }
-                if (badgeText != null) {
-                    Badge(
-                        modifier = Modifier.align(Alignment.TopStart)
-                    ) {
-                        Text(text = badgeText)
-                    }
-                }
             }
             Column(modifier = Modifier.weight(1f)) {
                 Text(
@@ -108,7 +99,6 @@ fun GridCardItem(
 fun GridCardItem(
     model: GridCardModel,
     modifier: Modifier = Modifier,
-    badgeText: String? = null,
     iconContainerColor: Color = GroupedGridStyle.iconContainerColor,
     iconShape: Shape = CircleShape,
     onClick: () -> Unit,
@@ -118,7 +108,6 @@ fun GridCardItem(
         iconVector = model.iconVector,
         title = model.title,
         subtitle = model.subtitle,
-        badgeText = badgeText,
         iconContainerColor = iconContainerColor,
         iconShape = iconShape,
         onClick = onClick,
